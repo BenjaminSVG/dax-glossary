@@ -1,0 +1,78 @@
+# NAME | category | syntax | returns | description    (returns: number|text|boolean|date|datetime|table|column|scalar|variant|none)
+APPROXIMATEDISTINCTCOUNT | Aggregation | APPROXIMATEDISTINCTCOUNT(<column>) | number | Estimates the number of distinct values in a column using a fast approximate algorithm (DirectQuery sources).
+AVERAGE | Aggregation | AVERAGE(<column>) | number | Arithmetic mean of the numbers in a column, ignoring blanks and text.
+AVERAGEA | Aggregation | AVERAGEA(<column>) | number | Mean of a column where text counts as 0 and TRUE as 1.
+AVERAGEX | Aggregation | AVERAGEX(<table>, <expression>) | number | Evaluates an expression for every row of a table and returns the mean of the results.
+COUNT | Aggregation | COUNT(<column>) | number | Counts the non-blank numeric, date or boolean cells in a column.
+COUNTA | Aggregation | COUNTA(<column>) | number | Counts the non-blank cells of any data type in a column.
+COUNTAX | Aggregation | COUNTAX(<table>, <expression>) | number | Counts the rows of a table where the expression is not blank, for any data type.
+COUNTBLANK | Aggregation | COUNTBLANK(<column>) | number | Counts the blank cells in a column.
+COUNTROWS | Aggregation | COUNTROWS([<table>]) | number | Counts the rows of a table or table expression.
+COUNTX | Aggregation | COUNTX(<table>, <expression>) | number | Counts the rows of a table where the expression returns a number.
+DISTINCTCOUNT | Aggregation | DISTINCTCOUNT(<column>) | number | Counts the distinct values in a column, blank included.
+DISTINCTCOUNTNOBLANK | Aggregation | DISTINCTCOUNTNOBLANK(<column>) | number | Counts the distinct values in a column, blank excluded.
+MAX | Aggregation | MAX(<column>) or MAX(<scalar1>, <scalar2>) | scalar | Largest value of a column, or the larger of two scalar expressions.
+MAXA | Aggregation | MAXA(<column>) | scalar | Largest value of a column, treating text as 0 and logical values as numbers.
+MAXX | Aggregation | MAXX(<table>, <expression>[, <variant>]) | scalar | Largest value of an expression evaluated over each row of a table.
+MIN | Aggregation | MIN(<column>) or MIN(<scalar1>, <scalar2>) | scalar | Smallest value of a column, or the smaller of two scalar expressions.
+MINA | Aggregation | MINA(<column>) | scalar | Smallest value of a column, treating text as 0 and logical values as numbers.
+MINX | Aggregation | MINX(<table>, <expression>[, <variant>]) | scalar | Smallest value of an expression evaluated over each row of a table.
+PRODUCT | Aggregation | PRODUCT(<column>) | number | Product of the numbers in a column.
+PRODUCTX | Aggregation | PRODUCTX(<table>, <expression>) | number | Product of an expression evaluated over each row of a table.
+SUM | Aggregation | SUM(<column>) | number | Adds all numbers in a column.
+SUMX | Aggregation | SUMX(<table>, <expression>) | number | Evaluates an expression for each row of a table and adds the results.
+ADDCOLUMNS | Table manipulation | ADDCOLUMNS(<table>, <name>, <expression>[, <name>, <expression>]...) | table | Adds calculated columns to a table or table expression.
+ADDMISSINGITEMS | Table manipulation | ADDMISSINGITEMS([<showAll_columnName>]..., <table>, [<groupBy_columnName>]...[, filterTable]...) | table | Adds combinations of items that are missing from a summarized table.
+CROSSJOIN | Table manipulation | CROSSJOIN(<table>, <table>[, <table>]...) | table | Cartesian product of two or more tables.
+CURRENTGROUP | Table manipulation | CURRENTGROUP() | table | Inside GROUPBY, returns the rows of the current group.
+DATATABLE | Table manipulation | DATATABLE(<name>, <type>, [<name>, <type>]..., <data>) | table | Declares an inline table with typed columns and literal rows.
+DETAILROWS | Table manipulation | DETAILROWS(<measure>) | table | Returns the detail rows defined by the measure's Detail Rows Expression.
+DISTINCT | Table manipulation | DISTINCT(<column>) or DISTINCT(<table>) | table | Distinct values of a column, or a table without duplicate rows.
+EXCEPT | Table manipulation | EXCEPT(<leftTable>, <rightTable>) | table | Rows of the left table that do not appear in the right table.
+FILTERS | Table manipulation | FILTERS(<columnName>) | table | Values directly applied as filters to a column.
+GENERATE | Table manipulation | GENERATE(<table1>, <table2>) | table | For each row of table1, evaluates table2 and returns the union of the results (cross apply).
+GENERATEALL | Table manipulation | GENERATEALL(<table1>, <table2>) | table | Like GENERATE but keeps rows of table1 whose table2 result is empty.
+GENERATESERIES | Table manipulation | GENERATESERIES(<startValue>, <endValue>[, <incrementValue>]) | table | Single-column table with an arithmetic series of values.
+GROUPBY | Table manipulation | GROUPBY(<table>[, <groupBy_columnName>]...[, <name>, <expression>]...) | table | Groups a table and computes iterator aggregations over CURRENTGROUP().
+IGNORE | Table manipulation | IGNORE(<expression>) | scalar | Inside SUMMARIZECOLUMNS, omits an expression from the blank-row test.
+INTERSECT | Table manipulation | INTERSECT(<leftTable>, <rightTable>) | table | Rows that appear in both tables.
+NATURALINNERJOIN | Table manipulation | NATURALINNERJOIN(<leftTable>, <rightTable>) | table | Inner join on columns with the same name and lineage.
+NATURALLEFTOUTERJOIN | Table manipulation | NATURALLEFTOUTERJOIN(<leftTable>, <rightTable>) | table | Left outer join on columns with the same name and lineage.
+ROLLUP | Table manipulation | ROLLUP(<groupBy_columnName>[, <groupBy_columnName>]...) | table | Inside SUMMARIZE, adds subtotal rows for the listed columns.
+ROLLUPADDISSUBTOTAL | Table manipulation | ROLLUPADDISSUBTOTAL([<grandtotalFilter>, ]<groupBy_columnName>, <name>[, [<groupLevelFilter>] [, <groupBy_columnName>, <name>]...]) | table | Adds subtotal rows plus an ISSUBTOTAL flag column for SUMMARIZECOLUMNS.
+ROLLUPGROUP | Table manipulation | ROLLUPGROUP(<groupBy_columnName>[, <groupBy_columnName>]...) | table | Treats several columns as one rollup level inside ROLLUP.
+ROLLUPISSUBTOTAL | Table manipulation | ROLLUPISSUBTOTAL([<grandtotalFilter>, ]<groupBy_columnName>, <name>[, ...]) | table | Pairs a rollup column with an ISSUBTOTAL flag column in SUMMARIZE.
+ROW | Table manipulation | ROW(<name>, <expression>[, <name>, <expression>]...) | table | Single-row table with named calculated columns.
+SELECTCOLUMNS | Table manipulation | SELECTCOLUMNS(<table>, [<name>, ]<scalar_expression>[, [<name>, ]<scalar_expression>]...) | table | Projects a table to a list of named expressions.
+SUBSTITUTEWITHINDEX | Table manipulation | SUBSTITUTEWITHINDEX(<table>, <indexColumnName>, <indexColumnsTable>, <orderBy_expression>[, <order>[, <orderBy_expression>[, <order>]]...]) | table | Replaces columns with the zero-based index of the row in a second table.
+SUMMARIZE | Table manipulation | SUMMARIZE(<table>, <groupBy_columnName>[, <groupBy_columnName>]...[, <name>, <expression>]...) | table | Grouped summary of a table with optional calculated columns.
+SUMMARIZECOLUMNS | Table manipulation | SUMMARIZECOLUMNS(<groupBy_columnName>[, <groupBy_columnName>]..., [<filterTable>]...[, <name>, <expression>]...) | table | Grouped summary across related tables, the query shape used by Power BI visuals.
+TOPN | Table manipulation | TOPN(<n_value>, <table>[, <orderBy_expression>[, <order>[, <orderBy_expression>[, <order>]]...]]) | table | Top N rows of a table by one or more sort expressions.
+TOPNSKIP | Table manipulation | TOPNSKIP(<n_value>, <skip>, <table>, <orderBy_expression>[, <order>]...) | table | Top N rows after skipping a number of leading rows (paging).
+TREATAS | Table manipulation | TREATAS(<table_expression>, <column>[, <column>]...) | table | Applies the values of a table as filters on columns of the model.
+UNION | Table manipulation | UNION(<table>, <table>[, <table>]...) | table | Appends the rows of tables with the same number of columns.
+VALUES | Table manipulation | VALUES(<TableNameOrColumnName>) | table | Distinct values of a column in the current filter context (blank row included), or the rows of a table.
+SAMPLE | Table manipulation | SAMPLE(<n_value>, <table>, <orderBy_expression>[, <order>]...) | table | Returns n rows evenly sampled from a sorted table.
+CONVERT | Text | CONVERT(<expression>, <datatype>) | scalar | Converts an expression to the given data type (INTEGER, DOUBLE, STRING, BOOLEAN, CURRENCY, DATETIME).
+CALCULATE | Filter | CALCULATE(<expression>[, <filter>]...) | scalar | Evaluates an expression in a filter context modified by the given filters.
+CALCULATETABLE | Filter | CALCULATETABLE(<table>[, <filter>]...) | table | Evaluates a table expression in a modified filter context.
+ALL | Filter | ALL([<tableNameOrColumnName>][, <columnName>]...) | table | Removes filters from a table or columns and returns all their rows or values.
+ALLCROSSFILTERED | Filter | ALLCROSSFILTERED(<table>) | table | Clears all filters that cross-filter a table through relationships (CALCULATE modifier).
+ALLEXCEPT | Filter | ALLEXCEPT(<table>, <column>[, <column>]...) | table | Removes all filters from a table except those on the listed columns.
+ALLNOBLANKROW | Filter | ALLNOBLANKROW(<table>|<column>[, <column>]...) | table | Like ALL but without the blank row added for invalid relationships.
+ALLSELECTED | Filter | ALLSELECTED([<tableName>|<columnName>][, <columnName>]...) | table | Removes inner filters but keeps the outer filters of the visual (shown-total context).
+EARLIER | Filter | EARLIER(<column>[, <number>]) | scalar | Value of a column in an outer row context.
+EARLIEST | Filter | EARLIEST(<column>) | scalar | Value of a column in the outermost row context.
+FILTER | Filter | FILTER(<table>, <filter>) | table | Rows of a table for which the condition is true.
+HASONEFILTER | Filter | HASONEFILTER(<columnName>) | boolean | TRUE when exactly one value is directly filtered on the column.
+HASONEVALUE | Filter | HASONEVALUE(<columnName>) | boolean | TRUE when the column has exactly one distinct value in the current context.
+ISCROSSFILTERED | Filter | ISCROSSFILTERED(<columnName>|<tableName>) | boolean | TRUE when the column or table is cross-filtered.
+ISFILTERED | Filter | ISFILTERED(<tableName>|<columnName>) | boolean | TRUE when the column or table is directly filtered.
+KEEPFILTERS | Filter | KEEPFILTERS(<expression>) | scalar | Adds filters to the existing context instead of replacing it (CALCULATE modifier).
+LOOKUPVALUE | Filter | LOOKUPVALUE(<result_columnName>, <search_columnName>, <search_value>[, <search_columnName>, <search_value>]...[, <alternateResult>]) | scalar | Value of a column in the row that matches the search values.
+REMOVEFILTERS | Filter | REMOVEFILTERS([<table>|<column>[, <column>]...]) | none | Clears filters from tables or columns (CALCULATE modifier).
+SELECTEDVALUE | Filter | SELECTEDVALUE(<columnName>[, <alternateResult>]) | scalar | The single value of a column in context, or an alternate result.
+CROSSFILTER | Filter | CROSSFILTER(<columnName1>, <columnName2>, <direction>) | none | Sets the cross-filter direction of a relationship for the duration of a CALCULATE.
+USERELATIONSHIP | Relationship | USERELATIONSHIP(<columnName1>, <columnName2>) | none | Activates an inactive relationship for the duration of a CALCULATE.
+RELATED | Relationship | RELATED(<column>) | scalar | Value from the one side of a relationship for the current row.
+RELATEDTABLE | Relationship | RELATEDTABLE(<tableName>) | table | Rows of a related table (many side) filtered to the current row.

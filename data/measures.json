@@ -1,0 +1,2010 @@
+[
+ {
+  "id": "sum",
+  "name": "Total",
+  "category": "Basic",
+  "description": "Adds a numeric column.",
+  "body": "SUM({{column}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Total"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column to add up",
+    "example": "'Sales'[Amount]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "average",
+  "name": "Average",
+  "category": "Basic",
+  "description": "Mean of a numeric column.",
+  "body": "AVERAGE({{column}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Average"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column to average",
+    "example": "'Sales'[Amount]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "min",
+  "name": "Minimum",
+  "category": "Basic",
+  "description": "Smallest value of a column.",
+  "body": "MIN({{column}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Minimum"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column",
+    "example": "'Sales'[Amount]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "max",
+  "name": "Maximum",
+  "category": "Basic",
+  "description": "Largest value of a column.",
+  "body": "MAX({{column}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Maximum"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column",
+    "example": "'Sales'[Amount]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "median",
+  "name": "Median",
+  "category": "Basic",
+  "description": "Median of a numeric column.",
+  "body": "MEDIAN({{column}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Median"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column",
+    "example": "'Sales'[Amount]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "count-rows",
+  "name": "Row count",
+  "category": "Basic",
+  "description": "Counts the rows of a table in the current filter context.",
+  "body": "COUNTROWS({{table}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Row count"
+   },
+   {
+    "name": "table",
+    "type": "table",
+    "description": "Table to count",
+    "example": "'Sales'"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "count-nonblank",
+  "name": "Non-blank count",
+  "category": "Basic",
+  "description": "Counts the non-blank values of a column.",
+  "body": "COUNTA({{column}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Non-blank count"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column",
+    "example": "'Sales'[OrderID]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "distinct-count",
+  "name": "Distinct count",
+  "category": "Basic",
+  "description": "Counts the different values of a column.",
+  "body": "DISTINCTCOUNT({{column}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Distinct count"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column",
+    "example": "'Sales'[CustomerID]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "distinct-count-noblank",
+  "name": "Distinct count (no blank)",
+  "category": "Basic",
+  "description": "Counts the different values of a column, blank excluded.",
+  "body": "DISTINCTCOUNTNOBLANK({{column}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Distinct count (no blank)"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column",
+    "example": "'Sales'[CustomerID]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "sumx-product",
+  "name": "Sum of price x quantity",
+  "category": "Basic",
+  "description": "Row-by-row product of two columns, then added.",
+  "body": "SUMX({{table}}, {{price}} * {{quantity}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Sum of price x quantity"
+   },
+   {
+    "name": "table",
+    "type": "table",
+    "description": "Fact table",
+    "example": "'Sales'"
+   },
+   {
+    "name": "price",
+    "type": "column",
+    "description": "Unit price column",
+    "example": "'Sales'[UnitPrice]"
+   },
+   {
+    "name": "quantity",
+    "type": "column",
+    "description": "Quantity column",
+    "example": "'Sales'[Quantity]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "weighted-average",
+  "name": "Weighted average",
+  "category": "Basic",
+  "description": "Average of a value weighted by another column.",
+  "body": "DIVIDE(SUMX({{table}}, {{value}} * {{weight}}), SUM({{weight}}))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Weighted average"
+   },
+   {
+    "name": "table",
+    "type": "table",
+    "description": "Table",
+    "example": "'Sales'"
+   },
+   {
+    "name": "value",
+    "type": "column",
+    "description": "Value column",
+    "example": "'Sales'[Price]"
+   },
+   {
+    "name": "weight",
+    "type": "column",
+    "description": "Weight column",
+    "example": "'Sales'[Quantity]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "ratio",
+  "name": "Ratio",
+  "category": "Basic",
+  "description": "Safe division of two measures (blank when the denominator is 0).",
+  "body": "DIVIDE({{numerator}}, {{denominator}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Ratio"
+   },
+   {
+    "name": "numerator",
+    "type": "measure",
+    "description": "Numerator",
+    "example": "[Profit]"
+   },
+   {
+    "name": "denominator",
+    "type": "measure",
+    "description": "Denominator",
+    "example": "[Sales]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "margin-pct",
+  "name": "Margin %",
+  "category": "Basic",
+  "description": "Profit as a share of revenue.",
+  "body": "DIVIDE({{revenue}} - {{cost}}, {{revenue}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Margin %"
+   },
+   {
+    "name": "revenue",
+    "type": "measure",
+    "description": "Revenue measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "cost",
+    "type": "measure",
+    "description": "Cost measure",
+    "example": "[Cost]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "average-per-distinct",
+  "name": "Average per distinct",
+  "category": "Basic",
+  "description": "A measure divided by the distinct count of a column (e.g. sales per customer).",
+  "body": "DIVIDE({{measure}}, DISTINCTCOUNT({{column}}))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Average per distinct"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column to count",
+    "example": "'Sales'[CustomerID]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "ytd",
+  "name": "YTD",
+  "category": "Time intelligence",
+  "description": "Year-to-date total of a measure.",
+  "body": "TOTALYTD({{measure}}, {{dates}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "YTD"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "ytd-fiscal",
+  "name": "Fiscal YTD",
+  "category": "Time intelligence",
+  "description": "Year-to-date with a fiscal year end (text like \"6/30\").",
+  "body": "TOTALYTD({{measure}}, {{dates}}, {{year_end}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Fiscal YTD"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   },
+   {
+    "name": "year_end",
+    "type": "text",
+    "description": "Fiscal year end date",
+    "example": "6/30"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "qtd",
+  "name": "QTD",
+  "category": "Time intelligence",
+  "description": "Quarter-to-date total of a measure.",
+  "body": "TOTALQTD({{measure}}, {{dates}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "QTD"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "mtd",
+  "name": "MTD",
+  "category": "Time intelligence",
+  "description": "Month-to-date total of a measure.",
+  "body": "TOTALMTD({{measure}}, {{dates}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "MTD"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "prior-year",
+  "name": "Prior year",
+  "category": "Time intelligence",
+  "description": "The measure for the same period one year earlier.",
+  "body": "CALCULATE({{measure}}, SAMEPERIODLASTYEAR({{dates}}))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Prior year"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "yoy-abs",
+  "name": "YoY change",
+  "category": "Time intelligence",
+  "description": "Difference against the same period last year.",
+  "body": "{{measure}} - CALCULATE({{measure}}, SAMEPERIODLASTYEAR({{dates}}))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "YoY change"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "yoy-pct",
+  "name": "YoY %",
+  "category": "Time intelligence",
+  "description": "Growth against the same period last year.",
+  "body": "VAR _prior = CALCULATE({{measure}}, SAMEPERIODLASTYEAR({{dates}}))\nRETURN DIVIDE({{measure}} - _prior, _prior)",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "YoY %"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "prior-month",
+  "name": "Prior month",
+  "category": "Time intelligence",
+  "description": "The measure for the previous month.",
+  "body": "CALCULATE({{measure}}, DATEADD({{dates}}, -1, MONTH))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Prior month"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "mom-pct",
+  "name": "MoM %",
+  "category": "Time intelligence",
+  "description": "Growth against the previous month.",
+  "body": "VAR _prior = CALCULATE({{measure}}, DATEADD({{dates}}, -1, MONTH))\nRETURN DIVIDE({{measure}} - _prior, _prior)",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "MoM %"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "prior-quarter",
+  "name": "Prior quarter",
+  "category": "Time intelligence",
+  "description": "The measure for the previous quarter.",
+  "body": "CALCULATE({{measure}}, DATEADD({{dates}}, -1, QUARTER))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Prior quarter"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "qoq-pct",
+  "name": "QoQ %",
+  "category": "Time intelligence",
+  "description": "Growth against the previous quarter.",
+  "body": "VAR _prior = CALCULATE({{measure}}, DATEADD({{dates}}, -1, QUARTER))\nRETURN DIVIDE({{measure}} - _prior, _prior)",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "QoQ %"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "ytd-vs-prior-ytd",
+  "name": "YTD vs prior YTD %",
+  "category": "Time intelligence",
+  "description": "Year-to-date growth against the previous year-to-date.",
+  "body": "VAR _ytd = TOTALYTD({{measure}}, {{dates}})\nVAR _pytd = CALCULATE(TOTALYTD({{measure}}, {{dates}}), SAMEPERIODLASTYEAR({{dates}}))\nRETURN DIVIDE(_ytd - _pytd, _pytd)",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "YTD vs prior YTD %"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "rolling-12m",
+  "name": "Rolling 12 months",
+  "category": "Time intelligence",
+  "description": "Total of the last 12 months ending at the last date in context.",
+  "body": "CALCULATE({{measure}}, DATESINPERIOD({{dates}}, MAX({{dates}}), -12, MONTH))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Rolling 12 months"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "rolling-days",
+  "name": "Rolling N days",
+  "category": "Time intelligence",
+  "description": "Total of the last N days ending at the last date in context.",
+  "body": "CALCULATE({{measure}}, DATESINPERIOD({{dates}}, MAX({{dates}}), -{{days}}, DAY))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Rolling N days"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   },
+   {
+    "name": "days",
+    "type": "number",
+    "description": "Number of days",
+    "example": "30"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "moving-average-months",
+  "name": "Moving average (months)",
+  "category": "Time intelligence",
+  "description": "Average monthly value over the last N months.",
+  "body": "AVERAGEX(DATESINPERIOD({{dates}}, MAX({{dates}}), -{{months}}, MONTH), {{measure}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Moving average (months)"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   },
+   {
+    "name": "months",
+    "type": "number",
+    "description": "Window in months",
+    "example": "3"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "running-total",
+  "name": "Running total",
+  "category": "Time intelligence",
+  "description": "Cumulative total from the first date up to the last date in context.",
+  "body": "CALCULATE({{measure}}, FILTER(ALL({{date_table}}), {{dates}} <= MAX({{dates}})))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Running total"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   },
+   {
+    "name": "date_table",
+    "type": "table",
+    "description": "Date table",
+    "example": "'Date'"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "opening-balance-month",
+  "name": "Opening balance (month)",
+  "category": "Time intelligence",
+  "description": "Balance at the day before the month starts.",
+  "body": "OPENINGBALANCEMONTH({{measure}}, {{dates}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Opening balance (month)"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Balance measure",
+    "example": "[Balance]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "closing-balance-month",
+  "name": "Closing balance (month)",
+  "category": "Time intelligence",
+  "description": "Balance at the last date of the month.",
+  "body": "CLOSINGBALANCEMONTH({{measure}}, {{dates}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Closing balance (month)"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Balance measure",
+    "example": "[Balance]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "closing-balance-year",
+  "name": "Closing balance (year)",
+  "category": "Time intelligence",
+  "description": "Balance at the last date of the year.",
+  "body": "CLOSINGBALANCEYEAR({{measure}}, {{dates}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Closing balance (year)"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Balance measure",
+    "example": "[Balance]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "last-date-with-data",
+  "name": "Last date with data",
+  "category": "Time intelligence",
+  "description": "Latest date on which a fact column has a value.",
+  "body": "CALCULATE(MAX({{dates}}), FILTER(ALL({{date_table}}), CALCULATE(COUNTROWS({{fact}})) > 0))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Last date with data"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   },
+   {
+    "name": "date_table",
+    "type": "table",
+    "description": "Date table",
+    "example": "'Date'"
+   },
+   {
+    "name": "fact",
+    "type": "table",
+    "description": "Fact table",
+    "example": "'Sales'"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "days-since-last",
+  "name": "Days since last transaction",
+  "category": "Time intelligence",
+  "description": "Days between today and the last date with a transaction.",
+  "body": "DATEDIFF(MAX({{fact_dates}}), TODAY(), DAY)",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Days since last transaction"
+   },
+   {
+    "name": "fact_dates",
+    "type": "column",
+    "description": "Date column of the fact table",
+    "example": "'Sales'[OrderDate]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "last-n-days",
+  "name": "Last N days",
+  "category": "Time intelligence",
+  "description": "Total of the N days before today.",
+  "body": "CALCULATE({{measure}}, DATESINPERIOD({{dates}}, TODAY(), -{{days}}, DAY))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Last N days"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   },
+   {
+    "name": "days",
+    "type": "number",
+    "description": "Number of days",
+    "example": "7"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "pct-of-total",
+  "name": "% of total",
+  "category": "Share",
+  "description": "Share of the grand total ignoring all filters on a table.",
+  "body": "DIVIDE({{measure}}, CALCULATE({{measure}}, ALL({{table}})))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "% of total"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "table",
+    "type": "table",
+    "description": "Table whose filters are removed",
+    "example": "'Product'"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "pct-of-visible-total",
+  "name": "% of visible total",
+  "category": "Share",
+  "description": "Share of the total of the rows shown in the visual.",
+  "body": "DIVIDE({{measure}}, CALCULATE({{measure}}, ALLSELECTED({{table}})))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "% of visible total"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "table",
+    "type": "table",
+    "description": "Table",
+    "example": "'Product'"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "pct-of-column-total",
+  "name": "% of column total",
+  "category": "Share",
+  "description": "Share of the total when one column's filter is removed.",
+  "body": "DIVIDE({{measure}}, CALCULATE({{measure}}, REMOVEFILTERS({{column}})))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "% of column total"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column",
+    "example": "'Product'[Category]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "pct-of-parent",
+  "name": "% of parent",
+  "category": "Share",
+  "description": "Share of the parent group (keeps the filter of the parent column).",
+  "body": "DIVIDE({{measure}}, CALCULATE({{measure}}, ALLEXCEPT({{table}}, {{parent}})))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "% of parent"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "table",
+    "type": "table",
+    "description": "Table",
+    "example": "'Product'"
+   },
+   {
+    "name": "parent",
+    "type": "column",
+    "description": "Parent column kept in the filter",
+    "example": "'Product'[Category]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "share-of-selected",
+  "name": "Share of selection",
+  "category": "Share",
+  "description": "Share of the sum of the currently selected values of a column.",
+  "body": "DIVIDE({{measure}}, CALCULATE({{measure}}, ALLSELECTED({{column}})))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Share of selection"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column",
+    "example": "'Product'[Name]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "pareto-cumulative",
+  "name": "Cumulative % (Pareto)",
+  "category": "Share",
+  "description": "Cumulative share of items ranked from largest to smallest.",
+  "body": "VAR _v = {{measure}}\nVAR _items = ALLSELECTED({{column}})\nVAR _cum = SUMX(FILTER(_items, {{measure}} >= _v), {{measure}})\nRETURN DIVIDE(_cum, SUMX(_items, {{measure}}))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Cumulative % (Pareto)"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Item column",
+    "example": "'Product'[Name]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "rank-all",
+  "name": "Rank",
+  "category": "Ranking",
+  "description": "Rank of the current item among all items (largest = 1).",
+  "body": "RANKX(ALL({{column}}), {{measure}}, , DESC, Dense)",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Rank"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Item column",
+    "example": "'Product'[Name]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "rank-selected",
+  "name": "Rank in selection",
+  "category": "Ranking",
+  "description": "Rank among the items shown in the visual.",
+  "body": "RANKX(ALLSELECTED({{column}}), {{measure}}, , DESC, Dense)",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Rank in selection"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Item column",
+    "example": "'Product'[Name]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "rank-in-group",
+  "name": "Rank within group",
+  "category": "Ranking",
+  "description": "Rank of an item inside its group (e.g. product inside category).",
+  "body": "RANKX(ALLEXCEPT({{table}}, {{group}}), {{measure}}, , DESC, Dense)",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Rank within group"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "table",
+    "type": "table",
+    "description": "Table",
+    "example": "'Product'"
+   },
+   {
+    "name": "group",
+    "type": "column",
+    "description": "Group column",
+    "example": "'Product'[Category]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "top-n-sum",
+  "name": "Top N total",
+  "category": "Ranking",
+  "description": "Total of the N best items.",
+  "body": "SUMX(TOPN({{n}}, ALLSELECTED({{column}}), {{measure}}, DESC), {{measure}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Top N total"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Item column",
+    "example": "'Product'[Name]"
+   },
+   {
+    "name": "n",
+    "type": "number",
+    "description": "How many items",
+    "example": "5"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "top-n-share",
+  "name": "Top N share",
+  "category": "Ranking",
+  "description": "Share of the total held by the N best items.",
+  "body": "DIVIDE(SUMX(TOPN({{n}}, ALLSELECTED({{column}}), {{measure}}, DESC), {{measure}}), CALCULATE({{measure}}, ALLSELECTED({{column}})))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Top N share"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Item column",
+    "example": "'Product'[Name]"
+   },
+   {
+    "name": "n",
+    "type": "number",
+    "description": "How many items",
+    "example": "5"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "bottom-n-sum",
+  "name": "Bottom N total",
+  "category": "Ranking",
+  "description": "Total of the N worst items.",
+  "body": "SUMX(TOPN({{n}}, ALLSELECTED({{column}}), {{measure}}, ASC), {{measure}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Bottom N total"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Item column",
+    "example": "'Product'[Name]"
+   },
+   {
+    "name": "n",
+    "type": "number",
+    "description": "How many items",
+    "example": "5"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "top-n-only",
+  "name": "Top N items only",
+  "category": "Ranking",
+  "description": "Shows the measure only for the N best items (blank for the rest); use in a visual.",
+  "body": "IF(RANKX(ALLSELECTED({{column}}), {{measure}}, , DESC, Dense) <= {{n}}, {{measure}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Top N items only"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Item column",
+    "example": "'Product'[Name]"
+   },
+   {
+    "name": "n",
+    "type": "number",
+    "description": "How many items",
+    "example": "10"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "filtered-value",
+  "name": "Filtered measure",
+  "category": "Filter",
+  "description": "A measure restricted to one value of a column.",
+  "body": "CALCULATE({{measure}}, {{column}} = {{value}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Filtered measure"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column to filter",
+    "example": "'Product'[Color]"
+   },
+   {
+    "name": "value",
+    "type": "expression",
+    "description": "Value (DAX literal)",
+    "example": "\"Red\""
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "ignore-filter",
+  "name": "Measure ignoring a filter",
+  "category": "Filter",
+  "description": "A measure that ignores the filters of one column.",
+  "body": "CALCULATE({{measure}}, REMOVEFILTERS({{column}}))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Measure ignoring a filter"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column",
+    "example": "'Product'[Category]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "keep-filters",
+  "name": "Measure with extra filter kept",
+  "category": "Filter",
+  "description": "Adds a condition without overriding the visual's own filter on the column.",
+  "body": "CALCULATE({{measure}}, KEEPFILTERS({{column}} = {{value}}))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Measure with extra filter kept"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column",
+    "example": "'Product'[Color]"
+   },
+   {
+    "name": "value",
+    "type": "expression",
+    "description": "Value (DAX literal)",
+    "example": "\"Red\""
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "inactive-relationship",
+  "name": "Measure via inactive relationship",
+  "category": "Filter",
+  "description": "Uses an inactive relationship (e.g. ship date instead of order date).",
+  "body": "CALCULATE({{measure}}, USERELATIONSHIP({{fact_column}}, {{dim_column}}))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Measure via inactive relationship"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "fact_column",
+    "type": "column",
+    "description": "Fact column",
+    "example": "'Sales'[ShipDate]"
+   },
+   {
+    "name": "dim_column",
+    "type": "column",
+    "description": "Dimension column",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "count-with-condition",
+  "name": "Count rows with condition",
+  "category": "Filter",
+  "description": "Counts rows of a table that meet a condition.",
+  "body": "CALCULATE(COUNTROWS({{table}}), {{condition}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Count rows with condition"
+   },
+   {
+    "name": "table",
+    "type": "table",
+    "description": "Table",
+    "example": "'Sales'"
+   },
+   {
+    "name": "condition",
+    "type": "expression",
+    "description": "Boolean filter",
+    "example": "'Sales'[Amount] > 1000"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "customers-with-sales",
+  "name": "Customers with sales",
+  "category": "Filter",
+  "description": "Distinct customers that have at least one sale in the context.",
+  "body": "CALCULATE(DISTINCTCOUNT({{customer}}), FILTER({{table}}, {{measure}} > 0))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Customers with sales"
+   },
+   {
+    "name": "customer",
+    "type": "column",
+    "description": "Customer key",
+    "example": "'Sales'[CustomerID]"
+   },
+   {
+    "name": "table",
+    "type": "table",
+    "description": "Fact table",
+    "example": "'Sales'"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure that must be > 0",
+    "example": "[Sales]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "new-customers",
+  "name": "New customers",
+  "category": "Filter",
+  "description": "Customers whose first purchase falls in the current period.",
+  "body": "COUNTROWS(FILTER(VALUES({{customer}}), CALCULATE(MIN({{order_date}}), ALL({{dates_table}})) >= MIN({{dates}}) && CALCULATE(MIN({{order_date}}), ALL({{dates_table}})) <= MAX({{dates}})))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "New customers"
+   },
+   {
+    "name": "customer",
+    "type": "column",
+    "description": "Customer key",
+    "example": "'Sales'[CustomerID]"
+   },
+   {
+    "name": "order_date",
+    "type": "column",
+    "description": "Order date column",
+    "example": "'Sales'[OrderDate]"
+   },
+   {
+    "name": "dates_table",
+    "type": "table",
+    "description": "Date table",
+    "example": "'Date'"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "measure"
+ },
+ {
+  "id": "selected-value",
+  "name": "Selected value",
+  "category": "Filter",
+  "description": "The single selected value of a column, or a fallback text.",
+  "body": "SELECTEDVALUE({{column}}, {{fallback}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Selected value"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column",
+    "example": "'Product'[Category]"
+   },
+   {
+    "name": "fallback",
+    "type": "expression",
+    "description": "Fallback (DAX literal)",
+    "example": "\"All\""
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "stdev",
+  "name": "Standard deviation",
+  "category": "Statistics",
+  "description": "Sample standard deviation of a column.",
+  "body": "STDEV.S({{column}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Standard deviation"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column",
+    "example": "'Sales'[Amount]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "percentile",
+  "name": "Percentile",
+  "category": "Statistics",
+  "description": "Inclusive percentile of a column.",
+  "body": "PERCENTILE.INC({{column}}, {{k}})",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Percentile"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column",
+    "example": "'Sales'[Amount]"
+   },
+   {
+    "name": "k",
+    "type": "number",
+    "description": "Percentile between 0 and 1",
+    "example": "0.9"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "coefficient-variation",
+  "name": "Coefficient of variation",
+  "category": "Statistics",
+  "description": "Standard deviation divided by the mean.",
+  "body": "DIVIDE(STDEV.S({{column}}), AVERAGE({{column}}))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Coefficient of variation"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column",
+    "example": "'Sales'[Amount]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "z-score",
+  "name": "Z-score",
+  "category": "Statistics",
+  "description": "Standard score of a measure across the items of a column.",
+  "body": "VAR _items = ALLSELECTED({{column}})\nRETURN DIVIDE({{measure}} - AVERAGEX(_items, {{measure}}), STDEVX.S(_items, {{measure}}))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Z-score"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Item column",
+    "example": "'Product'[Name]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "title-text",
+  "name": "Dynamic title",
+  "category": "Formatting",
+  "description": "Title that includes the measure value and the selected category.",
+  "body": "{{label}} & \": \" & FORMAT({{measure}}, {{format}}) & \" | \" & SELECTEDVALUE({{column}}, \"All\")",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Dynamic title"
+   },
+   {
+    "name": "label",
+    "type": "text",
+    "description": "Label",
+    "example": "Sales"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "format",
+    "type": "expression",
+    "description": "Format string (DAX literal)",
+    "example": "\"#,0\""
+   },
+   {
+    "name": "column",
+    "type": "column",
+    "description": "Column shown after the value",
+    "example": "'Product'[Category]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "kpi-status-color",
+  "name": "KPI status color",
+  "category": "Formatting",
+  "description": "Hex color for conditional formatting: green when the ratio reaches the target, red otherwise.",
+  "body": "IF(DIVIDE({{measure}}, {{target}}) >= 1, \"#1AAB40\", \"#D64554\")",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "KPI status color"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Actual measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "target",
+    "type": "measure",
+    "description": "Target measure",
+    "example": "[Sales Target]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "trend-arrow",
+  "name": "Trend arrow",
+  "category": "Formatting",
+  "description": "Text arrow showing whether the measure is above or below a comparison measure.",
+  "body": "IF({{measure}} > {{reference}}, \"▲\", IF({{measure}} < {{reference}}, \"▼\", \"●\"))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the measure to create",
+    "example": "Trend arrow"
+   },
+   {
+    "name": "measure",
+    "type": "measure",
+    "description": "Measure",
+    "example": "[Sales]"
+   },
+   {
+    "name": "reference",
+    "type": "measure",
+    "description": "Comparison measure",
+    "example": "[Prior year]"
+   }
+  ],
+  "assumptions": "",
+  "kind": "measure"
+ },
+ {
+  "id": "calc-item-ytd",
+  "name": "YTD",
+  "category": "Calculation item",
+  "description": "Calculation item: year-to-date of whatever measure is selected.",
+  "body": "CALCULATE(SELECTEDMEASURE(), DATESYTD({{dates}}))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the calculation item",
+    "example": "YTD"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "calculation_item"
+ },
+ {
+  "id": "calc-item-prior-year",
+  "name": "PY",
+  "category": "Calculation item",
+  "description": "Calculation item: prior year of the selected measure.",
+  "body": "CALCULATE(SELECTEDMEASURE(), SAMEPERIODLASTYEAR({{dates}}))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the calculation item",
+    "example": "PY"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "calculation_item"
+ },
+ {
+  "id": "calc-item-yoy-pct",
+  "name": "YoY %",
+  "category": "Calculation item",
+  "description": "Calculation item: growth against last year for the selected measure.",
+  "body": "VAR _py = CALCULATE(SELECTEDMEASURE(), SAMEPERIODLASTYEAR({{dates}}))\nRETURN DIVIDE(SELECTEDMEASURE() - _py, _py)",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the calculation item",
+    "example": "YoY %"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "calculation_item"
+ },
+ {
+  "id": "calc-item-mom",
+  "name": "MoM",
+  "category": "Calculation item",
+  "description": "Calculation item: change against the previous month for the selected measure.",
+  "body": "SELECTEDMEASURE() - CALCULATE(SELECTEDMEASURE(), DATEADD({{dates}}, -1, MONTH))",
+  "parameters": [
+   {
+    "name": "measure_name",
+    "type": "name",
+    "description": "Name of the calculation item",
+    "example": "MoM"
+   },
+   {
+    "name": "dates",
+    "type": "column",
+    "description": "Date column of a marked date table",
+    "example": "'Date'[Date]"
+   }
+  ],
+  "assumptions": "Requires a date table related to the fact table and marked as the model's date table.",
+  "kind": "calculation_item"
+ }
+]

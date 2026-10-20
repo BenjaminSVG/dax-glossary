@@ -1,0 +1,165 @@
+CALENDAR | Date and time | CALENDAR(<start_date>, <end_date>) | table | One-column table named Date with consecutive dates between two dates.
+CALENDARAUTO | Date and time | CALENDARAUTO([<fiscal_year_end_month>]) | table | Date table covering all dates found in the model, rounded to whole years.
+DATE | Date and time | DATE(<year>, <month>, <day>) | datetime | Builds a date from year, month and day numbers.
+DATEDIFF | Date and time | DATEDIFF(<date1>, <date2>, <interval>) | number | Number of interval boundaries crossed between two dates.
+DATEVALUE | Date and time | DATEVALUE(<date_text>) | datetime | Converts a date written as text into a date.
+DAY | Date and time | DAY(<date>) | number | Day of the month (1-31).
+EDATE | Date and time | EDATE(<start_date>, <months>) | datetime | Date a number of months before or after a date.
+EOMONTH | Date and time | EOMONTH(<start_date>, <months>) | datetime | Last day of the month a number of months before or after a date.
+HOUR | Date and time | HOUR(<datetime>) | number | Hour of a time value (0-23).
+MINUTE | Date and time | MINUTE(<datetime>) | number | Minute of a time value (0-59).
+MONTH | Date and time | MONTH(<datetime>) | number | Month number (1-12).
+NOW | Date and time | NOW() | datetime | Current date and time of the machine or service.
+QUARTER | Date and time | QUARTER(<date>) | number | Quarter number (1-4).
+SECOND | Date and time | SECOND(<time>) | number | Seconds of a time value (0-59).
+TIME | Date and time | TIME(<hour>, <minute>, <second>) | datetime | Builds a time from hour, minute and second.
+TIMEVALUE | Date and time | TIMEVALUE(<time_text>) | datetime | Converts a time written as text into a time.
+TODAY | Date and time | TODAY() | datetime | Current date.
+UTCNOW | Date and time | UTCNOW() | datetime | Current UTC date and time.
+UTCTODAY | Date and time | UTCTODAY() | datetime | Current UTC date.
+WEEKDAY | Date and time | WEEKDAY(<date>[, <return_type>]) | number | Day of the week as a number.
+WEEKNUM | Date and time | WEEKNUM(<date>[, <return_type>]) | number | Week number of the year.
+YEAR | Date and time | YEAR(<date>) | number | Year of a date.
+YEARFRAC | Date and time | YEARFRAC(<start_date>, <end_date>[, <basis>]) | number | Fraction of a year between two dates.
+CLOSINGBALANCEMONTH | Time intelligence | CLOSINGBALANCEMONTH(<expression>, <dates>[, <filter>]) | scalar | Expression value at the last date of the month in the current context.
+CLOSINGBALANCEQUARTER | Time intelligence | CLOSINGBALANCEQUARTER(<expression>, <dates>[, <filter>]) | scalar | Expression value at the last date of the quarter in the current context.
+CLOSINGBALANCEYEAR | Time intelligence | CLOSINGBALANCEYEAR(<expression>, <dates>[, <filter>][, <year_end_date>]) | scalar | Expression value at the last date of the year in the current context.
+DATEADD | Time intelligence | DATEADD(<dates>, <number_of_intervals>, <interval>) | table | Shifts a set of dates forward or back by whole intervals.
+DATESBETWEEN | Time intelligence | DATESBETWEEN(<dates>, <start_date>, <end_date>) | table | Dates between two boundaries, inclusive.
+DATESINPERIOD | Time intelligence | DATESINPERIOD(<dates>, <start_date>, <number_of_intervals>, <interval>) | table | Dates in a period counted from a start date.
+DATESMTD | Time intelligence | DATESMTD(<dates>) | table | Month-to-date dates up to the last date in context.
+DATESQTD | Time intelligence | DATESQTD(<dates>) | table | Quarter-to-date dates up to the last date in context.
+DATESYTD | Time intelligence | DATESYTD(<dates>[, <year_end_date>]) | table | Year-to-date dates up to the last date in context.
+ENDOFMONTH | Time intelligence | ENDOFMONTH(<dates>) | table | Last date of the month in context.
+ENDOFQUARTER | Time intelligence | ENDOFQUARTER(<dates>) | table | Last date of the quarter in context.
+ENDOFYEAR | Time intelligence | ENDOFYEAR(<dates>[, <year_end_date>]) | table | Last date of the year in context.
+FIRSTDATE | Time intelligence | FIRSTDATE(<dates>) | table | First date in the current context.
+FIRSTNONBLANK | Time intelligence | FIRSTNONBLANK(<column>, <expression>) | table | First value of a column for which the expression is not blank.
+FIRSTNONBLANKVALUE | Time intelligence | FIRSTNONBLANKVALUE(<column>, <expression>) | scalar | Expression value at the first column value where it is not blank.
+LASTDATE | Time intelligence | LASTDATE(<dates>) | table | Last date in the current context.
+LASTNONBLANK | Time intelligence | LASTNONBLANK(<column>, <expression>) | table | Last value of a column for which the expression is not blank.
+LASTNONBLANKVALUE | Time intelligence | LASTNONBLANKVALUE(<column>, <expression>) | scalar | Expression value at the last column value where it is not blank.
+NEXTDAY | Time intelligence | NEXTDAY(<dates>) | table | The day after the first date in context.
+NEXTMONTH | Time intelligence | NEXTMONTH(<dates>) | table | Dates of the month after the one in context.
+NEXTQUARTER | Time intelligence | NEXTQUARTER(<dates>) | table | Dates of the quarter after the one in context.
+NEXTYEAR | Time intelligence | NEXTYEAR(<dates>[, <year_end_date>]) | table | Dates of the year after the one in context.
+OPENINGBALANCEMONTH | Time intelligence | OPENINGBALANCEMONTH(<expression>, <dates>[, <filter>]) | scalar | Expression value at the day before the month starts.
+OPENINGBALANCEQUARTER | Time intelligence | OPENINGBALANCEQUARTER(<expression>, <dates>[, <filter>]) | scalar | Expression value at the day before the quarter starts.
+OPENINGBALANCEYEAR | Time intelligence | OPENINGBALANCEYEAR(<expression>, <dates>[, <filter>][, <year_end_date>]) | scalar | Expression value at the day before the year starts.
+PARALLELPERIOD | Time intelligence | PARALLELPERIOD(<dates>, <number_of_intervals>, <interval>) | table | Whole periods shifted by a number of intervals, e.g. the same quarter last year.
+PREVIOUSDAY | Time intelligence | PREVIOUSDAY(<dates>) | table | The day before the first date in context.
+PREVIOUSMONTH | Time intelligence | PREVIOUSMONTH(<dates>) | table | Dates of the month before the one in context.
+PREVIOUSQUARTER | Time intelligence | PREVIOUSQUARTER(<dates>) | table | Dates of the quarter before the one in context.
+PREVIOUSYEAR | Time intelligence | PREVIOUSYEAR(<dates>[, <year_end_date>]) | table | Dates of the year before the one in context.
+SAMEPERIODLASTYEAR | Time intelligence | SAMEPERIODLASTYEAR(<dates>) | table | Dates of the current context shifted one year back.
+STARTOFMONTH | Time intelligence | STARTOFMONTH(<dates>) | table | First date of the month in context.
+STARTOFQUARTER | Time intelligence | STARTOFQUARTER(<dates>) | table | First date of the quarter in context.
+STARTOFYEAR | Time intelligence | STARTOFYEAR(<dates>[, <year_end_date>]) | table | First date of the year in context.
+TOTALMTD | Time intelligence | TOTALMTD(<expression>, <dates>[, <filter>]) | scalar | Month-to-date value of an expression.
+TOTALQTD | Time intelligence | TOTALQTD(<expression>, <dates>[, <filter>]) | scalar | Quarter-to-date value of an expression.
+TOTALYTD | Time intelligence | TOTALYTD(<expression>, <dates>[, <filter>][, <year_end_date>]) | scalar | Year-to-date value of an expression.
+AND | Logical | AND(<logical1>, <logical2>) | boolean | TRUE when both arguments are TRUE.
+BITAND | Logical | BITAND(<number>, <number>) | number | Bitwise AND of two numbers.
+BITLSHIFT | Logical | BITLSHIFT(<number>, <shift_amount>) | number | Shifts bits to the left.
+BITOR | Logical | BITOR(<number>, <number>) | number | Bitwise OR of two numbers.
+BITRSHIFT | Logical | BITRSHIFT(<number>, <shift_amount>) | number | Shifts bits to the right.
+BITXOR | Logical | BITXOR(<number>, <number>) | number | Bitwise exclusive OR of two numbers.
+COALESCE | Logical | COALESCE(<expression>, <expression>[, <expression>]...) | scalar | First argument that is not blank.
+FALSE | Logical | FALSE() | boolean | The logical value FALSE.
+IF | Logical | IF(<logical_test>, <value_if_true>[, <value_if_false>]) | scalar | Returns one value when the test is TRUE and another otherwise.
+IF.EAGER | Logical | IF.EAGER(<logical_test>, <value_if_true>[, <value_if_false>]) | scalar | IF that evaluates both branches eagerly.
+IFERROR | Logical | IFERROR(<value>, <value_if_error>) | scalar | Value, or an alternate when the value is an error.
+NOT | Logical | NOT(<logical>) | boolean | Reverses a logical value.
+OR | Logical | OR(<logical1>, <logical2>) | boolean | TRUE when at least one argument is TRUE.
+SWITCH | Logical | SWITCH(<expression>, <value>, <result>[, <value>, <result>]...[, <else>]) | scalar | Compares an expression to values and returns the matching result.
+TRUE | Logical | TRUE() | boolean | The logical value TRUE.
+ABS | Math and trig | ABS(<number>) | number | Absolute value.
+ACOS | Math and trig | ACOS(<number>) | number | Arccosine in radians.
+ACOSH | Math and trig | ACOSH(<number>) | number | Inverse hyperbolic cosine.
+ACOT | Math and trig | ACOT(<number>) | number | Arccotangent in radians.
+ACOTH | Math and trig | ACOTH(<number>) | number | Inverse hyperbolic cotangent.
+ASIN | Math and trig | ASIN(<number>) | number | Arcsine in radians.
+ASINH | Math and trig | ASINH(<number>) | number | Inverse hyperbolic sine.
+ATAN | Math and trig | ATAN(<number>) | number | Arctangent in radians.
+ATANH | Math and trig | ATANH(<number>) | number | Inverse hyperbolic tangent.
+CEILING | Math and trig | CEILING(<number>, <significance>) | number | Rounds up to the nearest multiple of significance.
+COMBIN | Math and trig | COMBIN(<number>, <number_chosen>) | number | Number of combinations for a number of items.
+COMBINA | Math and trig | COMBINA(<number>, <number_chosen>) | number | Number of combinations with repetitions.
+COS | Math and trig | COS(<number>) | number | Cosine of an angle in radians.
+COSH | Math and trig | COSH(<number>) | number | Hyperbolic cosine.
+COT | Math and trig | COT(<number>) | number | Cotangent of an angle in radians.
+COTH | Math and trig | COTH(<number>) | number | Hyperbolic cotangent.
+CURRENCY | Math and trig | CURRENCY(<value>) | number | Converts a value to the currency (fixed decimal) data type.
+DEGREES | Math and trig | DEGREES(<angle>) | number | Converts radians to degrees.
+DIVIDE | Math and trig | DIVIDE(<numerator>, <denominator>[, <alternateResult>]) | number | Safe division returning an alternate result (blank by default) when the denominator is 0.
+EVEN | Math and trig | EVEN(<number>) | number | Rounds away from zero to the nearest even integer.
+EXP | Math and trig | EXP(<number>) | number | e raised to a power.
+FACT | Math and trig | FACT(<number>) | number | Factorial.
+FLOOR | Math and trig | FLOOR(<number>, <significance>) | number | Rounds down to the nearest multiple of significance.
+GCD | Math and trig | GCD(<number1>, <number2>) | number | Greatest common divisor.
+INT | Math and trig | INT(<number>) | number | Rounds down to the nearest integer.
+ISO.CEILING | Math and trig | ISO.CEILING(<number>[, <significance>]) | number | Rounds up to an integer or a multiple of significance regardless of sign.
+LCM | Math and trig | LCM(<number1>, <number2>) | number | Least common multiple.
+LN | Math and trig | LN(<number>) | number | Natural logarithm.
+LOG | Math and trig | LOG(<number>[, <base>]) | number | Logarithm to a given base (10 by default).
+LOG10 | Math and trig | LOG10(<number>) | number | Base-10 logarithm.
+MOD | Math and trig | MOD(<number>, <divisor>) | number | Remainder after division, with the sign of the divisor.
+MROUND | Math and trig | MROUND(<number>, <multiple>) | number | Rounds to the nearest multiple.
+ODD | Math and trig | ODD(<number>) | number | Rounds away from zero to the nearest odd integer.
+PI | Math and trig | PI() | number | The constant pi.
+POWER | Math and trig | POWER(<number>, <power>) | number | Number raised to a power.
+QUOTIENT | Math and trig | QUOTIENT(<numerator>, <denominator>) | number | Integer part of a division.
+RADIANS | Math and trig | RADIANS(<angle>) | number | Converts degrees to radians.
+RAND | Math and trig | RAND() | number | Random number between 0 and 1.
+RANDBETWEEN | Math and trig | RANDBETWEEN(<bottom>, <top>) | number | Random integer between two numbers.
+ROUND | Math and trig | ROUND(<number>, <num_digits>) | number | Rounds to a number of digits.
+ROUNDDOWN | Math and trig | ROUNDDOWN(<number>, <num_digits>) | number | Rounds toward zero to a number of digits.
+ROUNDUP | Math and trig | ROUNDUP(<number>, <num_digits>) | number | Rounds away from zero to a number of digits.
+SIGN | Math and trig | SIGN(<number>) | number | Sign of a number: -1, 0 or 1.
+SIN | Math and trig | SIN(<number>) | number | Sine of an angle in radians.
+SINH | Math and trig | SINH(<number>) | number | Hyperbolic sine.
+SQRT | Math and trig | SQRT(<number>) | number | Square root.
+SQRTPI | Math and trig | SQRTPI(<number>) | number | Square root of number times pi.
+TAN | Math and trig | TAN(<number>) | number | Tangent of an angle in radians.
+TANH | Math and trig | TANH(<number>) | number | Hyperbolic tangent.
+TRUNC | Math and trig | TRUNC(<number>[, <num_digits>]) | number | Truncates a number to a number of digits.
+BETA.DIST | Statistical | BETA.DIST(<x>, <alpha>, <beta>, <cumulative>[, <A>][, <B>]) | number | Beta distribution.
+BETA.INV | Statistical | BETA.INV(<probability>, <alpha>, <beta>[, <A>][, <B>]) | number | Inverse of the cumulative beta distribution.
+CHISQ.DIST | Statistical | CHISQ.DIST(<x>, <deg_freedom>, <cumulative>) | number | Left-tailed chi-squared distribution.
+CHISQ.DIST.RT | Statistical | CHISQ.DIST.RT(<x>, <deg_freedom>) | number | Right-tailed chi-squared distribution.
+CHISQ.INV | Statistical | CHISQ.INV(<probability>, <deg_freedom>) | number | Inverse of the left-tailed chi-squared distribution.
+CHISQ.INV.RT | Statistical | CHISQ.INV.RT(<probability>, <deg_freedom>) | number | Inverse of the right-tailed chi-squared distribution.
+CONFIDENCE.NORM | Statistical | CONFIDENCE.NORM(<alpha>, <standard_dev>, <size>) | number | Confidence interval half-width for a mean (normal distribution).
+CONFIDENCE.T | Statistical | CONFIDENCE.T(<alpha>, <standard_dev>, <size>) | number | Confidence interval half-width for a mean (Student's t).
+EXPON.DIST | Statistical | EXPON.DIST(<x>, <lambda>, <cumulative>) | number | Exponential distribution.
+GEOMEAN | Statistical | GEOMEAN(<column>) | number | Geometric mean of a column.
+GEOMEANX | Statistical | GEOMEANX(<table>, <expression>) | number | Geometric mean of an expression over a table.
+LINEST | Statistical | LINEST(<columnY>, <columnX>[, <columnX>]...[, <const>]) | table | Linear regression coefficients with statistics for column inputs.
+LINESTX | Statistical | LINESTX(<table>, <expressionY>, <expressionX>[, <expressionX>]...[, <const>]) | table | Linear regression coefficients over expressions evaluated per row.
+MEDIAN | Statistical | MEDIAN(<column>) | number | Median of the numbers in a column.
+MEDIANX | Statistical | MEDIANX(<table>, <expression>) | number | Median of an expression over a table.
+NORM.DIST | Statistical | NORM.DIST(<x>, <mean>, <standard_dev>, <cumulative>) | number | Normal distribution.
+NORM.INV | Statistical | NORM.INV(<probability>, <mean>, <standard_dev>) | number | Inverse of the normal distribution.
+NORM.S.DIST | Statistical | NORM.S.DIST(<z>, <cumulative>) | number | Standard normal distribution.
+NORM.S.INV | Statistical | NORM.S.INV(<probability>) | number | Inverse of the standard normal distribution.
+PERCENTILE.EXC | Statistical | PERCENTILE.EXC(<column>, <k>) | number | k-th percentile of a column, exclusive (0 < k < 1).
+PERCENTILE.INC | Statistical | PERCENTILE.INC(<column>, <k>) | number | k-th percentile of a column, inclusive (0 <= k <= 1).
+PERCENTILEX.EXC | Statistical | PERCENTILEX.EXC(<table>, <expression>, <k>) | number | Exclusive percentile of an expression over a table.
+PERCENTILEX.INC | Statistical | PERCENTILEX.INC(<table>, <expression>, <k>) | number | Inclusive percentile of an expression over a table.
+PERMUT | Statistical | PERMUT(<number>, <number_chosen>) | number | Number of permutations.
+POISSON.DIST | Statistical | POISSON.DIST(<x>, <mean>, <cumulative>) | number | Poisson distribution.
+RANK.EQ | Statistical | RANK.EQ(<value>, <columnName>[, <order>]) | number | Rank of a value among the values of a column; ties share a rank.
+RANKX | Statistical | RANKX(<table>, <expression>[, <value>[, <order>[, <ties>]]]) | number | Rank of a value among an expression evaluated over a table.
+STDEV.P | Statistical | STDEV.P(<columnName>) | number | Standard deviation of a whole population (column).
+STDEV.S | Statistical | STDEV.S(<columnName>) | number | Standard deviation of a sample (column).
+STDEVX.P | Statistical | STDEVX.P(<table>, <expression>) | number | Population standard deviation of an expression over a table.
+STDEVX.S | Statistical | STDEVX.S(<table>, <expression>) | number | Sample standard deviation of an expression over a table.
+T.DIST | Statistical | T.DIST(<x>, <deg_freedom>, <cumulative>) | number | Student's left-tailed t-distribution.
+T.DIST.2T | Statistical | T.DIST.2T(<x>, <deg_freedom>) | number | Student's two-tailed t-distribution.
+T.DIST.RT | Statistical | T.DIST.RT(<x>, <deg_freedom>) | number | Student's right-tailed t-distribution.
+T.INV | Statistical | T.INV(<probability>, <deg_freedom>) | number | Inverse of the left-tailed Student's t-distribution.
+T.INV.2T | Statistical | T.INV.2T(<probability>, <deg_freedom>) | number | Inverse of the two-tailed Student's t-distribution.
+VAR.P | Statistical | VAR.P(<columnName>) | number | Variance of a whole population (column).
+VAR.S | Statistical | VAR.S(<columnName>) | number | Variance of a sample (column).
+VARX.P | Statistical | VARX.P(<table>, <expression>) | number | Population variance of an expression over a table.
+VARX.S | Statistical | VARX.S(<table>, <expression>) | number | Sample variance of an expression over a table.

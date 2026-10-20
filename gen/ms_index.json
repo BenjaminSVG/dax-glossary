@@ -1,0 +1,2318 @@
+{
+ "ABS": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "abs-function-dax"
+ },
+ "ACCRINT": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "accrint-function-dax"
+ },
+ "ACCRINTM": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "accrintm-function-dax"
+ },
+ "ACOS": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "acos-function-dax"
+ },
+ "ACOSH": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "acosh-function-dax"
+ },
+ "ACOT": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "acot-function-dax"
+ },
+ "ACOTH": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "acoth-function-dax"
+ },
+ "ADDCOLUMNS": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "addcolumns-function-dax"
+ },
+ "ADDMISSINGITEMS": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "addmissingitems-function-dax"
+ },
+ "ALL": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "all-function-dax"
+ },
+ "ALLCROSSFILTERED": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "allcrossfiltered-function-dax"
+ },
+ "ALLEXCEPT": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "allexcept-function-dax"
+ },
+ "ALLNOBLANKROW": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "allnoblankrow-function-dax"
+ },
+ "ALLSELECTED": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "allselected-function-dax"
+ },
+ "AMORDEGRC": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "amordegrc-function-dax"
+ },
+ "AMORLINC": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "amorlinc-function-dax"
+ },
+ "AND": {
+  "pages": [
+   "logical"
+  ],
+  "slug": "and-function-dax"
+ },
+ "APPROXIMATEDISTINCTCOUNT": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "approximate-distinctcount-function-dax"
+ },
+ "ASIN": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "asin-function-dax"
+ },
+ "ASINH": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "asinh-function-dax"
+ },
+ "ATAN": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "atan-function-dax"
+ },
+ "ATANH": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "atanh-function-dax"
+ },
+ "AVERAGE": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "average-function-dax"
+ },
+ "AVERAGEA": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "averagea-function-dax"
+ },
+ "AVERAGEX": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "averagex-function-dax"
+ },
+ "BETA.DIST": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "beta-dist-function-dax"
+ },
+ "BETA.INV": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "beta-inv-function-dax"
+ },
+ "BITAND": {
+  "pages": [
+   "logical"
+  ],
+  "slug": "bitand-function-dax"
+ },
+ "BITLSHIFT": {
+  "pages": [
+   "logical"
+  ],
+  "slug": "bitlshift-function-dax"
+ },
+ "BITOR": {
+  "pages": [
+   "logical"
+  ],
+  "slug": "bitor-function-dax"
+ },
+ "BITRSHIFT": {
+  "pages": [
+   "logical"
+  ],
+  "slug": "bitrshift-function-dax"
+ },
+ "BITXOR": {
+  "pages": [
+   "logical"
+  ],
+  "slug": "bitxor-function-dax"
+ },
+ "BLANK": {
+  "pages": [
+   "other"
+  ],
+  "slug": "blank-function-dax"
+ },
+ "CALCULATE": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "calculate-function-dax"
+ },
+ "CALCULATETABLE": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "calculatetable-function-dax"
+ },
+ "CALENDAR": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "calendar-function-dax"
+ },
+ "CALENDARAUTO": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "calendarauto-function-dax"
+ },
+ "CEILING": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "ceiling-function-dax"
+ },
+ "CHISQ.DIST": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "chisq-dist-function-dax"
+ },
+ "CHISQ.DIST.RT": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "chisq-dist-rt-function-dax"
+ },
+ "CHISQ.INV": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "chisq-inv-function-dax"
+ },
+ "CHISQ.INV.RT": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "chisq-inv-rt-function-dax"
+ },
+ "CLOSINGBALANCEMONTH": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "closingbalancemonth-function-dax"
+ },
+ "CLOSINGBALANCEQUARTER": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "closingbalancequarter-function-dax"
+ },
+ "CLOSINGBALANCEWEEK": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "closingbalanceweek-function-dax"
+ },
+ "CLOSINGBALANCEYEAR": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "closingbalanceyear-function-dax"
+ },
+ "COALESCE": {
+  "pages": [
+   "logical"
+  ],
+  "slug": "coalesce-function-dax"
+ },
+ "COLUMNSTATISTICS": {
+  "pages": [
+   "information"
+  ],
+  "slug": "columnstatistics-function-dax"
+ },
+ "COMBIN": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "combin-function-dax"
+ },
+ "COMBINA": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "combina-function-dax"
+ },
+ "COMBINEVALUES": {
+  "pages": [
+   "text"
+  ],
+  "slug": "combinevalues-function-dax"
+ },
+ "CONCATENATE": {
+  "pages": [
+   "text"
+  ],
+  "slug": "concatenate-function-dax"
+ },
+ "CONCATENATEX": {
+  "pages": [
+   "text"
+  ],
+  "slug": "concatenatex-function-dax"
+ },
+ "CONFIDENCE.NORM": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "confidence-norm-function-dax"
+ },
+ "CONFIDENCE.T": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "confidence-t-function-dax"
+ },
+ "CONTAINS": {
+  "pages": [
+   "information"
+  ],
+  "slug": "contains-function-dax"
+ },
+ "CONTAINSROW": {
+  "pages": [
+   "information"
+  ],
+  "slug": "containsrow-function-dax"
+ },
+ "CONTAINSSTRING": {
+  "pages": [
+   "information"
+  ],
+  "slug": "containsstring-function-dax"
+ },
+ "CONTAINSSTRINGEXACT": {
+  "pages": [
+   "information"
+  ],
+  "slug": "containsstringexact-function-dax"
+ },
+ "CONVERT": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "convert-function-dax"
+ },
+ "COS": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "cos-function-dax"
+ },
+ "COSH": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "cosh-function-dax"
+ },
+ "COT": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "cot-function-dax"
+ },
+ "COTH": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "coth-function-dax"
+ },
+ "COUNT": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "count-function-dax"
+ },
+ "COUNTA": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "counta-function-dax"
+ },
+ "COUNTAX": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "countax-function-dax"
+ },
+ "COUNTBLANK": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "countblank-function-dax"
+ },
+ "COUNTROWS": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "countrows-function-dax"
+ },
+ "COUNTX": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "countx-function-dax"
+ },
+ "COUPDAYBS": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "coupdaybs-function-dax"
+ },
+ "COUPDAYS": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "coupdays-function-dax"
+ },
+ "COUPDAYSNC": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "coupdaysnc-function-dax"
+ },
+ "COUPNCD": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "coupncd-function-dax"
+ },
+ "COUPNUM": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "coupnum-function-dax"
+ },
+ "COUPPCD": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "couppcd-function-dax"
+ },
+ "CROSSFILTER": {
+  "pages": [
+   "relationship"
+  ],
+  "slug": "crossfilter-function-dax"
+ },
+ "CROSSJOIN": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "crossjoin-function-dax"
+ },
+ "CUMIPMT": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "cumipmt-function-dax"
+ },
+ "CUMPRINC": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "cumprinc-function-dax"
+ },
+ "CURRENCY": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "currency-function-dax"
+ },
+ "CURRENTGROUP": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "currentgroup-function-dax"
+ },
+ "CUSTOMDATA": {
+  "pages": [
+   "information"
+  ],
+  "slug": "customdata-function-dax"
+ },
+ "DATATABLE": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "datatable-function-dax"
+ },
+ "DATE": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "date-function-dax"
+ },
+ "DATEADD": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "dateadd-function-dax"
+ },
+ "DATEDIFF": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "datediff-function-dax"
+ },
+ "DATESBETWEEN": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "datesbetween-function-dax"
+ },
+ "DATESINPERIOD": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "datesinperiod-function-dax"
+ },
+ "DATESMTD": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "datesmtd-function-dax"
+ },
+ "DATESQTD": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "datesqtd-function-dax"
+ },
+ "DATESWTD": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "dateswtd-function-dax"
+ },
+ "DATESYTD": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "datesytd-function-dax"
+ },
+ "DATEVALUE": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "datevalue-function-dax"
+ },
+ "DAY": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "day-function-dax"
+ },
+ "DB": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "db-function-dax"
+ },
+ "DDB": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "ddb-function-dax"
+ },
+ "DEGREES": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "degrees-function-dax"
+ },
+ "DETAILROWS": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "detailrows-function-dax"
+ },
+ "DISC": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "disc-function-dax"
+ },
+ "DISTINCT": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "distinct-function-dax"
+ },
+ "DISTINCTCOUNT": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "distinctcount-function-dax"
+ },
+ "DISTINCTCOUNTNOBLANK": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "distinctcountnoblank-function-dax"
+ },
+ "DIVIDE": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "divide-function-dax"
+ },
+ "DOLLARDE": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "dollarde-function-dax"
+ },
+ "DOLLARFR": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "dollarfr-function-dax"
+ },
+ "DURATION": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "duration-function-dax"
+ },
+ "EARLIER": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "earlier-function-dax"
+ },
+ "EARLIEST": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "earliest-function-dax"
+ },
+ "EDATE": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "edate-function-dax"
+ },
+ "EFFECT": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "effect-function-dax"
+ },
+ "ENDOFMONTH": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "endofmonth-function-dax"
+ },
+ "ENDOFQUARTER": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "endofquarter-function-dax"
+ },
+ "ENDOFWEEK": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "endofweek-function-dax"
+ },
+ "ENDOFYEAR": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "endofyear-function-dax"
+ },
+ "EOMONTH": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "eomonth-function-dax"
+ },
+ "ERROR": {
+  "pages": [
+   "other"
+  ],
+  "slug": "error-function-dax"
+ },
+ "EVALUATEANDLOG": {
+  "pages": [
+   "other"
+  ],
+  "slug": "evaluateandlog-function-dax"
+ },
+ "EVEN": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "even-function-dax"
+ },
+ "EXACT": {
+  "pages": [
+   "text"
+  ],
+  "slug": "exact-function-dax"
+ },
+ "EXCEPT": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "except-function-dax"
+ },
+ "EXP": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "exp-function-dax"
+ },
+ "EXPON.DIST": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "expon-dist-function-dax"
+ },
+ "EXTERNALMEASURE": {
+  "pages": [
+   "other"
+  ],
+  "slug": "externalmeasure-function-dax"
+ },
+ "FACT": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "fact-function-dax"
+ },
+ "FALSE": {
+  "pages": [
+   "logical"
+  ],
+  "slug": "false-function-dax"
+ },
+ "FILTER": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "filter-function-dax"
+ },
+ "FILTERS": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "filters-function-dax"
+ },
+ "FIND": {
+  "pages": [
+   "text"
+  ],
+  "slug": "find-function-dax"
+ },
+ "FIRST": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "first-function-dax"
+ },
+ "FIRSTDATE": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "firstdate-function-dax"
+ },
+ "FIXED": {
+  "pages": [
+   "text"
+  ],
+  "slug": "fixed-function-dax"
+ },
+ "FLOOR": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "floor-function-dax"
+ },
+ "FORMAT": {
+  "pages": [
+   "text"
+  ],
+  "slug": "format-function-dax"
+ },
+ "FV": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "fv-function-dax"
+ },
+ "GCD": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "gcd-function-dax"
+ },
+ "GENERATE": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "generate-function-dax"
+ },
+ "GENERATEALL": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "generateall-function-dax"
+ },
+ "GENERATESERIES": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "generateseries-function-dax"
+ },
+ "GEOMEAN": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "geomean-function-dax"
+ },
+ "GEOMEANX": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "geomeanx-function-dax"
+ },
+ "GROUPBY": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "groupby-function-dax"
+ },
+ "HASONEFILTER": {
+  "pages": [
+   "information"
+  ],
+  "slug": "hasonefilter-function-dax"
+ },
+ "HASONEVALUE": {
+  "pages": [
+   "information"
+  ],
+  "slug": "hasonevalue-function-dax"
+ },
+ "HOUR": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "hour-function-dax"
+ },
+ "IF": {
+  "pages": [
+   "logical"
+  ],
+  "slug": "if-function-dax"
+ },
+ "IF.EAGER": {
+  "pages": [
+   "logical"
+  ],
+  "slug": "if-eager-function-dax"
+ },
+ "IFERROR": {
+  "pages": [
+   "logical"
+  ],
+  "slug": "iferror-function-dax"
+ },
+ "IGNORE": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "ignore-function-dax"
+ },
+ "INDEX": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "index-function-dax"
+ },
+ "INT": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "int-function-dax"
+ },
+ "INTERSECT": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "intersect-function-dax"
+ },
+ "INTRATE": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "intrate-function-dax"
+ },
+ "IPMT": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "ipmt-function-dax"
+ },
+ "ISAFTER": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isafter-function-dax"
+ },
+ "ISBLANK": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isblank-function-dax"
+ },
+ "ISBOOLEAN": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isboolean-function-dax"
+ },
+ "ISCROSSFILTERED": {
+  "pages": [
+   "information"
+  ],
+  "slug": "iscrossfiltered-function-dax"
+ },
+ "ISCURRENCY": {
+  "pages": [
+   "information"
+  ],
+  "slug": "iscurrency-function-dax"
+ },
+ "ISDATETIME": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isdatetime-function-dax"
+ },
+ "ISDECIMAL": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isdecimal-function-dax"
+ },
+ "ISDOUBLE": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isdouble-function-dax"
+ },
+ "ISEMPTY": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isempty-function-dax"
+ },
+ "ISERROR": {
+  "pages": [
+   "information"
+  ],
+  "slug": "iserror-function-dax"
+ },
+ "ISEVEN": {
+  "pages": [
+   "information"
+  ],
+  "slug": "iseven-function-dax"
+ },
+ "ISFILTERED": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isfiltered-function-dax"
+ },
+ "ISINSCOPE": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isinscope-function-dax"
+ },
+ "ISINT64": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isint64-function-dax"
+ },
+ "ISINTEGER": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isinteger-function-dax"
+ },
+ "ISLOGICAL": {
+  "pages": [
+   "information"
+  ],
+  "slug": "islogical-function-dax"
+ },
+ "ISNONTEXT": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isnontext-function-dax"
+ },
+ "ISNUMBER": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isnumber-function-dax"
+ },
+ "ISNUMERIC": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isnumeric-function-dax"
+ },
+ "ISO.CEILING": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "iso-ceiling-function-dax"
+ },
+ "ISODD": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isodd-function-dax"
+ },
+ "ISONORAFTER": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isonorafter-function-dax"
+ },
+ "ISPMT": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "ispmt-function-dax"
+ },
+ "ISSELECTEDMEASURE": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isselectedmeasure-function-dax"
+ },
+ "ISSTRING": {
+  "pages": [
+   "information"
+  ],
+  "slug": "isstring-function-dax"
+ },
+ "ISSUBTOTAL": {
+  "pages": [
+   "information"
+  ],
+  "slug": "issubtotal-function-dax"
+ },
+ "ISTEXT": {
+  "pages": [
+   "information"
+  ],
+  "slug": "istext-function-dax"
+ },
+ "KEEPFILTERS": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "keepfilters-function-dax"
+ },
+ "LAST": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "last-function-dax"
+ },
+ "LASTDATE": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "lastdate-function-dax"
+ },
+ "LCM": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "lcm-function-dax"
+ },
+ "LEFT": {
+  "pages": [
+   "text"
+  ],
+  "slug": "left-function-dax"
+ },
+ "LEN": {
+  "pages": [
+   "text"
+  ],
+  "slug": "len-function-dax"
+ },
+ "LINEST": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "linest-function-dax"
+ },
+ "LINESTX": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "linestx-function-dax"
+ },
+ "LN": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "ln-function-dax"
+ },
+ "LOG": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "log-function-dax"
+ },
+ "LOG10": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "log10-function-dax"
+ },
+ "LOOKUP": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "lookup-function-dax"
+ },
+ "LOOKUPVALUE": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "lookupvalue-function-dax"
+ },
+ "LOOKUPWITHTOTALS": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "lookupwithtotals-function-dax"
+ },
+ "LOWER": {
+  "pages": [
+   "text"
+  ],
+  "slug": "lower-function-dax"
+ },
+ "MATCHBY": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "matchby-function-dax"
+ },
+ "MAX": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "max-function-dax"
+ },
+ "MAXA": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "maxa-function-dax"
+ },
+ "MAXX": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "maxx-function-dax"
+ },
+ "MDURATION": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "mduration-function-dax"
+ },
+ "MEDIAN": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "median-function-dax"
+ },
+ "MEDIANX": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "medianx-function-dax"
+ },
+ "MID": {
+  "pages": [
+   "text"
+  ],
+  "slug": "mid-function-dax"
+ },
+ "MIN": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "min-function-dax"
+ },
+ "MINA": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "mina-function-dax"
+ },
+ "MINUTE": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "minute-function-dax"
+ },
+ "MINX": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "minx-function-dax"
+ },
+ "MOD": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "mod-function-dax"
+ },
+ "MONTH": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "month-function-dax"
+ },
+ "MOVINGAVERAGE": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "movingaverage-function-dax"
+ },
+ "MROUND": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "mround-function-dax"
+ },
+ "NAMEOF": {
+  "pages": [
+   "information"
+  ],
+  "slug": "nameof-function-dax"
+ },
+ "NATURALINNERJOIN": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "naturalinnerjoin-function-dax"
+ },
+ "NATURALLEFTOUTERJOIN": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "naturalleftouterjoin-function-dax"
+ },
+ "NETWORKDAYS": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "networkdays-function-dax"
+ },
+ "NEXT": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "next-function-dax"
+ },
+ "NEXTDAY": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "nextday-function-dax"
+ },
+ "NEXTMONTH": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "nextmonth-function-dax"
+ },
+ "NEXTQUARTER": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "nextquarter-function-dax"
+ },
+ "NEXTWEEK": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "nextweek-function-dax"
+ },
+ "NEXTYEAR": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "nextyear-function-dax"
+ },
+ "NOMINAL": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "nominal-function-dax"
+ },
+ "NONVISUAL": {
+  "pages": [
+   "information"
+  ],
+  "slug": "nonvisual-function-dax"
+ },
+ "NORM.DIST": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "norm-dist-function-dax"
+ },
+ "NORM.INV": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "norm-inv-function-dax"
+ },
+ "NORM.S.DIST": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "norm-s-dist-function-dax"
+ },
+ "NORM.S.INV": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "norm-s-inv-function-dax"
+ },
+ "NOT": {
+  "pages": [
+   "logical"
+  ],
+  "slug": "not-function-dax"
+ },
+ "NOW": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "now-function-dax"
+ },
+ "NPER": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "nper-function-dax"
+ },
+ "ODD": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "odd-function-dax"
+ },
+ "ODDFPRICE": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "oddfprice-function-dax"
+ },
+ "ODDFYIELD": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "oddfyield-function-dax"
+ },
+ "ODDLPRICE": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "oddlprice-function-dax"
+ },
+ "ODDLYIELD": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "oddlyield-function-dax"
+ },
+ "OFFSET": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "offset-function-dax"
+ },
+ "OPENINGBALANCEMONTH": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "openingbalancemonth-function-dax"
+ },
+ "OPENINGBALANCEQUARTER": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "openingbalancequarter-function-dax"
+ },
+ "OPENINGBALANCEWEEK": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "openingbalanceweek-function-dax"
+ },
+ "OPENINGBALANCEYEAR": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "openingbalanceyear-function-dax"
+ },
+ "OR": {
+  "pages": [
+   "logical"
+  ],
+  "slug": "or-function-dax"
+ },
+ "ORDERBY": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "orderby-function-dax"
+ },
+ "PARALLELPERIOD": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "parallelperiod-function-dax"
+ },
+ "PARTITIONBY": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "partitionby-function-dax"
+ },
+ "PATH": {
+  "pages": [
+   "parent-and-child"
+  ],
+  "slug": "path-function-dax"
+ },
+ "PATHCONTAINS": {
+  "pages": [
+   "parent-and-child"
+  ],
+  "slug": "pathcontains-function-dax"
+ },
+ "PATHITEM": {
+  "pages": [
+   "parent-and-child"
+  ],
+  "slug": "pathitem-function-dax"
+ },
+ "PATHITEMREVERSE": {
+  "pages": [
+   "parent-and-child"
+  ],
+  "slug": "pathitemreverse-function-dax"
+ },
+ "PATHLENGTH": {
+  "pages": [
+   "parent-and-child"
+  ],
+  "slug": "pathlength-function-dax"
+ },
+ "PDURATION": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "pduration-function-dax"
+ },
+ "PERCENTILE.EXC": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "percentile-exc-function-dax"
+ },
+ "PERCENTILE.INC": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "percentile-inc-function-dax"
+ },
+ "PERCENTILEX.EXC": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "percentilex-exc-function-dax"
+ },
+ "PERCENTILEX.INC": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "percentilex-inc-function-dax"
+ },
+ "PERMUT": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "permut-function-dax"
+ },
+ "PI": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "pi-function-dax"
+ },
+ "PMT": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "pmt-function-dax"
+ },
+ "POISSON.DIST": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "poisson-dist-function-dax"
+ },
+ "POWER": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "power-function-dax"
+ },
+ "PPMT": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "ppmt-function-dax"
+ },
+ "PREVIOUS": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "previous-function-dax"
+ },
+ "PREVIOUSDAY": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "previousday-function-dax"
+ },
+ "PREVIOUSMONTH": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "previousmonth-function-dax"
+ },
+ "PREVIOUSQUARTER": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "previousquarter-function-dax"
+ },
+ "PREVIOUSWEEK": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "previousweek-function-dax"
+ },
+ "PREVIOUSYEAR": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "previousyear-function-dax"
+ },
+ "PRICE": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "price-function-dax"
+ },
+ "PRICEDISC": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "pricedisc-function-dax"
+ },
+ "PRICEMAT": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "pricemat-function-dax"
+ },
+ "PRODUCT": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "product-function-dax"
+ },
+ "PRODUCTX": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "productx-function-dax"
+ },
+ "PV": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "pv-function-dax"
+ },
+ "QUARTER": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "quarter-function-dax"
+ },
+ "QUOTIENT": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "quotient-function-dax"
+ },
+ "RADIANS": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "radians-function-dax"
+ },
+ "RAND": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "rand-function-dax"
+ },
+ "RANDBETWEEN": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "randbetween-function-dax"
+ },
+ "RANGE": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "range-function-dax"
+ },
+ "RANK": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "rank-function-dax"
+ },
+ "RANK.EQ": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "rank-eq-function-dax"
+ },
+ "RANKX": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "rankx-function-dax"
+ },
+ "RATE": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "rate-function-dax"
+ },
+ "RECEIVED": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "received-function-dax"
+ },
+ "RELATED": {
+  "pages": [
+   "relationship"
+  ],
+  "slug": "related-function-dax"
+ },
+ "RELATEDTABLE": {
+  "pages": [
+   "relationship"
+  ],
+  "slug": "relatedtable-function-dax"
+ },
+ "REMOVEFILTERS": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "removefilters-function-dax"
+ },
+ "REPLACE": {
+  "pages": [
+   "text"
+  ],
+  "slug": "replace-function-dax"
+ },
+ "REPT": {
+  "pages": [
+   "text"
+  ],
+  "slug": "rept-function-dax"
+ },
+ "RIGHT": {
+  "pages": [
+   "text"
+  ],
+  "slug": "right-function-dax"
+ },
+ "ROLLUP": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "rollup-function-dax"
+ },
+ "ROLLUPADDISSUBTOTAL": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "rollupaddissubtotal-function-dax"
+ },
+ "ROLLUPGROUP": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "rollupgroup-function-dax"
+ },
+ "ROLLUPISSUBTOTAL": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "rollupissubtotal-function-dax"
+ },
+ "ROUND": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "round-function-dax"
+ },
+ "ROUNDDOWN": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "rounddown-function-dax"
+ },
+ "ROUNDUP": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "roundup-function-dax"
+ },
+ "ROW": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "row-function-dax"
+ },
+ "ROWNUMBER": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "rownumber-function-dax"
+ },
+ "RRI": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "rri-function-dax"
+ },
+ "RUNNINGSUM": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "runningsum-function-dax"
+ },
+ "SAMEPERIODLASTYEAR": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "sameperiodlastyear-function-dax"
+ },
+ "SAMPLE": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "sample-function-dax"
+ },
+ "SEARCH": {
+  "pages": [
+   "text"
+  ],
+  "slug": "search-function-dax"
+ },
+ "SECOND": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "second-function-dax"
+ },
+ "SELECTCOLUMNS": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "selectcolumns-function-dax"
+ },
+ "SELECTEDMEASURE": {
+  "pages": [
+   "information"
+  ],
+  "slug": "selectedmeasure-function-dax"
+ },
+ "SELECTEDMEASUREFORMATSTRING": {
+  "pages": [
+   "information"
+  ],
+  "slug": "selectedmeasureformatstring-function-dax"
+ },
+ "SELECTEDMEASURENAME": {
+  "pages": [
+   "information"
+  ],
+  "slug": "selectedmeasurename-function-dax"
+ },
+ "SELECTEDVALUE": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "selectedvalue-function-dax"
+ },
+ "SIGN": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "sign-function-dax"
+ },
+ "SIN": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "sin-function-dax"
+ },
+ "SINH": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "sinh-function-dax"
+ },
+ "SLN": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "sln-function-dax"
+ },
+ "SQRT": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "sqrt-function-dax"
+ },
+ "SQRTPI": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "sqrtpi-function-dax"
+ },
+ "STARTOFMONTH": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "startofmonth-function-dax"
+ },
+ "STARTOFQUARTER": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "startofquarter-function-dax"
+ },
+ "STARTOFWEEK": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "startofweek-function-dax"
+ },
+ "STARTOFYEAR": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "startofyear-function-dax"
+ },
+ "STDEV.P": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "stdev-p-function-dax"
+ },
+ "STDEV.S": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "stdev-s-function-dax"
+ },
+ "STDEVX.P": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "stdevx-p-function-dax"
+ },
+ "STDEVX.S": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "stdevx-s-function-dax"
+ },
+ "SUBSTITUTE": {
+  "pages": [
+   "text"
+  ],
+  "slug": "substitute-function-dax"
+ },
+ "SUBSTITUTEWITHINDEX": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "substitutewithindex-function-dax"
+ },
+ "SUM": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "sum-function-dax"
+ },
+ "SUMMARIZE": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "summarize-function-dax"
+ },
+ "SUMMARIZECOLUMNS": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "summarizecolumns-function-dax"
+ },
+ "SUMX": {
+  "pages": [
+   "aggregation"
+  ],
+  "slug": "sumx-function-dax"
+ },
+ "SWITCH": {
+  "pages": [
+   "logical"
+  ],
+  "slug": "switch-function-dax"
+ },
+ "SYD": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "syd-function-dax"
+ },
+ "T.DIST": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "t-dist-function-dax"
+ },
+ "T.DIST.2T": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "t-dist-2t-function-dax"
+ },
+ "T.DIST.RT": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "t-dist-rt-function-dax"
+ },
+ "T.INV": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "t-inv-function-dax"
+ },
+ "TABLEOF": {
+  "pages": [
+   "information"
+  ],
+  "slug": "tableof-function-dax"
+ },
+ "TAN": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "tan-function-dax"
+ },
+ "TANH": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "tanh-function-dax"
+ },
+ "TBILLEQ": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "tbilleq-function-dax"
+ },
+ "TBILLPRICE": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "tbillprice-function-dax"
+ },
+ "TBILLYIELD": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "tbillyield-function-dax"
+ },
+ "TEXTCONTAINS": {
+  "pages": [
+   "information"
+  ],
+  "slug": "textcontains-function-dax"
+ },
+ "TEXTSIMILARITY": {
+  "pages": [
+   "information"
+  ],
+  "slug": "textsimilarity-function-dax"
+ },
+ "TIME": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "time-function-dax"
+ },
+ "TIMEVALUE": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "timevalue-function-dax"
+ },
+ "TOCSV": {
+  "pages": [
+   "other"
+  ],
+  "slug": "tocsv-function-dax"
+ },
+ "TODAY": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "today-function-dax"
+ },
+ "TOJSON": {
+  "pages": [
+   "other"
+  ],
+  "slug": "tojson-function-dax"
+ },
+ "TOPN": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "topn-function-dax"
+ },
+ "TOTALMTD": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "totalmtd-function-dax"
+ },
+ "TOTALQTD": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "totalqtd-function-dax"
+ },
+ "TOTALWTD": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "totalwtd-function-dax"
+ },
+ "TOTALYTD": {
+  "pages": [
+   "time-intelligence"
+  ],
+  "slug": "totalytd-function-dax"
+ },
+ "TREATAS": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "treatas-function-dax"
+ },
+ "TRIM": {
+  "pages": [
+   "text"
+  ],
+  "slug": "trim-function-dax"
+ },
+ "TRUE": {
+  "pages": [
+   "logical"
+  ],
+  "slug": "true-function-dax"
+ },
+ "TRUNC": {
+  "pages": [
+   "math-and-trig"
+  ],
+  "slug": "trunc-function-dax"
+ },
+ "UNICHAR": {
+  "pages": [
+   "text"
+  ],
+  "slug": "unichar-function-dax"
+ },
+ "UNICODE": {
+  "pages": [
+   "text"
+  ],
+  "slug": "unicode-function-dax"
+ },
+ "UNION": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "union-function-dax"
+ },
+ "UPPER": {
+  "pages": [
+   "text"
+  ],
+  "slug": "upper-function-dax"
+ },
+ "USERCULTURE": {
+  "pages": [
+   "information"
+  ],
+  "slug": "userculture-function-dax"
+ },
+ "USERELATIONSHIP": {
+  "pages": [
+   "relationship"
+  ],
+  "slug": "userelationship-function-dax"
+ },
+ "USERNAME": {
+  "pages": [
+   "information"
+  ],
+  "slug": "username-function-dax"
+ },
+ "USEROBJECTID": {
+  "pages": [
+   "information"
+  ],
+  "slug": "userobjectid-function-dax"
+ },
+ "USERPRINCIPALNAME": {
+  "pages": [
+   "information"
+  ],
+  "slug": "userprincipalname-function-dax"
+ },
+ "UTCNOW": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "utcnow-function-dax"
+ },
+ "UTCTODAY": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "utctoday-function-dax"
+ },
+ "VALUE": {
+  "pages": [
+   "text"
+  ],
+  "slug": "value-function-dax"
+ },
+ "VALUES": {
+  "pages": [
+   "table-manipulation"
+  ],
+  "slug": "values-function-dax"
+ },
+ "VAR.P": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "var-p-function-dax"
+ },
+ "VAR.S": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "var-s-function-dax"
+ },
+ "VARX.P": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "varx-p-function-dax"
+ },
+ "VARX.S": {
+  "pages": [
+   "statistical"
+  ],
+  "slug": "varx-s-function-dax"
+ },
+ "VDB": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "vdb-function-dax"
+ },
+ "WEEKDAY": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "weekday-function-dax"
+ },
+ "WEEKNUM": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "weeknum-function-dax"
+ },
+ "WINDOW": {
+  "pages": [
+   "filter"
+  ],
+  "slug": "window-function-dax"
+ },
+ "XIRR": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "xirr-function-dax"
+ },
+ "XNPV": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "xnpv-function-dax"
+ },
+ "YEAR": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "year-function-dax"
+ },
+ "YEARFRAC": {
+  "pages": [
+   "date-and-time"
+  ],
+  "slug": "yearfrac-function-dax"
+ },
+ "YIELD": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "yield-function-dax"
+ },
+ "YIELDDISC": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "yielddisc-function-dax"
+ },
+ "YIELDMAT": {
+  "pages": [
+   "financial"
+  ],
+  "slug": "yieldmat-function-dax"
+ }
+}

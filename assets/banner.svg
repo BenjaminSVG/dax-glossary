@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="340" viewBox="0 0 1280 340" role="img" aria-labelledby="t d">
+  <title id="t">dax-glossary</title>
+  <desc id="d">Open-source glossary of every DAX function and ready-to-render DAX measure templates, in Rust.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="0.55" stop-color="#17133a"/>
+      <stop offset="1" stop-color="#2a0f3f"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="0.5" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0.15" cy="0.2" r="0.6">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0.9" cy="0.9" r="0.6">
+      <stop offset="0" stop-color="#e879f9" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#e879f9" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity="0.045" stroke-width="1"/>
+    </pattern>
+    <clipPath id="round"><rect width="1280" height="340" rx="22"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <rect width="1280" height="340" fill="url(#bg)"/>
+    <rect width="1280" height="340" fill="url(#grid)"/>
+    <rect width="1280" height="340" fill="url(#glowA)"/>
+    <rect width="1280" height="340" fill="url(#glowB)"/>
+
+    <!-- brand mark: a measure bracket "[ ]" around a sigma-like glyph -->
+    <g transform="translate(78 84)">
+      <rect width="104" height="104" rx="24" fill="#ffffff" fill-opacity="0.06" stroke="url(#title)" stroke-width="2.5"/>
+      <path d="M34 26 H26 V78 H34" fill="none" stroke="#5eead4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M70 26 H78 V78 H70" fill="none" stroke="#c084fc" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M62 34 H44 L55 52 L44 70 H62" fill="none" stroke="#60a5fa" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <text x="214" y="144" font-family="'Segoe UI','Inter','Helvetica Neue',Arial,sans-serif" font-size="76" font-weight="800" letter-spacing="-2" fill="url(#title)">dax-glossary</text>
+    <text x="216" y="190" font-family="'Segoe UI','Inter','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="500" fill="#cbd5e1">Every DAX function. Ready-made DAX measures.</text>
+    <text x="216" y="224" font-family="'Segoe UI','Inter','Helvetica Neue',Arial,sans-serif" font-size="19" fill="#94a3b8">Open-source Rust library + CLI to plug DAX into any system.</text>
+
+    <!-- stat pills -->
+    <g font-family="'Segoe UI','Inter',Arial,sans-serif" font-size="17" font-weight="600">
+      <g transform="translate(78 262)">
+        <rect width="190" height="42" rx="21" fill="#0ea5e9" fill-opacity="0.16" stroke="#38bdf8" stroke-opacity="0.7"/>
+        <text x="95" y="27" text-anchor="middle" fill="#e0f2fe">417 functions</text>
+      </g>
+      <g transform="translate(284 262)">
+        <rect width="214" height="42" rx="21" fill="#a855f7" fill-opacity="0.16" stroke="#c084fc" stroke-opacity="0.7"/>
+        <text x="107" y="27" text-anchor="middle" fill="#f3e8ff">68 measure templates</text>
+      </g>
+      <g transform="translate(514 262)">
+        <rect width="196" height="42" rx="21" fill="#10b981" fill-opacity="0.16" stroke="#34d399" stroke-opacity="0.7"/>
+        <text x="98" y="27" text-anchor="middle" fill="#d1fae5">100% offline</text>
+      </g>
+      <g transform="translate(726 262)">
+        <rect width="170" height="42" rx="21" fill="#f59e0b" fill-opacity="0.16" stroke="#fbbf24" stroke-opacity="0.7"/>
+        <text x="85" y="27" text-anchor="middle" fill="#fef3c7">MIT license</text>
+      </g>
+    </g>
+
+    <!-- code card -->
+    <g transform="translate(838 70)" font-family="'Cascadia Code','JetBrains Mono',Consolas,'Courier New',monospace" font-size="15">
+      <rect width="392" height="150" rx="16" fill="#0b1020" fill-opacity="0.82" stroke="#ffffff" stroke-opacity="0.14"/>
+      <circle cx="22" cy="22" r="5.5" fill="#ff5f57"/><circle cx="42" cy="22" r="5.5" fill="#febc2e"/><circle cx="62" cy="22" r="5.5" fill="#28c840"/>
+      <text x="22" y="62" fill="#94a3b8">// rendered by dax-glossary</text>
+      <text x="22" y="88"><tspan fill="#f0abfc">Sales YoY %</tspan><tspan fill="#e2e8f0"> =</tspan></text>
+      <text x="22" y="110"><tspan fill="#7dd3fc">VAR</tspan><tspan fill="#e2e8f0"> _prior = </tspan><tspan fill="#5eead4">CALCULATE</tspan><tspan fill="#e2e8f0">(…)</tspan></text>
+      <text x="22" y="132"><tspan fill="#7dd3fc">RETURN</tspan><tspan fill="#e2e8f0"> </tspan><tspan fill="#5eead4">DIVIDE</tspan><tspan fill="#e2e8f0">([Sales] - _prior, _prior)</tspan></text>
+    </g>
+  </g>
+</svg>

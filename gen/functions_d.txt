@@ -1,0 +1,22 @@
+CLOSINGBALANCEWEEK | Time intelligence | CLOSINGBALANCEWEEK(<expression>, <calendar>[, <filter>]) | scalar | Expression value at the last date of the week in the current context (calendar-based).
+DATESWTD | Time intelligence | DATESWTD(<calendar>) | table | Week-to-date dates up to the last date in context (calendar-based).
+ENDOFWEEK | Time intelligence | ENDOFWEEK(<calendar>) | table | Last date of the week in context (calendar-based).
+NEXTWEEK | Time intelligence | NEXTWEEK(<calendar>) | table | Dates of the week after the one in context (calendar-based).
+OPENINGBALANCEWEEK | Time intelligence | OPENINGBALANCEWEEK(<expression>, <calendar>[, <filter>]) | scalar | Expression value at the day before the week starts (calendar-based).
+PREVIOUSWEEK | Time intelligence | PREVIOUSWEEK(<calendar>) | table | Dates of the week before the one in context (calendar-based).
+STARTOFWEEK | Time intelligence | STARTOFWEEK(<calendar>) | table | First date of the week in context (calendar-based).
+TOTALWTD | Time intelligence | TOTALWTD(<expression>, <calendar>[, <filter>]) | scalar | Week-to-date value of an expression (calendar-based).
+NETWORKDAYS | Date and time | NETWORKDAYS(<start_date>, <end_date>[, <weekend>, <holidays>]) | number | Number of whole working days between two dates, with optional weekend pattern and holidays.
+EXTERNALMEASURE | Other | EXTERNALMEASURE(<measurename>, <datatype>, <connection>) | scalar | References a measure defined in another (remote) semantic model.
+ISBOOLEAN | Information | ISBOOLEAN(<value>) | boolean | TRUE when the value is of the boolean data type.
+ISCURRENCY | Information | ISCURRENCY(<value>) | boolean | TRUE when the value is of the currency data type.
+ISDATETIME | Information | ISDATETIME(<value>) | boolean | TRUE when the value is of the date/time data type.
+ISDECIMAL | Information | ISDECIMAL(<value>) | boolean | TRUE when the value is of the decimal data type.
+ISDOUBLE | Information | ISDOUBLE(<value>) | boolean | TRUE when the value is of the double data type.
+ISINT64 | Information | ISINT64(<value>) | boolean | TRUE when the value is of the 64-bit integer data type.
+ISINTEGER | Information | ISINTEGER(<value>) | boolean | TRUE when the value is of the integer data type.
+ISNUMERIC | Information | ISNUMERIC(<value>) | boolean | TRUE when the value is of a numeric data type.
+ISSTRING | Information | ISSTRING(<value>) | boolean | TRUE when the value is of the text data type.
+TABLEOF | Information | TABLEOF(<reference>) | table | Table that a column or measure reference belongs to.
+TEXTCONTAINS | Information | TEXTCONTAINS(<within_text_column>, <search_text>[, <match_mode>]) | boolean | Text search predicate (word or phrase match) used with text-search enabled columns.
+TEXTSIMILARITY | Information | TEXTSIMILARITY(<within_text_column>, <search_text>[, <match_mode>]) | number | Similarity score between a text column and a search text.

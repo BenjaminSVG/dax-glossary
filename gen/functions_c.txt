@@ -1,0 +1,153 @@
+COMBINEVALUES | Text | COMBINEVALUES(<delimiter>, <expression>, <expression>[, <expression>]...) | text | Joins values with a delimiter, used to build multi-column relationship keys.
+CONCATENATE | Text | CONCATENATE(<text1>, <text2>) | text | Joins two text strings.
+CONCATENATEX | Text | CONCATENATEX(<table>, <expression>[, <delimiter>[, <orderBy_expression>[, <order>]]...]) | text | Joins an expression evaluated over each row of a table.
+EXACT | Text | EXACT(<text1>, <text2>) | boolean | Case-sensitive comparison of two strings.
+FIND | Text | FIND(<find_text>, <within_text>[, <start_num>[, <NotFoundValue>]]) | number | Position of a text inside another, case-sensitive.
+FIXED | Text | FIXED(<number>[, <decimals>[, <no_commas>]]) | text | Formats a number as text with fixed decimals.
+FORMAT | Text | FORMAT(<value>, <format_string>[, <locale_name>]) | text | Converts a value to text using a format string.
+LEFT | Text | LEFT(<text>[, <num_chars>]) | text | Leftmost characters of a text.
+LEN | Text | LEN(<text>) | number | Number of characters in a text.
+LOWER | Text | LOWER(<text>) | text | Converts text to lowercase.
+MID | Text | MID(<text>, <start_num>, <num_chars>) | text | Characters from the middle of a text.
+REPLACE | Text | REPLACE(<old_text>, <start_num>, <num_chars>, <new_text>) | text | Replaces part of a text by position.
+REPT | Text | REPT(<text>, <num_times>) | text | Repeats a text a number of times.
+RIGHT | Text | RIGHT(<text>[, <num_chars>]) | text | Rightmost characters of a text.
+SEARCH | Text | SEARCH(<find_text>, <within_text>[, <start_num>[, <NotFoundValue>]]) | number | Position of a text inside another, case-insensitive.
+SUBSTITUTE | Text | SUBSTITUTE(<text>, <old_text>, <new_text>[, <instance_num>]) | text | Replaces occurrences of a text by content.
+TRIM | Text | TRIM(<text>) | text | Removes extra spaces.
+UNICHAR | Text | UNICHAR(<number>) | text | Unicode character for a code point.
+UNICODE | Text | UNICODE(<text>) | number | Unicode code point of the first character.
+UPPER | Text | UPPER(<text>) | text | Converts text to uppercase.
+VALUE | Text | VALUE(<text>) | number | Converts text to a number.
+TOCSV | Text | TOCSV(<table>[, <maxRows>[, <delimiter>[, <includeHeaders>]]]) | text | Serializes a table as CSV text.
+TOJSON | Text | TOJSON(<table>[, <maxRows>]) | text | Serializes a table as JSON text.
+COLUMNSTATISTICS | Information | COLUMNSTATISTICS() | table | Statistics (min, max, distinct count, rows) for every column of the model.
+CONTAINS | Information | CONTAINS(<table>, <columnName>, <value>[, <columnName>, <value>]...) | boolean | TRUE when a table has a row with all given values.
+CONTAINSROW | Information | CONTAINSROW(<table>, <value>[, <value>]...) | boolean | TRUE when a table has a row with the given values.
+CONTAINSSTRING | Information | CONTAINSSTRING(<within_text>, <find_text>) | boolean | TRUE when a text contains another, case-insensitive.
+CONTAINSSTRINGEXACT | Information | CONTAINSSTRINGEXACT(<within_text>, <find_text>) | boolean | TRUE when a text contains another, case-sensitive.
+CUSTOMDATA | Information | CUSTOMDATA() | text | Value of the CustomData connection string property.
+ISAFTER | Information | ISAFTER(<scalar_expression>, <scalar_expression>[, <sort_order>[, <scalar_expression>, <scalar_expression>[, <sort_order>]]...]) | boolean | Compares two tuples by sort order; used in filter expressions.
+ISBLANK | Information | ISBLANK(<value>) | boolean | TRUE when the value is blank.
+ISEMPTY | Information | ISEMPTY(<table_expression>) | boolean | TRUE when a table has no rows.
+ISERROR | Information | ISERROR(<value>) | boolean | TRUE when the value is an error.
+ISEVEN | Information | ISEVEN(<number>) | boolean | TRUE for even numbers.
+ISINSCOPE | Information | ISINSCOPE(<columnName>) | boolean | TRUE when the column is a level in the current grouping (not a subtotal).
+ISLOGICAL | Information | ISLOGICAL(<value>) | boolean | TRUE when the value is boolean.
+ISNONTEXT | Information | ISNONTEXT(<value>) | boolean | TRUE when the value is not text (blank included).
+ISNUMBER | Information | ISNUMBER(<value>) | boolean | TRUE when the value is numeric.
+ISODD | Information | ISODD(<number>) | boolean | TRUE for odd numbers.
+ISONORAFTER | Information | ISONORAFTER(<scalar_expression>, <scalar_expression>[, <sort_order>[, <scalar_expression>, <scalar_expression>[, <sort_order>]]...]) | boolean | Like ISAFTER but includes equality.
+ISSUBTOTAL | Information | ISSUBTOTAL(<columnName>) | boolean | TRUE when the row is a subtotal for the column in SUMMARIZE with ROLLUP.
+ISTEXT | Information | ISTEXT(<value>) | boolean | TRUE when the value is text.
+NAMEOF | Information | NAMEOF(<value>) | text | Fully qualified name of a column or measure.
+NONVISUAL | Information | NONVISUAL(<expression>) | scalar | Marks a filter as not affecting visual totals.
+USERCULTURE | Information | USERCULTURE() | text | Locale of the current user.
+USERNAME | Information | USERNAME() | text | Domain and user name of the connected user.
+USEROBJECTID | Information | USEROBJECTID() | text | Azure AD object id of the current user.
+USERPRINCIPALNAME | Information | USERPRINCIPALNAME() | text | User principal name of the current user.
+PATH | Parent and child | PATH(<ID_columnName>, <parent_columnName>) | text | Delimited list of ids from the root to the current row of a parent-child hierarchy.
+PATHCONTAINS | Parent and child | PATHCONTAINS(<path>, <item>) | boolean | TRUE when an item exists in a path.
+PATHITEM | Parent and child | PATHITEM(<path>, <position>[, <type>]) | scalar | Item at a position counted from the root.
+PATHITEMREVERSE | Parent and child | PATHITEMREVERSE(<path>, <position>[, <type>]) | scalar | Item at a position counted from the leaf.
+PATHLENGTH | Parent and child | PATHLENGTH(<path>) | number | Number of levels in a path.
+BLANK | Other | BLANK() | scalar | Returns a blank.
+ERROR | Other | ERROR(<text>) | none | Raises an error with a message.
+EVALUATEANDLOG | Other | EVALUATEANDLOG(<value>[, <label>[, <maxRows>]]) | scalar | Evaluates an expression and logs the result for DAX query plan profiling.
+INDEX | Window | INDEX(<position>[, <relation>[, <orderBy>[, <blanks>[, <partitionBy>[, <matchBy>[, <reset>]]]]]]) | table | Row at an absolute position in a sorted, partitioned table.
+MATCHBY | Window | MATCHBY(<column>[, <column>]...) | none | Argument of window functions that defines the columns identifying a row.
+OFFSET | Window | OFFSET(<delta>[, <relation>[, <orderBy>[, <blanks>[, <partitionBy>[, <matchBy>[, <reset>]]]]]]) | table | Row at a relative position from the current row.
+ORDERBY | Window | ORDERBY(<orderBy_expression>[, <order>[, <orderBy_expression>[, <order>]]...]) | none | Argument of window functions that defines the sort order.
+PARTITIONBY | Window | PARTITIONBY(<partitionBy_columnName>[, <partitionBy_columnName>]...) | none | Argument of window functions that defines the partition columns.
+RANK | Window | RANK([<ties>[, <relation>[, <orderBy>[, <blanks>[, <partitionBy>[, <matchBy>[, <reset>]]]]]]]) | number | Rank of the current row within a partition.
+ROWNUMBER | Window | ROWNUMBER([<relation>[, <orderBy>[, <blanks>[, <partitionBy>[, <matchBy>[, <reset>]]]]]]) | number | Unique sequential number of the current row within a partition.
+WINDOW | Window | WINDOW(<from>, <from_type>, <to>, <to_type>[, <relation>[, <orderBy>[, <blanks>[, <partitionBy>[, <matchBy>[, <reset>]]]]]]) | table | Range of rows defined by start and end positions relative to the current or absolute rows.
+SELECTEDMEASURE | Calculation group | SELECTEDMEASURE() | scalar | Measure currently in context; used in calculation items.
+SELECTEDMEASUREFORMATSTRING | Calculation group | SELECTEDMEASUREFORMATSTRING() | text | Format string of the measure in context.
+SELECTEDMEASURENAME | Calculation group | SELECTEDMEASURENAME() | text | Name of the measure in context.
+ISSELECTEDMEASURE | Calculation group | ISSELECTEDMEASURE(<measure>[, <measure>]...) | boolean | TRUE when the measure in context is one of the listed measures.
+COLLAPSE | Visual calculations | COLLAPSE(<column>, <axis>[, <levels>]) | scalar | Evaluates an expression at a higher level of the visual's axis hierarchy.
+COLLAPSEALL | Visual calculations | COLLAPSEALL(<column>, <axis>) | scalar | Evaluates an expression at the top (grand total) of the axis.
+EXPAND | Visual calculations | EXPAND(<column>, <axis>[, <levels>]) | scalar | Evaluates an expression at a lower level of the axis hierarchy.
+EXPANDALL | Visual calculations | EXPANDALL(<column>, <axis>) | scalar | Evaluates an expression at the lowest level of the axis hierarchy.
+FIRST | Visual calculations | FIRST([<axis>[, <reset>]]) | scalar | Row index of the first row of the axis, for relative references.
+LAST | Visual calculations | LAST([<axis>[, <reset>]]) | scalar | Row index of the last row of the axis, for relative references.
+ISATLEVEL | Visual calculations | ISATLEVEL(<column>) | boolean | TRUE when the current cell of the visual is at the level of the column.
+LOOKUP | Visual calculations | LOOKUP(<expression>, <column>, <value>[, <column>, <value>]...) | scalar | Value of a visual cell found by matching column values.
+LOOKUPWITHTOTALS | Visual calculations | LOOKUPWITHTOTALS(<expression>, <column>, <value>[, <column>, <value>]...) | scalar | LOOKUP that can also return total cells.
+MOVINGAVERAGE | Visual calculations | MOVINGAVERAGE(<column>[, <windowSize>[, <includeCurrent>[, <axis>[, <blanks>[, <reset>]]]]]) | number | Moving average over the rows of an axis.
+NEXT | Visual calculations | NEXT(<column>[, <steps>[, <axis>[, <blanks>[, <reset>]]]]) | scalar | Value of the next row of the axis.
+PREVIOUS | Visual calculations | PREVIOUS(<column>[, <steps>[, <axis>[, <blanks>[, <reset>]]]]) | scalar | Value of the previous row of the axis.
+RANGE | Visual calculations | RANGE(<step>[, <mode>[, <axis>[, <blanks>[, <reset>]]]]) | table | Slice of rows of an axis relative to the current row.
+RUNNINGSUM | Visual calculations | RUNNINGSUM(<column>[, <axis>[, <blanks>[, <reset>]]]) | number | Running total over the rows of an axis.
+ACCRINT | Financial | ACCRINT(<issue>, <first_interest>, <settlement>, <rate>, <par>, <frequency>[, <basis>[, <calc_method>]]) | number | Accrued interest for a security that pays periodic interest.
+ACCRINTM | Financial | ACCRINTM(<issue>, <maturity>, <rate>, <par>[, <basis>]) | number | Accrued interest for a security that pays at maturity.
+AMORDEGRC | Financial | AMORDEGRC(<cost>, <date_purchased>, <first_period>, <salvage>, <period>, <rate>[, <basis>]) | number | Depreciation per accounting period with a French degressive coefficient.
+AMORLINC | Financial | AMORLINC(<cost>, <date_purchased>, <first_period>, <salvage>, <period>, <rate>[, <basis>]) | number | Linear depreciation per accounting period.
+COUPDAYBS | Financial | COUPDAYBS(<settlement>, <maturity>, <frequency>[, <basis>]) | number | Days from the start of the coupon period to the settlement date.
+COUPDAYS | Financial | COUPDAYS(<settlement>, <maturity>, <frequency>[, <basis>]) | number | Days in the coupon period containing the settlement date.
+COUPDAYSNC | Financial | COUPDAYSNC(<settlement>, <maturity>, <frequency>[, <basis>]) | number | Days from settlement to the next coupon date.
+COUPNCD | Financial | COUPNCD(<settlement>, <maturity>, <frequency>[, <basis>]) | datetime | Next coupon date after settlement.
+COUPNUM | Financial | COUPNUM(<settlement>, <maturity>, <frequency>[, <basis>]) | number | Number of coupons payable between settlement and maturity.
+COUPPCD | Financial | COUPPCD(<settlement>, <maturity>, <frequency>[, <basis>]) | datetime | Previous coupon date before settlement.
+CUMIPMT | Financial | CUMIPMT(<rate>, <nper>, <pv>, <start_period>, <end_period>, <type>) | number | Cumulative interest paid between two periods.
+CUMPRINC | Financial | CUMPRINC(<rate>, <nper>, <pv>, <start_period>, <end_period>, <type>) | number | Cumulative principal paid between two periods.
+DB | Financial | DB(<cost>, <salvage>, <life>, <period>[, <month>]) | number | Depreciation by the fixed-declining balance method.
+DDB | Financial | DDB(<cost>, <salvage>, <life>, <period>[, <factor>]) | number | Depreciation by the double-declining balance method.
+DISC | Financial | DISC(<settlement>, <maturity>, <pr>, <redemption>[, <basis>]) | number | Discount rate of a security.
+DOLLARDE | Financial | DOLLARDE(<fractional_dollar>, <fraction>) | number | Converts a fractional dollar price to decimal.
+DOLLARFR | Financial | DOLLARFR(<decimal_dollar>, <fraction>) | number | Converts a decimal dollar price to fractional.
+DURATION | Financial | DURATION(<settlement>, <maturity>, <coupon>, <yld>, <frequency>[, <basis>]) | number | Macaulay duration of a security.
+EFFECT | Financial | EFFECT(<nominal_rate>, <npery>) | number | Effective annual interest rate.
+FV | Financial | FV(<rate>, <nper>, <pmt>[, <pv>[, <type>]]) | number | Future value of an investment.
+INTRATE | Financial | INTRATE(<settlement>, <maturity>, <investment>, <redemption>[, <basis>]) | number | Interest rate of a fully invested security.
+IPMT | Financial | IPMT(<rate>, <per>, <nper>, <pv>[, <fv>[, <type>]]) | number | Interest payment for a period of a loan.
+ISPMT | Financial | ISPMT(<rate>, <per>, <nper>, <pv>) | number | Interest paid during a period of a loan with even principal payments.
+MDURATION | Financial | MDURATION(<settlement>, <maturity>, <coupon>, <yld>, <frequency>[, <basis>]) | number | Modified Macaulay duration.
+NOMINAL | Financial | NOMINAL(<effect_rate>, <npery>) | number | Nominal annual interest rate.
+NPER | Financial | NPER(<rate>, <pmt>, <pv>[, <fv>[, <type>]]) | number | Number of periods of an investment.
+ODDFPRICE | Financial | ODDFPRICE(<settlement>, <maturity>, <issue>, <first_coupon>, <rate>, <yld>, <redemption>, <frequency>[, <basis>]) | number | Price per 100 of a security with an odd first period.
+ODDFYIELD | Financial | ODDFYIELD(<settlement>, <maturity>, <issue>, <first_coupon>, <rate>, <pr>, <redemption>, <frequency>[, <basis>]) | number | Yield of a security with an odd first period.
+ODDLPRICE | Financial | ODDLPRICE(<settlement>, <maturity>, <last_interest>, <rate>, <yld>, <redemption>, <frequency>[, <basis>]) | number | Price per 100 of a security with an odd last period.
+ODDLYIELD | Financial | ODDLYIELD(<settlement>, <maturity>, <last_interest>, <rate>, <pr>, <redemption>, <frequency>[, <basis>]) | number | Yield of a security with an odd last period.
+PDURATION | Financial | PDURATION(<rate>, <pv>, <fv>) | number | Periods an investment needs to reach a value.
+PMT | Financial | PMT(<rate>, <nper>, <pv>[, <fv>[, <type>]]) | number | Payment of a loan with constant payments and rate.
+PPMT | Financial | PPMT(<rate>, <per>, <nper>, <pv>[, <fv>[, <type>]]) | number | Principal payment for a period of a loan.
+PRICE | Financial | PRICE(<settlement>, <maturity>, <rate>, <yld>, <redemption>, <frequency>[, <basis>]) | number | Price per 100 of a security that pays periodic interest.
+PRICEDISC | Financial | PRICEDISC(<settlement>, <maturity>, <discount>, <redemption>[, <basis>]) | number | Price per 100 of a discounted security.
+PRICEMAT | Financial | PRICEMAT(<settlement>, <maturity>, <issue>, <rate>, <yld>[, <basis>]) | number | Price per 100 of a security that pays interest at maturity.
+PV | Financial | PV(<rate>, <nper>, <pmt>[, <fv>[, <type>]]) | number | Present value of an investment.
+RATE | Financial | RATE(<nper>, <pmt>, <pv>[, <fv>[, <type>[, <guess>]]]) | number | Interest rate per period of an annuity.
+RECEIVED | Financial | RECEIVED(<settlement>, <maturity>, <investment>, <discount>[, <basis>]) | number | Amount received at maturity of a fully invested security.
+RRI | Financial | RRI(<nper>, <pv>, <fv>) | number | Equivalent interest rate for the growth of an investment.
+SLN | Financial | SLN(<cost>, <salvage>, <life>) | number | Straight-line depreciation for one period.
+SYD | Financial | SYD(<cost>, <salvage>, <life>, <per>) | number | Sum-of-years'-digits depreciation for a period.
+TBILLEQ | Financial | TBILLEQ(<settlement>, <maturity>, <discount>) | number | Bond-equivalent yield of a Treasury bill.
+TBILLPRICE | Financial | TBILLPRICE(<settlement>, <maturity>, <discount>) | number | Price per 100 of a Treasury bill.
+TBILLYIELD | Financial | TBILLYIELD(<settlement>, <maturity>, <pr>) | number | Yield of a Treasury bill.
+VDB | Financial | VDB(<cost>, <salvage>, <life>, <start_period>, <end_period>[, <factor>[, <no_switch>]]) | number | Depreciation over periods using variable declining balance.
+XIRR | Financial | XIRR(<table>, <values>, <dates>[, <guess>]) | number | Internal rate of return for irregularly dated cash flows.
+XNPV | Financial | XNPV(<table>, <values>, <dates>, <rate>) | number | Net present value for irregularly dated cash flows.
+YIELD | Financial | YIELD(<settlement>, <maturity>, <rate>, <pr>, <redemption>, <frequency>[, <basis>]) | number | Yield of a security that pays periodic interest.
+YIELDDISC | Financial | YIELDDISC(<settlement>, <maturity>, <pr>, <redemption>[, <basis>]) | number | Annual yield of a discounted security.
+YIELDMAT | Financial | YIELDMAT(<settlement>, <maturity>, <issue>, <rate>, <pr>[, <basis>]) | number | Annual yield of a security that pays interest at maturity.
+INFO.CALCULATIONGROUPS | INFO | INFO.CALCULATIONGROUPS() | table | Metadata of the calculation groups of the model.
+INFO.CALCULATIONITEMS | INFO | INFO.CALCULATIONITEMS() | table | Metadata of the calculation items of the model.
+INFO.COLUMNS | INFO | INFO.COLUMNS() | table | Metadata of the columns of the model.
+INFO.CULTURES | INFO | INFO.CULTURES() | table | Metadata of the cultures (languages) of the model.
+INFO.DATASOURCES | INFO | INFO.DATASOURCES() | table | Metadata of the data sources of the model.
+INFO.EXPRESSIONS | INFO | INFO.EXPRESSIONS() | table | Metadata of the shared expressions (M parameters, queries) of the model.
+INFO.FUNCTIONS | INFO | INFO.FUNCTIONS() | table | List of DAX functions known by the engine with their arguments.
+INFO.HIERARCHIES | INFO | INFO.HIERARCHIES() | table | Metadata of the hierarchies of the model.
+INFO.LEVELS | INFO | INFO.LEVELS() | table | Metadata of the hierarchy levels of the model.
+INFO.MEASURES | INFO | INFO.MEASURES() | table | Metadata of the measures of the model, expressions included.
+INFO.MODEL | INFO | INFO.MODEL() | table | Metadata of the model itself.
+INFO.PARTITIONS | INFO | INFO.PARTITIONS() | table | Metadata of the partitions of the model.
+INFO.PERSPECTIVES | INFO | INFO.PERSPECTIVES() | table | Metadata of the perspectives of the model.
+INFO.RELATIONSHIPS | INFO | INFO.RELATIONSHIPS() | table | Metadata of the relationships of the model.
+INFO.ROLES | INFO | INFO.ROLES() | table | Metadata of the security roles of the model.
+INFO.TABLES | INFO | INFO.TABLES() | table | Metadata of the tables of the model.
+INFO.VIEW.COLUMNS | INFO | INFO.VIEW.COLUMNS() | table | Columns visible to the current user (respects hidden objects and security).
+INFO.VIEW.MEASURES | INFO | INFO.VIEW.MEASURES() | table | Measures visible to the current user.
+INFO.VIEW.RELATIONSHIPS | INFO | INFO.VIEW.RELATIONSHIPS() | table | Relationships visible to the current user.
+INFO.VIEW.TABLES | INFO | INFO.VIEW.TABLES() | table | Tables visible to the current user.

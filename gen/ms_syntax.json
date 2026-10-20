@@ -1,0 +1,3425 @@
+{
+ "ABS": {
+  "slug": "abs-function-dax",
+  "status": 200,
+  "syntax": [
+   "ABS(<number>)",
+   "= ABS([DealerPrice]-[ListPrice])"
+  ]
+ },
+ "ACCRINT": {
+  "slug": "accrint-function-dax",
+  "status": 200,
+  "syntax": [
+   "ACCRINT(<issue>, <first_interest>, <settlement>, <rate>, <par>, <frequency>[, <basis>[, <calc_method>]])",
+   "EVALUATE { ACCRINT(DATE(2007,3,1), DATE(2008,8,31), DATE(2008,5,1), 0.1, 1000, 2, 0) }",
+   "EVALUATE { ACCRINT(DATE(2007,3,1), DATE(2008,8,31), DATE(2008,5,1), 0.1, 1000, 2, 0, FALSE) }"
+  ]
+ },
+ "ACCRINTM": {
+  "slug": "accrintm-function-dax",
+  "status": 200,
+  "syntax": [
+   "ACCRINTM(<issue>, <maturity>, <rate>, <par>[, <basis>])",
+   "EVALUATE { ACCRINTM(DATE(2008,4,1), DATE(2008,6,15), 0.1, 1000, 3) }"
+  ]
+ },
+ "ACOS": {
+  "slug": "acos-function-dax",
+  "status": 200,
+  "syntax": [
+   "ACOS(number)"
+  ]
+ },
+ "ACOSH": {
+  "slug": "acosh-function-dax",
+  "status": 200,
+  "syntax": [
+   "ACOSH(number)"
+  ]
+ },
+ "ACOT": {
+  "slug": "acot-function-dax",
+  "status": 200,
+  "syntax": [
+   "ACOT(number)"
+  ]
+ },
+ "ACOTH": {
+  "slug": "acoth-function-dax",
+  "status": 200,
+  "syntax": [
+   "ACOTH(number)"
+  ]
+ },
+ "ADDCOLUMNS": {
+  "slug": "addcolumns-function-dax",
+  "status": 200,
+  "syntax": [
+   "ADDCOLUMNS(<table>, <name>, <expression>[, <name>, <expression>]\u2026)",
+   "ADDCOLUMNS(ProductCategory , \"Internet Sales\", SUMX(RELATEDTABLE(InternetSales_USD), InternetSales_USD[SalesAmount_USD]) , \"Reseller Sales\", SUMX(RELATEDTABLE(ResellerSales_USD), ResellerSales_USD[SalesAmount_USD]))"
+  ]
+ },
+ "ADDMISSINGITEMS": {
+  "slug": "addmissingitems-function-dax",
+  "status": 200,
+  "syntax": [
+   "ADDMISSINGITEMS ( [<showAll_columnName> [, <showAll_columnName> [, \u2026 ] ] ], <table> [, <groupBy_columnName> [, [<filterTable>] [, <groupBy_columnName> [, [<filterTable>] [, \u2026 ] ] ] ] ] ] )",
+   "SUMMARIZECOLUMNS( 'Sales'[CustomerId], \"Total Qty\", SUM ( Sales[TotalQty] ) )",
+   "EVALUATE ADDMISSINGITEMS ( 'Sales'[CustomerId], SUMMARIZECOLUMNS( 'Sales'[CustomerId], \"Total Qty\", SUM ( Sales[TotalQty] ) ), 'Sales'[CustomerId] )"
+  ]
+ },
+ "ALL": {
+  "slug": "all-function-dax",
+  "status": 200,
+  "syntax": [
+   "ALL( [<table> | <column>[, <column>[, <column>[,\u2026]]]] )",
+   "= SUMX(ResellerSales_USD, ResellerSales_USD[SalesAmount_USD])/SUMX(ALL(ResellerSales_USD), ResellerSales_USD[SalesAmount_USD])",
+   "= SUMX(ResellerSales_USD, ResellerSales_USD[SalesAmount_USD])/CALCULATE( SUM( ResellerSales_USD[SalesAmount_USD]), ALL(DateTime[CalendarYear]))"
+  ]
+ },
+ "ALLCROSSFILTERED": {
+  "slug": "allcrossfiltered-function-dax",
+  "status": 200,
+  "syntax": [
+   "ALLCROSSFILTERED(<table>)",
+   "DEFINE MEASURE FactInternetSales[TotalQuantity1] = CALCULATE(SUM(FactInternetSales[OrderQuantity]), ALLCROSSFILTERED(FactInternetSales)) MEASURE FactInternetSales[TotalQuantity2] = CALCULATE(SUM(FactInternetSales[OrderQuantity]), ALL(FactInternetSales)) EVALUATE SUMMARIZECOLUMNS(DimSalesReason[SalesReasonName], \"TotalQuantity1\", [TotalQuantity1], \"TotalQuantity2\", [TotalQuantity2]) ORDER BY DimSalesReason[SalesReasonName]"
+  ]
+ },
+ "ALLEXCEPT": {
+  "slug": "allexcept-function-dax",
+  "status": 200,
+  "syntax": [
+   "ALLEXCEPT(<table>,<column>[,<column>[,\u2026]])",
+   "= CALCULATE(SUM(ResellerSales_USD[SalesAmount_USD]), ALLEXCEPT(DateTime, DateTime[CalendarYear]))"
+  ]
+ },
+ "ALLNOBLANKROW": {
+  "slug": "allnoblankrow-function-dax",
+  "status": 200,
+  "syntax": [
+   "ALLNOBLANKROW( {<table> | <column>[, <column>[, <column>[,\u2026]]]} )",
+   "// Countrows ALLNOBLANK of datetime = COUNTROWS(ALLNOBLANKROW('DateTime')) // Countrows ALL of datetime = COUNTROWS(ALL('DateTime')) // Countrows ALLNOBLANKROW of ResellerSales_USD = COUNTROWS(ALLNOBLANKROW('ResellerSales_USD')) // Countrows ALL of ResellerSales_USD = COUNTROWS(ALL('ResellerSales_USD'))"
+  ]
+ },
+ "ALLSELECTED": {
+  "slug": "allselected-function-dax",
+  "status": 200,
+  "syntax": [
+   "ALLSELECTED([<tableName> | <columnName>[, <columnName>[, <columnName>[,\u2026]]]] )",
+   "define measure 'Reseller Sales'[Reseller Sales Amount]=sum('Reseller Sales'[Sales Amount]) measure 'Reseller Sales'[Reseller Grand Total]=calculate(sum('Reseller Sales'[Sales Amount]), ALL('Reseller Sales')) measure 'Reseller Sales'[Reseller Visual Total]=calculate(sum('Reseller Sales'[Sales Amount]), ALLSELECTED()) measure 'Reseller Sales'[Reseller Visual Total for All of Calendar Year]=calculate(sum('Reseller Sales'[Sales Amount]), ALLSELECTED('Date'[Calendar Year])) measure 'Reseller Sales'[Reseller Visual Total for All of Product Category Name]=calculate(sum('Reseller Sales'[Sales Amount]), ALLSELECTED('Product Category'[Product Category Name])) evaluate CalculateTable( //CT table expression summarize( //summarize table expression crossjoin(distinct('Product Category'[Product Category Name]), distinct('Date'[Calendar Year])) //First Group by expression , 'Product Category'[Product Category Name] //Second Group by expression , 'Date'[Calendar Year] //Summary expressions , \"Reseller Sales Amount\", [Reseller Sales Amount] , \"Reseller Grand Total\", [Reseller Grand Total] , \"Reseller Visual Total\", [Reseller Visual Total] , \"Reseller Visual Total for All of Calendar Year\", [Reseller Visual Total for All of Calendar Year] , \"Reseller Visual Total for All of Product Category Name\", [Reseller Visual Total for All of Product Category Name] ) //CT filters , 'Sales Territory'[Sales Territory Group]=\"Europe\", 'Promotion'[Promotion Type]=\"Volume Discount\" ) order by [Product Category Name], [Calendar Year]"
+  ]
+ },
+ "AMORDEGRC": {
+  "slug": "amordegrc-function-dax",
+  "status": 200,
+  "syntax": [
+   "AMORDEGRC(<cost>, <date_purchased>, <first_period>, <salvage>, <period>, <rate>[, <basis>])",
+   "EVALUATE { AMORDEGRC(2400, DATE(2008,8,19), DATE(2008,12,31), 300, 1, 0.15, 1) }"
+  ]
+ },
+ "AMORLINC": {
+  "slug": "amorlinc-function-dax",
+  "status": 200,
+  "syntax": [
+   "AMORLINC(<cost>, <date_purchased>, <first_period>, <salvage>, <period>, <rate>[, <basis>])",
+   "EVALUATE { AMORLINC(2400, DATE(2008,8,19), DATE(2008,12,31), 300, 1, 0.15, 1) }"
+  ]
+ },
+ "AND": {
+  "slug": "and-function-dax",
+  "status": 200,
+  "syntax": [
+   "AND(<logical1>,<logical2>)",
+   "= IF(AND(10 > 9, -10 < -1), \"All true\", \"One or more false\"",
+   "= IF( AND( SUM( 'InternetSales_USD'[SalesAmount_USD]) >SUM('ResellerSales_USD'[SalesAmount_USD]) , CALCULATE(SUM('InternetSales_USD'[SalesAmount_USD]), PREVIOUSYEAR('DateTime'[DateKey] )) >CALCULATE(SUM('ResellerSales_USD'[SalesAmount_USD]), PREVIOUSYEAR('DateTime'[DateKey] )) ) , \"Internet Hit\" , \"\" )"
+  ]
+ },
+ "APPROXIMATEDISTINCTCOUNT": {
+  "slug": "approximate-distinctcount-function-dax",
+  "status": 200,
+  "syntax": [
+   "APPROXIMATEDISTINCTCOUNT(<columnName>)"
+  ]
+ },
+ "ASIN": {
+  "slug": "asin-function-dax",
+  "status": 200,
+  "syntax": [
+   "ASIN(number)"
+  ]
+ },
+ "ASINH": {
+  "slug": "asinh-function-dax",
+  "status": 200,
+  "syntax": [
+   "ASINH(number)"
+  ]
+ },
+ "ATAN": {
+  "slug": "atan-function-dax",
+  "status": 200,
+  "syntax": [
+   "ATAN(number)"
+  ]
+ },
+ "ATANH": {
+  "slug": "atanh-function-dax",
+  "status": 200,
+  "syntax": [
+   "ATANH(number)"
+  ]
+ },
+ "AVERAGE": {
+  "slug": "average-function-dax",
+  "status": 200,
+  "syntax": [
+   "AVERAGE(<column>)",
+   "= AVERAGE(InternetSales[ExtendedSalesAmount])"
+  ]
+ },
+ "AVERAGEA": {
+  "slug": "averagea-function-dax",
+  "status": 200,
+  "syntax": [
+   "AVERAGEA(<column>)",
+   "= AVERAGEA([Amount])"
+  ]
+ },
+ "AVERAGEX": {
+  "slug": "averagex-function-dax",
+  "status": 200,
+  "syntax": [
+   "AVERAGEX(<table>,<expression>)",
+   "= AVERAGEX(InternetSales, InternetSales[Freight]+ InternetSales[TaxAmt])"
+  ]
+ },
+ "BETA.DIST": {
+  "slug": "beta-dist-function-dax",
+  "status": 200,
+  "syntax": [
+   "BETA.DIST(x,alpha,beta,cumulative,[A],[B])"
+  ]
+ },
+ "BETA.INV": {
+  "slug": "beta-inv-function-dax",
+  "status": 200,
+  "syntax": [
+   "BETA.INV(probability,alpha,beta,[A],[B])"
+  ]
+ },
+ "BITAND": {
+  "slug": "bitand-function-dax",
+  "status": 200,
+  "syntax": [
+   "BITAND(<number>, <number>)",
+   "EVALUATE { BITAND(13, 11) }"
+  ]
+ },
+ "BITLSHIFT": {
+  "slug": "bitlshift-function-dax",
+  "status": 200,
+  "syntax": [
+   "BITLSHIFT(<Number>, <Shift_Amount>)",
+   "EVALUATE { BITLSHIFT(2, 3) }",
+   "EVALUATE { BITLSHIFT(128, -1) }"
+  ]
+ },
+ "BITOR": {
+  "slug": "bitor-function-dax",
+  "status": 200,
+  "syntax": [
+   "BITOR(<number>, <number>)",
+   "EVALUATE { BITOR(9, 10) }"
+  ]
+ },
+ "BITRSHIFT": {
+  "slug": "bitrshift-function-dax",
+  "status": 200,
+  "syntax": [
+   "BITRSHIFT(<Number>, <Shift_Amount>)",
+   "EVALUATE { BITRSHIFT(16, 3) }",
+   "EVALUATE { BITRSHIFT(1024, -3) }"
+  ]
+ },
+ "BITXOR": {
+  "slug": "bitxor-function-dax",
+  "status": 200,
+  "syntax": [
+   "BITXOR(<number>, <number>)",
+   "EVALUATE { BITXOR(9, 10) }"
+  ]
+ },
+ "BLANK": {
+  "slug": "blank-function-dax",
+  "status": 200,
+  "syntax": [
+   "BLANK()",
+   "= IF ( SUM ( InternetSales_USD[SalesAmount_USD] ) = 0, BLANK (), SUM ( ResellerSales_USD[SalesAmount_USD] ) / SUM ( InternetSales_USD[SalesAmount_USD] ) )"
+  ]
+ },
+ "CALCULATE": {
+  "slug": "calculate-function-dax",
+  "status": 200,
+  "syntax": [
+   "CALCULATE(<expression>[, <filter1> [, <filter2> [, \u2026]]])",
+   "Total sales on the last selected date = CALCULATE ( SUM ( Sales[Sales Amount] ), 'Sales'[OrderDateKey] = MAX ( 'Sales'[OrderDateKey] ) )",
+   "Blue Revenue = CALCULATE ( SUM ( Sales[Sales Amount] ), 'Product'[Color] = \"Blue\" )"
+  ]
+ },
+ "CALCULATETABLE": {
+  "slug": "calculatetable-function-dax",
+  "status": 200,
+  "syntax": [
+   "CALCULATETABLE(<expression>[, <filter1> [, <filter2> [, \u2026]]])",
+   "= SUMX( CALCULATETABLE( 'InternetSales_USD', 'DateTime'[CalendarYear] = 2006 ), [SalesAmount_USD] )"
+  ]
+ },
+ "CALENDAR": {
+  "slug": "calendar-function-dax",
+  "status": 200,
+  "syntax": [
+   "CALENDAR(<start_date>, <end_date>)",
+   "= CALENDAR (DATE (2015, 1, 1), DATE (2021, 12, 31))",
+   "= CALENDAR (MINX (Sales, [Date]), MAXX (Forecast, [Date]))"
+  ]
+ },
+ "CALENDARAUTO": {
+  "slug": "calendarauto-function-dax",
+  "status": 200,
+  "syntax": [
+   "CALENDARAUTO([fiscal_year_end_month])",
+   "MinDate = MIN('Date'[Date]) //returns July 1, 2018 MaxDate = MAX('Date'[Date]) //returns June 30, 2019 MinCalendarAuto = MIN('CalendarAuto'[Date]) //returns January 1, 2018 MaxCalendarAuto = MAX('CalendarAuto'[Date]) //returns December 31, 2019 MinCalendarAuto3 = MIN('CalendarAuto3'[Date]) //returns April 1, 2018 MaxCalendarAuto3 = MAX('CalendarAuto3'[Date]) //returns March 31, 2020"
+  ]
+ },
+ "CEILING": {
+  "slug": "ceiling-function-dax",
+  "status": 200,
+  "syntax": [
+   "CEILING(<number>, <significance>)",
+   "= CEILING(4.42,0.05)",
+   "= CEILING([ProductPrice],0.05)"
+  ]
+ },
+ "CHISQ.DIST": {
+  "slug": "chisq-dist-function-dax",
+  "status": 200,
+  "syntax": [
+   "CHISQ.DIST(<x>, <deg_freedom>, <cumulative>)",
+   "EVALUATE { CHISQ.DIST(2, 2, TRUE) }"
+  ]
+ },
+ "CHISQ.DIST.RT": {
+  "slug": "chisq-dist-rt-function-dax",
+  "status": 200,
+  "syntax": [
+   "CHISQ.DIST.RT(<x>, <deg_freedom>)",
+   "EVALUATE { CHISQ.DIST.RT(2, 5) }"
+  ]
+ },
+ "CHISQ.INV": {
+  "slug": "chisq-inv-function-dax",
+  "status": 200,
+  "syntax": [
+   "CHISQ.INV(probability,deg_freedom)"
+  ]
+ },
+ "CHISQ.INV.RT": {
+  "slug": "chisq-inv-rt-function-dax",
+  "status": 200,
+  "syntax": [
+   "CHISQ.INV.RT(probability,deg_freedom)"
+  ]
+ },
+ "CLOSINGBALANCEMONTH": {
+  "slug": "closingbalancemonth-function-dax",
+  "status": 200,
+  "syntax": [
+   "CLOSINGBALANCEMONTH(<expression>, <dates> or <calendar>[,<filter>])",
+   "= CLOSINGBALANCEMONTH ( SUMX ( ProductInventory, ProductInventory[UnitCost] * ProductInventory[UnitsBalance] ), DateTime[DateKey] )",
+   "= CLOSINGBALANCEMONTH ( SUMX ( ProductInventory, ProductInventory[UnitCost] * ProductInventory[UnitsBalance] ), FiscalCalendar )"
+  ]
+ },
+ "CLOSINGBALANCEQUARTER": {
+  "slug": "closingbalancequarter-function-dax",
+  "status": 200,
+  "syntax": [
+   "CLOSINGBALANCEQUARTER(<expression>,<dates> or <calendar>[,<filter>])",
+   "= CLOSINGBALANCEQUARTER ( SUMX ( ProductInventory, ProductInventory[UnitCost] * ProductInventory[UnitsBalance] ), DateTime[DateKey] )",
+   "= CLOSINGBALANCEQUARTER ( SUMX ( ProductInventory, ProductInventory[UnitCost] * ProductInventory[UnitsBalance] ), FiscalCalendar )"
+  ]
+ },
+ "CLOSINGBALANCEWEEK": {
+  "slug": "closingbalanceweek-function-dax",
+  "status": 200,
+  "syntax": [
+   "CLOSINGBALANCEWEEK(<expression>, <calendar>[,<filter>])",
+   "= CLOSINGBALANCEWEEK ( SUMX ( ProductInventory, ProductInventory[UnitCost] * ProductInventory[UnitsBalance] ), FiscalCalendar )"
+  ]
+ },
+ "CLOSINGBALANCEYEAR": {
+  "slug": "closingbalanceyear-function-dax",
+  "status": 200,
+  "syntax": [
+   "CLOSINGBALANCEYEAR(<expression>,<dates> or <calendar>[,<filter>][,<year_end_date>])",
+   "= CLOSINGBALANCEYEAR ( SUMX ( ProductInventory, ProductInventory[UnitCost] * ProductInventory[UnitsBalance] ), DateTime[DateKey] )",
+   "= CLOSINGBALANCEYEAR ( SUMX ( ProductInventory, ProductInventory[UnitCost] * ProductInventory[UnitsBalance] ), FiscalCalendar )"
+  ]
+ },
+ "COALESCE": {
+  "slug": "coalesce-function-dax",
+  "status": 200,
+  "syntax": [
+   "COALESCE(<expression>, <expression>[, <expression>]\u2026)",
+   "EVALUATE { COALESCE(BLANK(), 10, DATE(2008, 3, 3)) }",
+   "= COALESCE(SUM(FactInternetSales[SalesAmount]), 0)"
+  ]
+ },
+ "COLLAPSE": {
+  "slug": "collapse-function-dax",
+  "status": 200,
+  "syntax": [
+   "COLLAPSE ( <expression>, <axis>[, N] ) COLLAPSE ( <expression>, <column>[, <column>] ... )",
+   "COLLAPSE ( <axis>[, N] ) COLLAPSE ( <column>[, <column>] ... )",
+   "ParentValue = COLLAPSE([SalesAmount], ROWS) GrandParentValue = COLLAPSE([SalesAmount], ROWS, 2) QuarterOrSelfValue = COLLAPSE([SalesAmount], [Month])"
+  ]
+ },
+ "COLLAPSEALL": {
+  "slug": "collapseall-function-dax",
+  "status": 200,
+  "syntax": [
+   "COLLAPSEALL ( <expression>, <axis> )",
+   "COLLAPSEALL ( <axis> )",
+   "TotalValue = COLLAPSEALL([SalesAmount], ROWS)"
+  ]
+ },
+ "COLUMNSTATISTICS": {
+  "slug": "columnstatistics-function-dax",
+  "status": 200,
+  "syntax": [
+   "COLUMNSTATISTICS ()",
+   "DEFINE TABLE FilteredProduct = FILTER ( Product, [Color] == \"Blue\" ) COLUMN Customer[Location] = [State-Province] & \" \" & [Country-Region] EVALUATE COLUMNSTATISTICS ()"
+  ]
+ },
+ "COMBIN": {
+  "slug": "combin-function-dax",
+  "status": 200,
+  "syntax": [
+   "COMBIN(number, number_chosen)"
+  ]
+ },
+ "COMBINA": {
+  "slug": "combina-function-dax",
+  "status": 200,
+  "syntax": [
+   "COMBINA(number, number_chosen)"
+  ]
+ },
+ "COMBINEVALUES": {
+  "slug": "combinevalues-function-dax",
+  "status": 200,
+  "syntax": [
+   "COMBINEVALUES(<delimiter>, <expression>, <expression>[, <expression>]\u2026)",
+   "Table1[CalcColumn] = COMBINEVALUES(\",\", Table1[Column1], Table1[Column2])",
+   "Table2[CalcColumn] = COMBINEVALUES(\",\", Table2[Column1], Table2[Column2])"
+  ]
+ },
+ "CONCATENATE": {
+  "slug": "concatenate-function-dax",
+  "status": 200,
+  "syntax": [
+   "CONCATENATE(<text1>, <text2>)",
+   "= CONCATENATE(\"Hello \", \"World\")",
+   "= CONCATENATE(Customer[LastName], CONCATENATE(\", \", Customer[FirstName]))"
+  ]
+ },
+ "CONCATENATEX": {
+  "slug": "concatenatex-function-dax",
+  "status": 200,
+  "syntax": [
+   "CONCATENATEX(<table>, <expression>[, <delimiter> [, <orderBy_expression> [, <order>]]...])",
+   "= CONCATENATEX(Employees, [FirstName] & \" \" & [LastName], \",\")"
+  ]
+ },
+ "CONFIDENCE.NORM": {
+  "slug": "confidence-norm-function-dax",
+  "status": 200,
+  "syntax": [
+   "CONFIDENCE.NORM(alpha,standard_dev,size)"
+  ]
+ },
+ "CONFIDENCE.T": {
+  "slug": "confidence-t-function-dax",
+  "status": 200,
+  "syntax": [
+   "CONFIDENCE.T(alpha,standard_dev,size)"
+  ]
+ },
+ "CONTAINS": {
+  "slug": "contains-function-dax",
+  "status": 200,
+  "syntax": [
+   "CONTAINS(<table>, <columnName>, <value>[, <columnName>, <value>]\u2026)",
+   "= CONTAINS(InternetSales, [ProductKey], 214, [CustomerKey], 11185)"
+  ]
+ },
+ "CONTAINSROW": {
+  "slug": "containsrow-function-dax",
+  "status": 200,
+  "syntax": [
+   "CONTAINSROW(<Table>, <Value> [, <Value> [, \u2026] ] )",
+   "<scalarExpr> IN <tableExpr> ( <scalarExpr1>, <scalarExpr2>, \u2026 ) IN <tableExpr>",
+   "EVALUATE FILTER ( ALL ( Product[Color] ), ( [Color] ) IN { \"Red\", \"Yellow\", \"Blue\" } ) ORDER BY [Color]"
+  ]
+ },
+ "CONTAINSSTRING": {
+  "slug": "containsstring-function-dax",
+  "status": 200,
+  "syntax": [
+   "CONTAINSSTRING(<within_text>, <find_text>)",
+   "EVALUATE ROW( \"Case 1\", CONTAINSSTRING(\"abcd\", \"bc\"), \"Case 2\", CONTAINSSTRING(\"abcd\", \"BC\"), \"Case 3\", CONTAINSSTRING(\"abcd\", \"a*d\"), \"Case 4\", CONTAINSSTRING(\"abcd\", \"ef\") )"
+  ]
+ },
+ "CONTAINSSTRINGEXACT": {
+  "slug": "containsstringexact-function-dax",
+  "status": 200,
+  "syntax": [
+   "CONTAINSSTRINGEXACT(<within_text>, <find_text>)",
+   "EVALUATE ROW( \"Case 1\", CONTAINSSTRINGEXACT(\"abcd\", \"bc\"), \"Case 2\", CONTAINSSTRINGEXACT(\"abcd\", \"BC\"), \"Case 3\", CONTAINSSTRINGEXACT(\"abcd\", \"a*d\"), \"Case 4\", CONTAINSSTRINGEXACT(\"abcd\", \"ef\") )"
+  ]
+ },
+ "CONVERT": {
+  "slug": "convert-function-dax",
+  "status": 200,
+  "syntax": [
+   "CONVERT(<Expression>, <Datatype>)",
+   "MedianOrderQuantity = MEDIAN ( [Order Quantity] )",
+   "MedianOrderQuantity = MEDIANX ( 'Sales', CONVERT ( [Order Quantity], DOUBLE ) )"
+  ]
+ },
+ "COS": {
+  "slug": "cos-function-dax",
+  "status": 200,
+  "syntax": [
+   "COS(number)"
+  ]
+ },
+ "COSH": {
+  "slug": "cosh-function-dax",
+  "status": 200,
+  "syntax": [
+   "COSH(number)"
+  ]
+ },
+ "COT": {
+  "slug": "cot-function-dax",
+  "status": 200,
+  "syntax": [
+   "COT (<number>)",
+   "EVALUATE { COT(30) }"
+  ]
+ },
+ "COTH": {
+  "slug": "coth-function-dax",
+  "status": 200,
+  "syntax": [
+   "COTH (<number>)",
+   "EVALUATE { COTH(2) }"
+  ]
+ },
+ "COUNT": {
+  "slug": "count-function-dax",
+  "status": 200,
+  "syntax": [
+   "COUNT(<column>)",
+   "= COUNT([ShipDate])"
+  ]
+ },
+ "COUNTA": {
+  "slug": "counta-function-dax",
+  "status": 200,
+  "syntax": [
+   "COUNTA(<column>)",
+   "= COUNTA(Reseller[Phone])"
+  ]
+ },
+ "COUNTAX": {
+  "slug": "countax-function-dax",
+  "status": 200,
+  "syntax": [
+   "COUNTAX(<table>,<expression>)",
+   "= COUNTAX(FILTER('Reseller',[Status]=\"Active\"),[Phone])"
+  ]
+ },
+ "COUNTBLANK": {
+  "slug": "countblank-function-dax",
+  "status": 200,
+  "syntax": [
+   "COUNTBLANK(<column>)",
+   "= COUNTBLANK(Reseller[BankName])"
+  ]
+ },
+ "COUNTROWS": {
+  "slug": "countrows-function-dax",
+  "status": 200,
+  "syntax": [
+   "COUNTROWS([<table>])",
+   "= COUNTROWS('Orders')",
+   "= COUNTROWS(RELATEDTABLE(ResellerSales))"
+  ]
+ },
+ "COUNTX": {
+  "slug": "countx-function-dax",
+  "status": 200,
+  "syntax": [
+   "COUNTX(<table>,<expression>)",
+   "= COUNTX(Product,[ListPrice])",
+   "= COUNTX(FILTER(Product,RELATED(ProductSubcategory[EnglishProductSubcategoryName])=\"Caps\"), Product[ListPrice])"
+  ]
+ },
+ "COUPDAYBS": {
+  "slug": "coupdaybs-function-dax",
+  "status": 200,
+  "syntax": [
+   "COUPDAYBS(<settlement>, <maturity>, <frequency>[, <basis>])",
+   "EVALUATE { COUPDAYBS(DATE(2011,1,25), DATE(2011,11,15), 2, 1) }"
+  ]
+ },
+ "COUPDAYS": {
+  "slug": "coupdays-function-dax",
+  "status": 200,
+  "syntax": [
+   "COUPDAYS(<settlement>, <maturity>, <frequency>[, <basis>])",
+   "EVALUATE { COUPDAYS(DATE(2011,1,25), DATE(2011,11,15), 2, 1) }"
+  ]
+ },
+ "COUPDAYSNC": {
+  "slug": "coupdaysnc-function-dax",
+  "status": 200,
+  "syntax": [
+   "COUPDAYSNC(<settlement>, <maturity>, <frequency>[, <basis>])",
+   "EVALUATE { COUPDAYSNC(DATE(2011,1,25), DATE(2011,11,15), 2, 1) }"
+  ]
+ },
+ "COUPNCD": {
+  "slug": "coupncd-function-dax",
+  "status": 200,
+  "syntax": [
+   "COUPNCD(<settlement>, <maturity>, <frequency>[, <basis>])",
+   "EVALUATE { COUPNCD(DATE(2011,1,25), DATE(2011,11,15), 2, 1) }"
+  ]
+ },
+ "COUPNUM": {
+  "slug": "coupnum-function-dax",
+  "status": 200,
+  "syntax": [
+   "COUPNUM(<settlement>, <maturity>, <frequency>[, <basis>])",
+   "EVALUATE { COUPNUM(DATE(2007,1,25), DATE(2008,11,15), 2, 1) }"
+  ]
+ },
+ "COUPPCD": {
+  "slug": "couppcd-function-dax",
+  "status": 200,
+  "syntax": [
+   "COUPPCD(<settlement>, <maturity>, <frequency>[, <basis>])",
+   "EVALUATE { COUPPCD(DATE(2011,1,25), DATE(2011,11,15), 2, 1) }"
+  ]
+ },
+ "CROSSFILTER": {
+  "slug": "crossfilter-function-dax",
+  "status": 200,
+  "syntax": [
+   "CROSSFILTER(<columnName1>, <columnName2>, <direction>)",
+   "BiDi:= CALCULATE([Distinct Count of ProductKey], CROSSFILTER(FactInternetSales[ProductKey], DimProduct[ProductKey] , Both))"
+  ]
+ },
+ "CROSSJOIN": {
+  "slug": "crossjoin-function-dax",
+  "status": 200,
+  "syntax": [
+   "CROSSJOIN(<table>, <table>[, <table>]\u2026)",
+   "CROSSJOIN( Colors, Stationery)"
+  ]
+ },
+ "CUMIPMT": {
+  "slug": "cumipmt-function-dax",
+  "status": 200,
+  "syntax": [
+   "CUMIPMT(<rate>, <nper>, <pv>, <start_period>, <end_period>, <type>)",
+   "EVALUATE { CUMIPMT(0.09/12, 30*12, 125000, 13, 24, 1) }",
+   "EVALUATE { CUMIPMT(0.09/12, 30*12, 125000, 1, 1, 0) }"
+  ]
+ },
+ "CUMPRINC": {
+  "slug": "cumprinc-function-dax",
+  "status": 200,
+  "syntax": [
+   "CUMPRINC(<rate>, <nper>, <pv>, <start_period>, <end_period>, <type>)",
+   "EVALUATE { CUMPRINC(0.09/12, 30*12, 125000, 13, 24, 1) }",
+   "EVALUATE { CUMPRINC(0.09/12, 30*12, 125000, 1, 1, 0) }"
+  ]
+ },
+ "CURRENCY": {
+  "slug": "currency-function-dax",
+  "status": 200,
+  "syntax": [
+   "CURRENCY(<value>)",
+   "= CURRENCY(1234.56)"
+  ]
+ },
+ "CURRENTGROUP": {
+  "slug": "currentgroup-function-dax",
+  "status": 200,
+  "syntax": [
+   "CURRENTGROUP ( )"
+  ]
+ },
+ "CUSTOMDATA": {
+  "slug": "customdata-function-dax",
+  "status": 200,
+  "syntax": [
+   "CUSTOMDATA()",
+   "= IF(CUSTOMDATA()=\"OK\", \"Correct Custom data in connection string\", \"No custom data in connection string property or unexpected value\")"
+  ]
+ },
+ "DATATABLE": {
+  "slug": "datatable-function-dax",
+  "status": 200,
+  "syntax": [
+   "DATATABLE (ColumnName1, DataType1, ColumnName2, DataType2..., {{Value1, Value2...}, {ValueN, ValueN+1...}...})",
+   "= DataTable(\"Name\", STRING, \"Region\", STRING ,{ {\" User1\",\"East\"}, {\" User2\",\"East\"}, {\" User3\",\"West\"}, {\" User4\",\"West\"}, {\" User4\",\"East\"} } )"
+  ]
+ },
+ "DATE": {
+  "slug": "date-function-dax",
+  "status": 200,
+  "syntax": [
+   "DATE(<year>, <month>, <day>)",
+   "= DATE(2009,7,8)",
+   "= DATE(08,1,2)"
+  ]
+ },
+ "DATEADD": {
+  "slug": "dateadd-function-dax",
+  "status": 200,
+  "syntax": [
+   "DATEADD(<dates> or <calendar>, <number_of_intervals>, <interval>[,<Extension>],[,<Truncation>])",
+   "= DATEADD ( DateTime[DateKey], -1, YEAR )",
+   "DATEADD ( FiscalCalendar, -1, YEAR )"
+  ]
+ },
+ "DATEDIFF": {
+  "slug": "datediff-function-dax",
+  "status": 200,
+  "syntax": [
+   "DATEDIFF(<Date1>, <Date2>, <Interval>)",
+   "EVALUATE VAR StartDate = DATE ( 2019, 07, 01 ) VAR EndDate = DATE ( 2021, 12, 31 ) RETURN { ( \"Year\", DATEDIFF ( StartDate, EndDate, YEAR ) ), ( \"Quarter\", DATEDIFF ( StartDate, EndDate, QUARTER ) ), ( \"Month\", DATEDIFF ( StartDate, EndDate, MONTH ) ), ( \"Week\", DATEDIFF ( StartDate, EndDate, WEEK ) ), ( \"Day\", DATEDIFF ( StartDate, EndDate, DAY ) ) }"
+  ]
+ },
+ "DATESBETWEEN": {
+  "slug": "datesbetween-function-dax",
+  "status": 200,
+  "syntax": [
+   "DATESBETWEEN(<dates or calendar>, <StartDate>, <EndDate>)",
+   "Customers LTD = CALCULATE ( DISTINCTCOUNT ( Sales[CustomerKey] ), DATESBETWEEN ( 'Date'[Date], BLANK (), MAX ( 'Date'[Date] ) ) )",
+   "Customers LTD = CALCULATE ( DISTINCTCOUNT ( Sales[CustomerKey] ), DATESBETWEEN ( FiscalCalendar, BLANK (), MAX ( 'Date'[DateKey] ) ) )"
+  ]
+ },
+ "DATESINPERIOD": {
+  "slug": "datesinperiod-function-dax",
+  "status": 200,
+  "syntax": [
+   "DATESINPERIOD(<dates or calendar>, <start_date>, <number_of_intervals>, <interval>[, <endbehavior>])",
+   "Revenue PY = CALCULATE ( SUM ( Sales[Sales Amount] ), DATESINPERIOD ( 'Date'[Date], MAX ( 'Date'[Date] ), -1, YEAR ) )",
+   "Revenue PY = CALCULATE ( SUM ( Sales[Sales Amount] ), DATESINPERIOD ( FiscalCalendar, MAX ( 'Date'[DateKey] ), -1, YEAR ) )"
+  ]
+ },
+ "DATESMTD": {
+  "slug": "datesmtd-function-dax",
+  "status": 200,
+  "syntax": [
+   "DATESMTD(<dates> or <calendar>)",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), DATESMTD ( DateTime[DateKey] ) )",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), DATESMTD ( FiscalCalendar ) )"
+  ]
+ },
+ "DATESQTD": {
+  "slug": "datesqtd-function-dax",
+  "status": 200,
+  "syntax": [
+   "DATESQTD(<dates> or <calendar>)",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), DATESQTD ( DateTime[DateKey] ) )",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), DATESQTD ( FiscalCalendar ) )"
+  ]
+ },
+ "DATESWTD": {
+  "slug": "dateswtd-function-dax",
+  "status": 200,
+  "syntax": [
+   "DATESWTD(<calendar>)",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), DATESWTD ( FiscalCalendar ) )"
+  ]
+ },
+ "DATESYTD": {
+  "slug": "datesytd-function-dax",
+  "status": 200,
+  "syntax": [
+   "DATESYTD(<dates> or <calendar> [,<year_end_date>])",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), DATESYTD ( DateTime[DateKey] ) )",
+   "= CALCULATE( SUM(InternetSales_USD[SalesAmount_USD]), DATESYTD(DateTime[DateKey], \"6-30\" ) )"
+  ]
+ },
+ "DATEVALUE": {
+  "slug": "datevalue-function-dax",
+  "status": 200,
+  "syntax": [
+   "DATEVALUE(date_text)",
+   "= DATEVALUE(\"8/1/2009\")"
+  ]
+ },
+ "DAY": {
+  "slug": "day-function-dax",
+  "status": 200,
+  "syntax": [
+   "DAY(<date>)",
+   "= DAY([Birthdate])",
+   "= DAY(\"3-4-1007\") = DAY(\"March 4 2007\")"
+  ]
+ },
+ "DB": {
+  "slug": "db-function-dax",
+  "status": 200,
+  "syntax": [
+   "DB(<cost>, <salvage>, <life>, <period>[, <month>])",
+   "EVALUATE { DB(1000000, 0, 6, 1, 2) }",
+   "DEFINE VAR NumDepreciationPeriods = MAX(Asset[LifeTimeYears])+1 VAR DepreciationPeriods = GENERATESERIES(1, NumDepreciationPeriods) EVALUATE ADDCOLUMNS ( DepreciationPeriods, \"Current Period Total Depreciation\", SUMX ( FILTER ( Asset, [Value] <= [LifetimeYears]+1 ), DB([InitialCost], [SalvageValue], [LifetimeYears], [Value], 7) ) )"
+  ]
+ },
+ "DDB": {
+  "slug": "ddb-function-dax",
+  "status": 200,
+  "syntax": [
+   "DDB(<cost>, <salvage>, <life>, <period>[, <factor>])",
+   "EVALUATE { DDB(1000000, 0, 10, 5, 1.5) }",
+   "DEFINE VAR NumDepreciationPeriods = MAX(Asset[LifeTimeYears]) VAR DepreciationPeriods = GENERATESERIES(1, NumDepreciationPeriods) EVALUATE ADDCOLUMNS ( DepreciationPeriods, \"Current Period Total Depreciation\", SUMX ( FILTER ( Asset, [Value] <= [LifetimeYears] ), DDB([InitialCost], [SalvageValue], [LifetimeYears], [Value]) ) )"
+  ]
+ },
+ "DEGREES": {
+  "slug": "degrees-function-dax",
+  "status": 200,
+  "syntax": [
+   "DEGREES(angle)"
+  ]
+ },
+ "DETAILROWS": {
+  "slug": "detailrows-function-dax",
+  "status": 200,
+  "syntax": [
+   "DETAILROWS([Measure])"
+  ]
+ },
+ "DISC": {
+  "slug": "disc-function-dax",
+  "status": 200,
+  "syntax": [
+   "DISC(<settlement>, <maturity>, <pr>, <redemption>[, <basis>])",
+   "EVALUATE { DISC(DATE(2018,7,1), DATE(2048,1,1), 97.975, 100, 1) }"
+  ]
+ },
+ "DISTINCT": {
+  "slug": "distinct-function-dax",
+  "status": 200,
+  "syntax": [
+   "DISTINCT(<column>)",
+   "= COUNTROWS(DISTINCT(InternetSales_USD[CustomerKey]))"
+  ]
+ },
+ "DISTINCTCOUNT": {
+  "slug": "distinctcount-function-dax",
+  "status": 200,
+  "syntax": [
+   "DISTINCTCOUNT(<column>)",
+   "= DISTINCTCOUNT(ResellerSales_USD[SalesOrderNumber])"
+  ]
+ },
+ "DISTINCTCOUNTNOBLANK": {
+  "slug": "distinctcountnoblank-function-dax",
+  "status": 200,
+  "syntax": [
+   "DISTINCTCOUNTNOBLANK(<column>)",
+   "= DISTINCTCOUNT(ResellerSales_USD[SalesOrderNumber])",
+   "EVALUATE ROW( \"DistinctCountNoBlank\", DISTINCTCOUNTNOBLANK(DimProduct[EndDate]), \"DistinctCount\", DISTINCTCOUNT(DimProduct[EndDate]) )"
+  ]
+ },
+ "DIVIDE": {
+  "slug": "divide-function-dax",
+  "status": 200,
+  "syntax": [
+   "DIVIDE(<numerator>, <denominator> [,<alternateresult>])",
+   "= DIVIDE(5,2)",
+   "= DIVIDE(5,0)"
+  ]
+ },
+ "DOLLARDE": {
+  "slug": "dollarde-function-dax",
+  "status": 200,
+  "syntax": [
+   "DOLLARDE(<fractional_dollar>, <fraction>)",
+   "EVALUATE { DOLLARDE(1.02, 16) }"
+  ]
+ },
+ "DOLLARFR": {
+  "slug": "dollarfr-function-dax",
+  "status": 200,
+  "syntax": [
+   "DOLLARFR(<decimal_dollar>, <fraction>)",
+   "EVALUATE { DOLLARFR(1.125, 16) }"
+  ]
+ },
+ "DURATION": {
+  "slug": "duration-function-dax",
+  "status": 200,
+  "syntax": [
+   "DURATION(<settlement>, <maturity>, <coupon>, <yld>, <frequency>[, <basis>])",
+   "EVALUATE { DURATION(DATE(2018,7,1), DATE(2048,1,1), 0.08, 0.09, 2, 1) }"
+  ]
+ },
+ "EARLIER": {
+  "slug": "earlier-function-dax",
+  "status": 200,
+  "syntax": [
+   "EARLIER(<column>, <number>)",
+   "= COUNTROWS(FILTER(ProductSubcategory, EARLIER(ProductSubcategory[TotalSubcategorySales])<ProductSubcategory[TotalSubcategorySales]))+1"
+  ]
+ },
+ "EARLIEST": {
+  "slug": "earliest-function-dax",
+  "status": 200,
+  "syntax": [
+   "EARLIEST(<column>)",
+   "= EARLIEST(<column>)"
+  ]
+ },
+ "EDATE": {
+  "slug": "edate-function-dax",
+  "status": 200,
+  "syntax": [
+   "EDATE(<start_date>, <months>)",
+   "= EDATE([TransactionDate],3)"
+  ]
+ },
+ "EFFECT": {
+  "slug": "effect-function-dax",
+  "status": 200,
+  "syntax": [
+   "EFFECT(<nominal_rate>, <npery>)",
+   "EVALUATE { EFFECT(0.0525, 4) }"
+  ]
+ },
+ "ENDOFMONTH": {
+  "slug": "endofmonth-function-dax",
+  "status": 200,
+  "syntax": [
+   "ENDOFMONTH(<dates> or <calendar>)",
+   "= ENDOFMONTH(DateTime[DateKey])",
+   "= ENDOFMONTH(FiscalCalendar)"
+  ]
+ },
+ "ENDOFQUARTER": {
+  "slug": "endofquarter-function-dax",
+  "status": 200,
+  "syntax": [
+   "ENDOFQUARTER(<dates> or <calendar>)",
+   "= ENDOFQUARTER(DateTime[DateKey])",
+   "= ENDOFQUARTER(FiscalCalendar)"
+  ]
+ },
+ "ENDOFWEEK": {
+  "slug": "endofweek-function-dax",
+  "status": 200,
+  "syntax": [
+   "ENDOFWEEK(<calendar>)",
+   "= ENDOFWEEK(FiscalCalendar)"
+  ]
+ },
+ "ENDOFYEAR": {
+  "slug": "endofyear-function-dax",
+  "status": 200,
+  "syntax": [
+   "ENDOFYEAR(<dates> or <calendar> [,<year_end_date>])",
+   "= ENDOFYEAR(DateTime[DateKey],\"06/30/2004\")",
+   "= ENDOFYEAR(FiscalCalendar)"
+  ]
+ },
+ "EOMONTH": {
+  "slug": "eomonth-function-dax",
+  "status": 200,
+  "syntax": [
+   "EOMONTH(<start_date>, <months>)",
+   "= EOMONTH(\"March 3, 2008\",1.5)"
+  ]
+ },
+ "ERROR": {
+  "slug": "error-function-dax",
+  "status": 200,
+  "syntax": [
+   "ERROR(<text>)",
+   "DEFINE MEASURE DimProduct[Measure] = IF( SELECTEDVALUE(DimProduct[Color]) = \"Red\", ERROR(\"red color encountered\"), SELECTEDVALUE(DimProduct[Color]) ) EVALUATE SUMMARIZECOLUMNS(DimProduct[Color], \"Measure\", [Measure]) ORDER BY [Color]",
+   "DEFINE MEASURE DimProduct[Measure] = IF( SELECTEDVALUE(DimProduct[Color]) = \"Magenta\", ERROR(\"magenta color encountered\"), SELECTEDVALUE(DimProduct[Color]) ) EVALUATE SUMMARIZECOLUMNS(DimProduct[Color], \"Measure\", [Measure]) ORDER BY [Color]"
+  ]
+ },
+ "EVALUATEANDLOG": {
+  "slug": "evaluateandlog-function-dax",
+  "status": 200,
+  "syntax": [
+   "EVALUATEANDLOG(<Value>, [Label], [MaxRows])",
+   "evaluate SUMMARIZE( EVALUATEANDLOG(FILTER(Sales, [ProductKey] = 528)), Sales[SalesTerritoryKey], \"sum\", sum(Sales[Sales Amount]) )",
+   "{ \"expression\": \"FILTER(Sales, [ProductKey] = 528)\", \"inputs\": [], \"outputs\": [\"'Sales'[SalesOrderLineKey]\", \"'Sales'[ResellerKey]\", \"'Sales'[CustomerKey]\", \"'Sales'[ProductKey]\", \"'Sales'[OrderDateKey]\", \"'Sales'[DueDateKey]\", \"'Sales'[ShipDateKey]\", \"'Sales'[SalesTerritoryKey]\", \"'Sales'[Order Quantity]\", \"'Sales'[Unit Price]\", \"'Sales'[Extended Amount]\", \"'Sales'[Product Standard Cost]\", \"'Sales'[Total Product Cost]\", \"'Sales'[Sales Amount]\", \"'Sales'[Unit Price Discount Pct]\"], \"data\": [ { \"input\": [], \"rowCount\": 3095, \"output\": [ [52174001, -1, 23785, 528, 20190707, 20190717, 20190714, 1, 1, 4.99, 4.99, 1.8663, 1.8663, 4.99, 0.0], [52173001, -1, 26278, 528, 20190707, 20190717, 20190714, 1, 1, 4.99, 4.99, 1.8663, 1.8663, 4.99, 0.0], [52082001, -1, 23831, 528, 20190705, 20190715, 20190712, 1, 1, 4.99, 4.99, 1.8663, 1.8663, 4.99, 0.0], [52054002, -1, 11207, 528, 20190704, 20190714, 20190711, 1, 1, 4.99, 4.99, 1.8663, 1.8663, 4.99, 0.0], [52036001, -1, 25337, 528, 20190704, 20190714, 20190711, 1, 1, 4.99, 4.99, 1.8663, 1.8663, 4.99, 0.0], [51939002, -1, 23670, 528, 20190702, 20190712, 20190709, 1, 1, 4.99, 4.99, 1.8663, 1.8663, 4.99, 0.0], [51911002, -1, 11746, 528, 20190701, 20190711, 20190708, 1, 1, 4.99, 4.99, 1.8663, 1.8663, 4.99, 0.0], [51379003, -1, 13745, 528, 20190612, 20190622, 20190619, 1, 1, 4.99, 4.99, 1.8663, 1.8663, 4.99, 0.0], [51264002, -1, 11282, 528, 20190605, 20190615, 20190612, 1, 1, 4.99, 4.99, 1.8663, 1.8663, 4.99, 0.0], [51184003, -1, 11263, 528, 20190531, 20190610, 20190607, 1, 1, 4.99, 4.99, 1.8663, 1.8663, 4.99, 0.0] ] } ] }"
+  ]
+ },
+ "EVEN": {
+  "slug": "even-function-dax",
+  "status": 200,
+  "syntax": [
+   "EVEN(number)"
+  ]
+ },
+ "EXACT": {
+  "slug": "exact-function-dax",
+  "status": 200,
+  "syntax": [
+   "EXACT(<text1>,<text2>)",
+   "= EXACT ( [Product], [Model] )"
+  ]
+ },
+ "EXCEPT": {
+  "slug": "except-function-dax",
+  "status": 200,
+  "syntax": [
+   "EXCEPT(<tableExpression1>, <tableExpression2>)"
+  ]
+ },
+ "EXP": {
+  "slug": "exp-function-dax",
+  "status": 200,
+  "syntax": [
+   "EXP(<number>)",
+   "= EXP([Power])"
+  ]
+ },
+ "EXPAND": {
+  "slug": "expand-function-dax",
+  "status": 200,
+  "syntax": [
+   "EXPAND ( <expression>, <axis>[, N] ) EXPAND ( <expression>, <column>[, <column>] ... )",
+   "EXPAND ( <axis>[, N] ) EXPAND ( <column>[, <column>] ... )",
+   "MaxOfChildren = EXPAND(MAX([SalesAmount]), ROWS) MaxOfGrandChildren = EXPAND(MAX([SalesAmount]), ROWS, 2) MaxOfMonthChildren = EXPAND(MAX([SalesAmount]), [Month])"
+  ]
+ },
+ "EXPANDALL": {
+  "slug": "expandall-function-dax",
+  "status": 200,
+  "syntax": [
+   "EXPANDALL ( <expression>, <axis> )",
+   "EXPANDALL ( <axis> )",
+   "MaxOfLeafLevel = EXPANDALL(MAX([SalesAmount]), ROWS)"
+  ]
+ },
+ "EXPON.DIST": {
+  "slug": "expon-dist-function-dax",
+  "status": 200,
+  "syntax": [
+   "EXPON.DIST(x,lambda,cumulative)"
+  ]
+ },
+ "EXTERNALMEASURE": {
+  "slug": "externalmeasure-function-dax",
+  "status": 200,
+  "syntax": [
+   "EXTERNALMEASURE(<measurename>, <datatype>, <connection>)",
+   "Total Sales Remote = EXTERNALMEASURE ( \"Total Sales\", CURRENCY, \"DirectQuery to AS - Adventure Works DW 2020\" )"
+  ]
+ },
+ "FACT": {
+  "slug": "fact-function-dax",
+  "status": 200,
+  "syntax": [
+   "FACT(<number>)",
+   "= FACT([Values])"
+  ]
+ },
+ "FALSE": {
+  "slug": "false-function-dax",
+  "status": 200,
+  "syntax": [
+   "FALSE()",
+   "= IF(SUM('InternetSales_USD'[SalesAmount_USD]) >200000, TRUE(), false())"
+  ]
+ },
+ "FILTER": {
+  "slug": "filter-function-dax",
+  "status": 200,
+  "syntax": [
+   "FILTER(<table>,<filter>)",
+   "FILTER('InternetSales_USD', RELATED('SalesTerritory'[SalesTerritoryCountry])<>\"United States\")",
+   "SUMX(FILTER('InternetSales_USD', RELATED('SalesTerritory'[SalesTerritoryCountry])<>\"United States\") ,'InternetSales_USD'[SalesAmount_USD])"
+  ]
+ },
+ "FILTERS": {
+  "slug": "filters-function-dax",
+  "status": 200,
+  "syntax": [
+   "FILTERS(<columnName>)",
+   "= COUNTROWS(FILTERS(ResellerSales_USD[ProductKey]))"
+  ]
+ },
+ "FIND": {
+  "slug": "find-function-dax",
+  "status": 200,
+  "syntax": [
+   "FIND(<find_text>, <within_text>[, [<start_num>][, <NotFoundValue>]])",
+   "EVALUATE CALCULATETABLE ( ADDCOLUMNS ( TOPN ( 10, SUMMARIZE ( 'Reseller', [Reseller], [Business Type] ) ), \"Position of Bike\", FIND ( \"Bike\", 'Reseller'[Reseller], 1, BLANK () ) ), 'Reseller'[Business Type] IN { \"Specialty Bike Shop\", \"Value Added Reseller\", \"Warehouse\" } )"
+  ]
+ },
+ "FIRST": {
+  "slug": "first-function-dax",
+  "status": 200,
+  "syntax": [
+   "FIRST ( <column>[, <axis>][, <orderBy>][, <blanks>][, reset] )",
+   "FirstInternetSalesAmount = FIRST ( [Sum of SalesAmount], ROWS, LowestParent )"
+  ]
+ },
+ "FIRSTDATE": {
+  "slug": "firstdate-function-dax",
+  "status": 200,
+  "syntax": [
+   "FIRSTDATE(<dates> or <calendar>)",
+   "= FIRSTDATE('InternetSales_USD'[SaleDateKey])",
+   "= FIRSTDATE(FiscalCalendar)"
+  ]
+ },
+ "FIRSTNONBLANK": {
+  "slug": "firstnonblank-function-dax",
+  "status": 200,
+  "syntax": [
+   "FIRSTNONBLANK(<column>,<expression>)"
+  ]
+ },
+ "FIRSTNONBLANKVALUE": {
+  "slug": "firstnonblankvalue-function-dax",
+  "status": 200,
+  "syntax": [
+   "FIRSTNONBLANKVALUE(<column>, <expression>)",
+   "EVALUATE SUMMARIZECOLUMNS( DimProduct[Class], \"FNBV\", FIRSTNONBLANKVALUE( DimDate[Date], SUM(FactInternetSales[SalesAmount]) ) )"
+  ]
+ },
+ "FIXED": {
+  "slug": "fixed-function-dax",
+  "status": 200,
+  "syntax": [
+   "FIXED(<number>, <decimals>, <no_commas>)",
+   "= FIXED ( [List Price], 2, 1 )"
+  ]
+ },
+ "FLOOR": {
+  "slug": "floor-function-dax",
+  "status": 200,
+  "syntax": [
+   "FLOOR(<number>, <significance>)",
+   "= FLOOR(InternetSales[Total Product Cost],.1)"
+  ]
+ },
+ "FORMAT": {
+  "slug": "format-function-dax",
+  "status": 200,
+  "syntax": [
+   "FORMAT(<value>, <format_string>[, <locale_name>])",
+   "= FORMAT( 12345.67, \"General Number\") = FORMAT( 12345.67, \"Currency\") = FORMAT( 12345.67, \"Fixed\") = FORMAT( 12345.67, \"Standard\") = FORMAT( 12345.67, \"Percent\") = FORMAT( 12345.67, \"Scientific\")",
+   "= FORMAT( dt\"2020-12-15T12:30:59\", BLANK(), \"en-US\" ) = FORMAT( dt\"2020-12-15T12:30:59\", BLANK(), \"en-GB\" ) = FORMAT( dt\"2020-12-15T12:30:59\", \"mm/dd/yyyy\", \"en-GB\" )"
+  ]
+ },
+ "FV": {
+  "slug": "fv-function-dax",
+  "status": 200,
+  "syntax": [
+   "FV(<rate>, <nper>, <pmt>[, <pv>[, <type>]])",
+   "EVALUATE { FV(0.06/12, 10, -200, -500, 1) }"
+  ]
+ },
+ "GCD": {
+  "slug": "gcd-function-dax",
+  "status": 200,
+  "syntax": [
+   "GCD(number1, number2)"
+  ]
+ },
+ "GENERATE": {
+  "slug": "generate-function-dax",
+  "status": 200,
+  "syntax": [
+   "GENERATE(<table1>, <table2>)",
+   "GENERATE( SUMMARIZE(SalesTerritory, SalesTerritory[SalesTerritoryGroup]) ,SUMMARIZE(ProductCategory , [ProductCategoryName] , \"Reseller Sales\", SUMX(RELATEDTABLE(ResellerSales_USD), ResellerSales_USD[SalesAmount_USD]) ) )"
+  ]
+ },
+ "GENERATEALL": {
+  "slug": "generateall-function-dax",
+  "status": 200,
+  "syntax": [
+   "GENERATEALL(<table1>, <table2>)",
+   "GENERATEALL( SUMMARIZE(SalesTerritory, SalesTerritory[SalesTerritoryGroup]) ,SUMMARIZE(ProductCategory , [ProductCategoryName] , \"Reseller Sales\", SUMX(RELATEDTABLE(ResellerSales_USD), ResellerSales_USD[SalesAmount_USD]) ) )"
+  ]
+ },
+ "GENERATESERIES": {
+  "slug": "generateseries-function-dax",
+  "status": 200,
+  "syntax": [
+   "GENERATESERIES(<startValue>, <endValue>[, <incrementValue>])",
+   "EVALUATE GENERATESERIES(1, 5)",
+   "EVALUATE GENERATESERIES(1.2, 2.4, 0.4)"
+  ]
+ },
+ "GEOMEAN": {
+  "slug": "geomean-function-dax",
+  "status": 200,
+  "syntax": [
+   "GEOMEAN(<column>)",
+   "= GEOMEAN( Investment[Return] )"
+  ]
+ },
+ "GEOMEANX": {
+  "slug": "geomeanx-function-dax",
+  "status": 200,
+  "syntax": [
+   "GEOMEANX(<table>, <expression>)",
+   "= GEOMEANX( Investments, Investments[ReturnPct] + 1 )"
+  ]
+ },
+ "GROUPBY": {
+  "slug": "groupby-function-dax",
+  "status": 200,
+  "syntax": [
+   "GROUPBY (<table> [, <groupBy_columnName> [, <groupBy_columnName> [, \u2026]]] [, <name>, <expression> [, <name>, <expression> [, \u2026]]])",
+   "DEFINE VAR SalesByCountryAndCategory = SUMMARIZECOLUMNS( Geography[Country], Product[Category], \"Total Sales\", SUMX(Sales, Sales[Price] * Sales[Qty]) ) EVALUATE GROUPBY( SalesByCountryAndCategory, Geography[Country], \"Max Sales\", MAXX(CURRENTGROUP(), [Total Sales]) )"
+  ]
+ },
+ "HASONEFILTER": {
+  "slug": "hasonefilter-function-dax",
+  "status": 200,
+  "syntax": [
+   "HASONEFILTER(<columnName>)",
+   "= IF(HASONEFILTER(ResellerSales_USD[ProductKey]),FILTERS(ResellerSales_USD[ProductKey]),BLANK())"
+  ]
+ },
+ "HASONEVALUE": {
+  "slug": "hasonevalue-function-dax",
+  "status": 200,
+  "syntax": [
+   "HASONEVALUE(<columnName>)",
+   "= IF(HASONEVALUE(DateTime[CalendarYear]),SUM(ResellerSales_USD[SalesAmount_USD])/CALCULATE(SUM(ResellerSales_USD[SalesAmount_USD]),DateTime[CalendarYear]=2007),BLANK())"
+  ]
+ },
+ "HOUR": {
+  "slug": "hour-function-dax",
+  "status": 200,
+  "syntax": [
+   "HOUR(<datetime>)",
+   "= HOUR('Orders'[TransactionTime])",
+   "= HOUR(\"March 3, 2008 3:00 PM\")"
+  ]
+ },
+ "IF": {
+  "slug": "if-function-dax",
+  "status": 200,
+  "syntax": [
+   "IF(<logical_test>, <value_if_true>[, <value_if_false>])",
+   "Price Group = IF ( 'Product'[List Price] < 500, \"Low\" )",
+   "Price Group = IF ( 'Product'[List Price] < 500, \"Low\", \"High\" )"
+  ]
+ },
+ "IF.EAGER": {
+  "slug": "if-eager-function-dax",
+  "status": 200,
+  "syntax": [
+   "IF.EAGER(<logical_test>, <value_if_true>[, <value_if_false>])",
+   "VAR _value_if_true = <value_if_true> VAR _value_if_false = <value_if_false> RETURN IF (<logical_test>, _value_if_true, _value_if_false)"
+  ]
+ },
+ "IFERROR": {
+  "slug": "iferror-function-dax",
+  "status": 200,
+  "syntax": [
+   "IFERROR(value, value_if_error)",
+   "= IFERROR(25/0,9999)"
+  ]
+ },
+ "IGNORE": {
+  "slug": "ignore-function-dax",
+  "status": 200,
+  "syntax": [
+   "IGNORE(<expression>)",
+   "SUMMARIZECOLUMNS(<groupBy_columnName>[, < groupBy_columnName >]\u2026, [<filterTable>]\u2026[, <name>, IGNORE(\u2026)]\u2026)"
+  ]
+ },
+ "INDEX": {
+  "slug": "index-function-dax",
+  "status": 200,
+  "syntax": [
+   "INDEX(<position>[, <relation> or <axis>][, <orderBy>][, <blanks>][, <partitionBy>][, <matchBy>][, <reset>] )",
+   "EVALUATE INDEX(1, ALL(DimDate[CalendarYear]))",
+   "EVALUATE SUMMARIZECOLUMNS ( FactInternetSales[ProductKey], DimDate[MonthNumberOfYear], FILTER ( VALUES(FactInternetSales[ProductKey]), [ProductKey] < 222 ), \"CurrentSales\", SUM(FactInternetSales[SalesAmount]), \"LastMonthSales\", CALCULATE ( SUM(FactInternetSales[SalesAmount]), INDEX(-1, ORDERBY(DimDate[MonthNumberOfYear])) ) ) ORDER BY [ProductKey], [MonthNumberOfYear]"
+  ]
+ },
+ "INFO.CALCULATIONGROUPS": {
+  "slug": "info-calculationgroups-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.CALCULATIONGROUPS ( [<Restriction name>, <Restriction value>], ... )",
+   "EVALUATE INFO.CALCULATIONGROUPS()",
+   "EVALUATE VAR _CalculationGroups = INFO.CALCULATIONGROUPS() VAR _Tables = SELECTCOLUMNS( INFO.TABLES(), \"TableID\", [ID], \"Table Name\", [Name] ) VAR _CombinedTable = NATURALLEFTOUTERJOIN( _CalculationGroups, _Tables ) RETURN SELECTCOLUMNS( _CombinedTable, \"Table Name\", [Table Name], \"Description\", [Description], \"Precedence\", [Precedence], \"Modified Time\", [ModifiedTime] ) ORDER BY [Precedence]"
+  ]
+ },
+ "INFO.CALCULATIONITEMS": {
+  "slug": "info-calculationitems-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.CALCULATIONITEMS ( [<Restriction name>, <Restriction value>], ... )",
+   "EVALUATE INFO.CALCULATIONITEMS()",
+   "EVALUATE VAR _CalculationItems = INFO.CALCULATIONITEMS() VAR _CalculationGroups = SELECTCOLUMNS( INFO.CALCULATIONGROUPS(), \"CalculationGroupID\", [ID], \"Calculation Group Description\", [Description] ) VAR _CombinedTable = NATURALLEFTOUTERJOIN( _CalculationItems, _CalculationGroups ) RETURN SELECTCOLUMNS( _CombinedTable, \"Calculation Item Name\", [Name], \"Calculation Group Description\", [Calculation Group Description], \"Expression\", [Expression], \"Ordinal\", [Ordinal] ) ORDER BY [Calculation Group Description], [Ordinal]"
+  ]
+ },
+ "INFO.COLUMNS": {
+  "slug": "info-columns-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.COLUMNS ( [<Restriction name>, <Restriction value>], ... )",
+   "EVALUATE INFO.COLUMNS()",
+   "EVALUATE VAR _Columns = INFO.COLUMNS() VAR _Tables = SELECTCOLUMNS( INFO.TABLES(), \"TableID\", [ID], \"Table Name\", [Name] ) VAR _CombinedTable = NATURALLEFTOUTERJOIN( _Columns, _Tables ) RETURN SELECTCOLUMNS( _CombinedTable, \"Table Name\", [Table Name], \"Column Name\", [ExplicitName], \"Data Type\", [ExplicitDataType], \"Is Hidden\", [IsHidden], \"Is Key\", [IsKey] ) ORDER BY [Table Name], [Column Name]"
+  ]
+ },
+ "INFO.CULTURES": {
+  "slug": "info-cultures-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.CULTURES ( [<Restriction name>, <Restriction value>], ... )",
+   "EVALUATE INFO.CULTURES()",
+   "EVALUATE VAR _Cultures = INFO.CULTURES() VAR _Model = SELECTCOLUMNS( INFO.MODEL(), \"ModelID\", [ID], \"Model Name\", [Name] ) VAR _CombinedTable = NATURALLEFTOUTERJOIN( _Cultures, _Model ) RETURN SELECTCOLUMNS( _CombinedTable, \"Model Name\", [Model Name], \"Culture Name\", [Name], \"Modified Time\", [ModifiedTime], \"Structure Modified Time\", [StructureModifiedTime] ) ORDER BY [Culture Name]"
+  ]
+ },
+ "INFO.DATASOURCES": {
+  "slug": "info-datasources-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.DATASOURCES ( [<Restriction name>, <Restriction value>], ... )",
+   "EVALUATE INFO.DATASOURCES()",
+   "EVALUATE VAR _DataSources = INFO.DATASOURCES() VAR _Model = SELECTCOLUMNS( INFO.MODEL(), \"ModelID\", [ID], \"Model Name\", [Name] ) VAR _CombinedTable = NATURALLEFTOUTERJOIN( _DataSources, _Model ) RETURN SELECTCOLUMNS( _CombinedTable, \"Model Name\", [Model Name], \"Data Source Name\", [Name], \"Data Source Type\", [Type], \"Max Connections\", [MaxConnections], \"Modified Time\", [ModifiedTime] ) ORDER BY [Data Source Name]"
+  ]
+ },
+ "INFO.EXPRESSIONS": {
+  "slug": "info-expressions-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.EXPRESSIONS ( [<Restriction name>, <Restriction value>], ... )",
+   "EVALUATE INFO.EXPRESSIONS()"
+  ]
+ },
+ "INFO.FUNCTIONS": {
+  "slug": "info-functions-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.FUNCTIONS ( [<Restriction name>, <Restriction value>], ... )",
+   "EVALUATE INFO.FUNCTIONS()",
+   "EVALUATE SELECTCOLUMNS( FILTER( INFO.FUNCTIONS(), CONTAINSSTRING([FUNCTION_NAME], \"DATE\") ), \"Function Name\", [FUNCTION_NAME], \"Description\", [DESCRIPTION], \"Return Type\", [RETURN_TYPE] ) ORDER BY [Function Name]"
+  ]
+ },
+ "INFO.HIERARCHIES": {
+  "slug": "info-hierarchies-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.HIERARCHIES ( [<Restriction name>, <Restriction value>], ... )",
+   "EVALUATE INFO.HIERARCHIES()",
+   "EVALUATE VAR _Hierarchies = SELECTCOLUMNS( INFO.HIERARCHIES(), \"HierarchyID\", [ID], \"Hierarchy Name\", [Name], \"TableID\", [TableID] ) VAR _Tables = SELECTCOLUMNS( INFO.TABLES(), \"TableID\", [ID], \"Table Name\", [Name] ) VAR _CombinedTable = NATURALLEFTOUTERJOIN( _Hierarchies, _Tables ) RETURN _CombinedTable ORDER BY [Hierarchy Name]"
+  ]
+ },
+ "INFO.LEVELS": {
+  "slug": "info-levels-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.LEVELS ( [<Restriction name>, <Restriction value>], ... )",
+   "EVALUATE INFO.LEVELS()",
+   "EVALUATE VAR _Levels = SELECTCOLUMNS( INFO.LEVELS(), \"LevelID\", [ID], \"HierarchyID\", [HierarchyID], \"Level Name\", [Name], \"Ordinal\", [Ordinal] ) VAR _Hierarchies = SELECTCOLUMNS( INFO.HIERARCHIES(), \"HierarchyID\", [ID], \"Hierarchy Name\", [Name] ) VAR _CombinedTable = NATURALLEFTOUTERJOIN( _Levels, _Hierarchies ) RETURN SELECTCOLUMNS( _CombinedTable, \"Hierarchy Name\", [Hierarchy Name], \"Level Name\", [Level Name], \"Ordinal\", [Ordinal] ) ORDER BY [Hierarchy Name], [Ordinal]"
+  ]
+ },
+ "INFO.MEASURES": {
+  "slug": "info-measures-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.MEASURES ( [<Restriction name>, <Restriction value>], ... )",
+   "EVALUATE INFO.MEASURES()"
+  ]
+ },
+ "INFO.MODEL": {
+  "slug": "info-model-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.MODEL ( [<Restriction name>, <Restriction value>], ... )",
+   "EVALUATE INFO.MODEL()"
+  ]
+ },
+ "INFO.PARTITIONS": {
+  "slug": "info-partitions-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.PARTITIONS ( [<Restriction name>, <Restriction value>], ... )",
+   "EVALUATE INFO.PARTITIONS()",
+   "EVALUATE VAR _Partitions = INFO.PARTITIONS() VAR _Tables = SELECTCOLUMNS( INFO.TABLES(), \"TableID\", [ID], \"Table Name\", [Name] ) VAR _DataSources = SELECTCOLUMNS( INFO.DATASOURCES(), \"DataSourceID\", [ID], \"Data Source Name\", [Name] ) VAR _CombinedWithTables = NATURALLEFTOUTERJOIN( _Partitions, _Tables ) VAR _CombinedWithDataSources = NATURALLEFTOUTERJOIN( _CombinedWithTables, _DataSources ) RETURN SELECTCOLUMNS( _CombinedWithDataSources, \"Table Name\", [Table Name], \"Partition Name\", [Name], \"Data Source Name\", [Data Source Name], \"Type\", [Type], \"Refreshed Time\", [RefreshedTime] ) ORDER BY [Table Name], [Partition Name]"
+  ]
+ },
+ "INFO.PERSPECTIVES": {
+  "slug": "info-perspectives-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.PERSPECTIVES ( [<Restriction name>, <Restriction value>], ... )",
+   "EVALUATE INFO.PERSPECTIVES()",
+   "EVALUATE VAR _Perspectives = SELECTCOLUMNS( INFO.PERSPECTIVES(), \"PerspectiveID\", [ID], \"Perspective Name\", [Name], \"Perspective Description\", [Description], \"Modified\", [ModifiedTime] ) VAR _PerspectiveTables = SELECTCOLUMNS( INFO.PERSPECTIVETABLES(), \"PerspectiveID\", [PerspectiveID], \"TableID\", [TableID], \"IncludeAll\", [IncludeAll] ) VAR _Tables = SELECTCOLUMNS( INFO.TABLES(), \"TableID\", [ID], \"Table Name\", [Name] ) VAR _CombinedTable1 = NATURALLEFTOUTERJOIN( _Perspectives, _PerspectiveTables ) VAR _CombinedTable2 = NATURALLEFTOUTERJOIN( _CombinedTable1, _Tables ) RETURN SELECTCOLUMNS( _CombinedTable2, \"Perspective Name\", [Perspective Name], \"Perspective Description\", [Perspective Description], \"Table Name\", [Table Name], \"Include All\", [IncludeAll], \"Modified\", [Modified] ) ORDER BY [Perspective Name], [Table Name]"
+  ]
+ },
+ "INFO.RELATIONSHIPS": {
+  "slug": "info-relationships-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.RELATIONSHIPS ( [<Restriction name>, <Restriction value>], ... )",
+   "EVALUATE INFO.RELATIONSHIPS()",
+   "EVALUATE VAR _Relationships = SELECTCOLUMNS( INFO.RELATIONSHIPS(), \"Relationship Name\", [Name], \"Is Active\", [IsActive], \"Type\", [Type], \"Cross Filtering\", [CrossFilteringBehavior], \"From Table ID\", [FromTableID], \"From Column ID\", [FromColumnID], \"To Table ID\", [ToTableID], \"To Column ID\", [ToColumnID] ) VAR _FromTables = SELECTCOLUMNS( INFO.TABLES(), \"FromTableID\", [ID], \"From Table Name\", [Name] ) VAR _ToTables = SELECTCOLUMNS( INFO.TABLES(), \"ToTableID\", [ID], \"To Table Name\", [Name] ) VAR _FromColumns = SELECTCOLUMNS( INFO.COLUMNS(), \"FromColumnID\", [ID], \"From Column Name\", [Name] ) VAR _ToColumns = SELECTCOLUMNS( INFO.COLUMNS(), \"ToColumnID\", [ID], \"To Column Name\", [Name] ) VAR _CombinedTable1 = NATURALLEFTOUTERJOIN( _Relationships, _FromTables ) VAR _CombinedTable2 = NATURALLEFTOUTERJOIN( _CombinedTable1, _ToTables ) VAR _CombinedTable3 = NATURALLEFTOUTERJOIN( _CombinedTable2, _FromColumns ) VAR _CombinedTable4 = NATURALLEFTOUTERJOIN( _CombinedTable3, _ToColumns ) RETURN SELECTCOLUMNS( _CombinedTable4, \"Relationship Name\", [Relationship Name], \"From Table\", [From Table Name], \"From Column\", [From Column Name], \"To Table\", [To Table Name], \"To Column\", [To Column Name], \"Is Active\", [Is Active], \"Type\", [Type], \"Cross Filtering\", [Cross Filtering] ) ORDER BY [Relationship Name]"
+  ]
+ },
+ "INFO.ROLES": {
+  "slug": "info-roles-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.ROLES ( [<Restriction name>, <Restriction value>], ... )",
+   "EVALUATE INFO.ROLES()",
+   "EVALUATE VAR _Roles = SELECTCOLUMNS( INFO.ROLES(), \"RoleID\", [ID], \"Role Name\", [Name], \"Role Description\", [Description], \"Model Permission\", [ModelPermission], \"Modified\", [ModifiedTime] ) VAR _RoleMemberships = SELECTCOLUMNS( INFO.ROLEMEMBERSHIPS(), \"RoleID\", [RoleID], \"Member Name\", [MemberName], \"Member Type\", [MemberType] ) VAR _CombinedTable = NATURALLEFTOUTERJOIN( _Roles, _RoleMemberships ) RETURN SELECTCOLUMNS( _CombinedTable, \"Role Name\", [Role Name], \"Role Description\", [Role Description], \"Model Permission\", [Model Permission], \"Member Name\", [Member Name], \"Member Type\", [Member Type], \"Modified\", [Modified] ) ORDER BY [Role Name], [Member Name]"
+  ]
+ },
+ "INFO.TABLES": {
+  "slug": "info-tables-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.TABLES ( [<Restriction name>, <Restriction value>], ... )",
+   "EVALUATE INFO.TABLES()",
+   "EVALUATE VAR _Tables = SELECTCOLUMNS( INFO.TABLES(), \"TableID\", [ID], \"Table Name\", [Name], \"Description\", [Description], \"Is Hidden\", [IsHidden], \"Calculation Group ID\", [CalculationGroupID], \"Refresh Policy ID\", [RefreshPolicyID] ) VAR _CalculationGroups = SELECTCOLUMNS( INFO.CALCULATIONGROUPS(), \"CalculationGroupID\", [ID], \"Calculation Group Name\", [Name] ) VAR _RefreshPolicies = SELECTCOLUMNS( INFO.REFRESHPOLICIES(), \"RefreshPolicyID\", [ID], \"Policy Type\", [PolicyType], \"Incremental Periods\", [IncrementalPeriods] ) VAR _CombinedTable1 = NATURALLEFTOUTERJOIN( _Tables, _CalculationGroups ) VAR _CombinedTable2 = NATURALLEFTOUTERJOIN( _CombinedTable1, _RefreshPolicies ) RETURN SELECTCOLUMNS( _CombinedTable2, \"Table Name\", [Table Name], \"Description\", [Description], \"Is Hidden\", [Is Hidden], \"Calculation Group\", [Calculation Group Name], \"Policy Type\", [Policy Type], \"Incremental Periods\", [Incremental Periods] ) ORDER BY [Table Name]"
+  ]
+ },
+ "INFO.VIEW.COLUMNS": {
+  "slug": "info-view-columns-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.VIEW.COLUMNS()",
+   "EVALUATE INFO.VIEW.COLUMNS()",
+   "EVALUATE // Select specific columns from the filtered result SELECTCOLUMNS( // Filter columns from the INFO.VIEW.COLUMNS() table FILTER( INFO.VIEW.COLUMNS(), // Exclude rows where DataCategory is \"RowNumber\" and Table is \"xTables\" [DataCategory] <> \"RowNumber\" && [Table] <> \"xTables\" ), // Show only these selected columns with new names where specified [Table], \"Column\", [Name], [Description], \"DAX formula\", [Expression], [DataCategory], [DataType], [IsHidden] ) // Order the result by Table and then by Column ORDER BY [Table], [Column]"
+  ]
+ },
+ "INFO.VIEW.MEASURES": {
+  "slug": "info-view-measures-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.VIEW.MEASURES()",
+   "EVALUATE INFO.VIEW.MEASURES()",
+   "EVALUATE SELECTCOLUMNS( INFO.VIEW.MEASURES(), \"Home table\", [Table], \"Measure\", [Name], [Description], \"DAX formula\", [Expression], [State] )"
+  ]
+ },
+ "INFO.VIEW.RELATIONSHIPS": {
+  "slug": "info-view-relationships-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.VIEW.RELATIONSHIPS()",
+   "EVALUATE INFO.VIEW.RELATIONSHIPS()",
+   "EVALUATE SELECTCOLUMNS( INFO.VIEW.RELATIONSHIPS(), [Relationship], [IsActive] )"
+  ]
+ },
+ "INFO.VIEW.TABLES": {
+  "slug": "info-view-tables-function-dax",
+  "status": 200,
+  "syntax": [
+   "INFO.VIEW.TABLES()",
+   "EVALUATE INFO.VIEW.TABLES()",
+   "EVALUATE ADDCOLUMNS( SELECTCOLUMNS( INFO.VIEW.TABLES(), \"Table\", [Name], [Description], \"Storage mode\", [StorageMode], \"Calc table DAX formula\", [Expression], \"Calc group precedence\", [CalculationGroupPrecedence], [DataCategory] ), \"Table type\", SWITCH( TRUE(), NOT (ISBLANK([Calc group precedence])), \"Calculation group\", NOT (ISBLANK([Calc table DAX formula])), \"Calculated (DAX) table\", [DataCategory] = \"Time\", \"Date table\", [DataCategory] ) )"
+  ]
+ },
+ "INT": {
+  "slug": "int-function-dax",
+  "status": 200,
+  "syntax": [
+   "INT(<number>)",
+   "= INT(1.5)"
+  ]
+ },
+ "INTERSECT": {
+  "slug": "intersect-function-dax",
+  "status": 200,
+  "syntax": [
+   "INTERSECT(<tableExpression1>, <tableExpression2>)"
+  ]
+ },
+ "INTRATE": {
+  "slug": "intrate-function-dax",
+  "status": 200,
+  "syntax": [
+   "INTRATE(<settlement>, <maturity>, <investment>, <redemption>[, <basis>])",
+   "EVALUATE { INTRATE(DATE(2008,2,15), DATE(2008,5,15), 1000000, 1014420, 2) }"
+  ]
+ },
+ "IPMT": {
+  "slug": "ipmt-function-dax",
+  "status": 200,
+  "syntax": [
+   "IPMT(<rate>, <per>, <nper>, <pv>[, <fv>[, <type>]])",
+   "EVALUATE { IPMT(0.1/12, 1, 3*12, 8000) }",
+   "EVALUATE { IPMT(0.1, 3, 3, 8000) }"
+  ]
+ },
+ "ISAFTER": {
+  "slug": "isafter-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISAFTER(<scalar_expression>, <scalar_expression>[, sort_order [, <scalar_expression>, <scalar_expression>[, sort_order]]\u2026)",
+   "FILTER ( Info, ISAFTER ( Info[Country], \"IND\", ASC, Info[State], \"MH\", ASC ) )"
+  ]
+ },
+ "ISATLEVEL": {
+  "slug": "isatlevel-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISATLEVEL ( <column> )",
+   "IsYearLevel = ISATLEVEL([Fiscal Year]) IsQuarterLevel = ISATLEVEL([Fiscal Quarter]) IsMonthLevel = ISATLEVEL([Month]) IsQuarterLevelAfterExpand = EXPAND(ISATLEVEL([Fiscal Quarter]), ROWS) IsQuarterLevelAfterCollapse = COLLAPSE(ISATLEVEL([Fiscal Quarter]), ROWS)"
+  ]
+ },
+ "ISBLANK": {
+  "slug": "isblank-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISBLANK(<value>)",
+   "//Sales to Previous Year Ratio = IF( ISBLANK('CalculatedMeasures'[PreviousYearTotalSales]) , BLANK() , ( 'CalculatedMeasures'[Total Sales]-'CalculatedMeasures'[PreviousYearTotalSales] ) /'CalculatedMeasures'[PreviousYearTotalSales])"
+  ]
+ },
+ "ISBOOLEAN": {
+  "slug": "isboolean-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISBOOLEAN(<value>)",
+   "EVALUATE { IF ( ISBOOLEAN ( TRUE ), \"Is Boolean type or Logical\", \"Is different type\" ), // RETURNS: Is Boolean type or Logical IF ( ISBOOLEAN ( FALSE ), \"Is Boolean type or Logical\", \"Is different type\" ), // RETURNS: Is Boolean type or Logical IF ( ISBOOLEAN ( 42 ), \"Is Boolean type or Logical\", \"Is different type\" ) // RETURNS: Is different type }"
+  ]
+ },
+ "ISCROSSFILTERED": {
+  "slug": "iscrossfiltered-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISCROSSFILTERED(<TableNameOrColumnName>)"
+  ]
+ },
+ "ISCURRENCY": {
+  "slug": "iscurrency-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISCURRENCY(<value>)",
+   "EVALUATE { IF ( ISCURRENCY ( 3.1E-1 ), \"Is currency\", \"Is not currency\" ), // RETURNS: Is not currency IF ( ISCURRENCY ( \"42\" ), \"Is currency\", \"Is not currency\" ), // RETURNS: Is not currency IF ( ISCURRENCY ( 42 ), \"Is currency\", \"Is not currency\" ), // RETURNS: Is not currency IF ( ISCURRENCY ( CURRENCY ( 4.2421 ) ), \"Is currency\", \"Is not currency\" ) // RETURNS: Is currency }"
+  ]
+ },
+ "ISDATETIME": {
+  "slug": "isdatetime-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISDATETIME(<value>)",
+   "EVALUATE { IF ( ISDATETIME ( 42 ), \"Is datetime\", \"Is not datetime\" ), // RETURNS: Is not datetime IF ( ISDATETIME ( \"42\" ), \"Is datetime\", \"Is not datetime\" ), // RETURNS: Is not datetime IF ( ISDATETIME ( \"2025-07-01\" ), \"Is datetime\", \"Is not datetime\" ), // RETURNS: Is not datetime IF ( ISDATETIME ( dt\"2025-07-01\" ), \"Is datetime\", \"Is not datetime\" ), // RETURNS: Is datetime IF ( ISDATETIME ( DATE ( 2025, 7, 1 ) ), \"Is datetime\", \"Is not datetime\" ) // RETURNS: Is datetime }"
+  ]
+ },
+ "ISDECIMAL": {
+  "slug": "isdecimal-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISDECIMAL(<value>)",
+   "EVALUATE { IF ( ISDECIMAL ( 3.1E-1 ), \"Is decimal\", \"Is not decimal\" ), // RETURNS: Is not decimal IF ( ISDECIMAL ( \"42\" ), \"Is decimal\", \"Is not decimal\" ), // RETURNS: Is not decimal IF ( ISDECIMAL ( 42 ), \"Is decimal\", \"Is not decimal\" ), // RETURNS: Is not decimal IF ( ISDECIMAL ( CURRENCY ( 4.2421 ) ), \"Is decimal\", \"Is not decimal\" ) // RETURNS: Is decimal }"
+  ]
+ },
+ "ISDOUBLE": {
+  "slug": "isdouble-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISDOUBLE(<value>)",
+   "EVALUATE { IF ( ISDOUBLE ( 4.2 ), \"Is double\", \"Is not double\" ), // RETURNS: Is double IF ( ISDOUBLE ( 3.1E-1 ), \"Is double\", \"Is not double\" ), // RETURNS: Is double IF ( ISDOUBLE ( \"42\" ), \"Is double\", \"Is not double\" ), // RETURNS: Is not double IF ( ISDOUBLE ( 42 ), \"Is double\", \"Is not double\" ), // RETURNS: Is not double }"
+  ]
+ },
+ "ISEMPTY": {
+  "slug": "isempty-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISEMPTY(<tableExpression>)",
+   "EVALUATE ROW(\"Any countries with count > 25?\", NOT(ISEMPTY(FILTER(Info, [County]>25))))"
+  ]
+ },
+ "ISERROR": {
+  "slug": "iserror-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISERROR(<value>)",
+   "= IF( ISERROR( SUM('ResellerSales_USD'[SalesAmount_USD]) /SUM('InternetSales_USD'[SalesAmount_USD]) ) , BLANK() , SUM('ResellerSales_USD'[SalesAmount_USD]) /SUM('InternetSales_USD'[SalesAmount_USD]) )"
+  ]
+ },
+ "ISEVEN": {
+  "slug": "iseven-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISEVEN(number)"
+  ]
+ },
+ "ISFILTERED": {
+  "slug": "isfiltered-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISFILTERED(<TableNameOrColumnName>)"
+  ]
+ },
+ "ISINSCOPE": {
+  "slug": "isinscope-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISINSCOPE(<columnName>)",
+   "DEFINE MEASURE FactInternetSales[% of Parent] = SWITCH (TRUE(), ISINSCOPE(DimProduct[Subcategory]), DIVIDE( SUM(FactInternetSales[Sales Amount]), CALCULATE( SUM(FactInternetSales[Sales Amount]), ALLSELECTED(DimProduct[Subcategory])) ), ISINSCOPE(DimProduct[Category]), DIVIDE( SUM(FactInternetSales[Sales Amount]), CALCULATE( SUM(FactInternetSales[Sales Amount]), ALLSELECTED(DimProduct[Category])) ), 1 ) * 100 EVALUATE SUMMARIZECOLUMNS ( ROLLUPADDISSUBTOTAL ( DimProduct[Category], \"Category Subtotal\", DimProduct[Subcategory], \"Subcategory Subtotal\" ), TREATAS( {\"Bike Racks\", \"Bike Stands\", \"Mountain Bikes\", \"Road Bikes\", \"Touring Bikes\"}, DimProduct[Subcategory]), \"Sales\", SUM(FactInternetSales[Sales Amount]), \"% of Parent\", [% of Parent] ) ORDER BY [Category Subtotal] DESC, [Category], [Subcategory Subtotal] DESC, [Subcategory]"
+  ]
+ },
+ "ISINT64": {
+  "slug": "isint64-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISINT64(<value>)",
+   "EVALUATE { IF ( ISINT64 ( 4.2 ), \"Is integer\", \"Is not integer\" ), // RETURNS: Is not integer IF ( ISINT64 ( 3.1E-1 ), \"Is integer\", \"Is not integer\" ), // RETURNS: Is not integer IF ( ISINT64 ( \"42\" ), \"Is integer\", \"Is not integer\" ), // RETURNS: Is not integer IF ( ISINT64 ( 42 ), \"Is integer\", \"Is not integer\" ) // RETURNS: Is integer }"
+  ]
+ },
+ "ISINTEGER": {
+  "slug": "isinteger-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISINTEGER(<value>)",
+   "EVALUATE { IF ( ISINTEGER ( 4.2 ), \"Is integer\", \"Is not integer\" ), // RETURNS: Is not integer IF ( ISINTEGER ( 3.1E-1 ), \"Is integer\", \"Is not integer\" ), // RETURNS: Is not integer IF ( ISINTEGER ( \"42\" ), \"Is integer\", \"Is not integer\" ), // RETURNS: Is not integer IF ( ISINTEGER ( 42 ), \"Is integer\", \"Is not integer\" ) // RETURNS: Is integer }"
+  ]
+ },
+ "ISLOGICAL": {
+  "slug": "islogical-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISLOGICAL(<value>)",
+   "EVALUATE { IF ( ISLOGICAL ( TRUE ), \"Is Boolean type or Logical\", \"Is different type\" ), // RETURNS: Is Boolean type or Logical IF ( ISLOGICAL ( FALSE ), \"Is Boolean type or Logical\", \"Is different type\" ), // RETURNS: Is Boolean type or Logical IF ( ISLOGICAL ( 42 ), \"Is Boolean type or Logical\", \"Is different type\" ) // RETURNS: Is different type }"
+  ]
+ },
+ "ISNONTEXT": {
+  "slug": "isnontext-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISNONTEXT(<value>)",
+   "EVALUATE { IF( ISNONTEXT( 1 ), \"Is Non-Text\", \"Is Text\" ), // RETURNS: Is Non-Text IF( ISNONTEXT( BLANK ( ) ), \"Is Non-Text\", \"Is Text\" ), // RETURNS: Is Non-Text IF( ISNONTEXT( \"\"), \"Is Non-Text\", \"Is Text\" ) // RETURNS: Is Text }"
+  ]
+ },
+ "ISNUMBER": {
+  "slug": "isnumber-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISNUMBER(<value>)",
+   "EVALUATE { IF ( ISNUMBER ( 0 ), \"Is number\", \"Is Not number\" ), // RETURNS: Is number IF ( ISNUMBER ( 3.1E-1 ), \"Is number\", \"Is Not number\" ), // RETURNS: Is number IF ( ISNUMBER ( \"42\" ), \"Is number\", \"Is Not number\" ) // RETURNS: Is Not number }"
+  ]
+ },
+ "ISNUMERIC": {
+  "slug": "isnumeric-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISNUMERIC(<value>)",
+   "EVALUATE { IF ( ISNUMERIC ( 0 ), \"Is number\", \"Is Not number\" ), // RETURNS: Is number IF ( ISNUMERIC ( 3.1E-1 ), \"Is number\", \"Is Not number\" ), // RETURNS: Is number IF ( ISNUMERIC ( \"42\" ), \"Is number\", \"Is Not number\" ) // RETURNS: Is Not number }"
+  ]
+ },
+ "ISO.CEILING": {
+  "slug": "iso-ceiling-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISO.CEILING(<number>[, <significance>])",
+   "= ISO.CEILING(4.42,0.05)",
+   "= ISO.CEILING(-4.42,0.05)"
+  ]
+ },
+ "ISODD": {
+  "slug": "isodd-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISODD(number)"
+  ]
+ },
+ "ISONORAFTER": {
+  "slug": "isonorafter-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISONORAFTER(<scalar_expression>, <scalar_expression>[, sort_order [, <scalar_expression>, <scalar_expression>[, sort_order]]\u2026)",
+   "FILTER ( Info, ISONORAFTER ( Info[Country], \"IND\", ASC, Info[State], \"MH\", ASC ) )"
+  ]
+ },
+ "ISPMT": {
+  "slug": "ispmt-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISPMT(<rate>, <per>, <nper>, <pv>)",
+   "DEFINE VAR NumPaymentPeriods = 4 VAR PaymentPeriods = GENERATESERIES(0, NumPaymentPeriods-1) EVALUATE ADDCOLUMNS ( PaymentPeriods, \"Interest Payment\", ISPMT(0.1, [Value], NumPaymentPeriods, 4000) )"
+  ]
+ },
+ "ISSELECTEDMEASURE": {
+  "slug": "isselectedmeasure-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISSELECTEDMEASURE( M1, M2, ... )",
+   "IF ( ISSELECTEDMEASURE ( [Expense Ratio 1], [Expense Ratio 2] ), SELECTEDMEASURE (), DIVIDE ( SELECTEDMEASURE (), COUNTROWS ( DimDate ) ) )"
+  ]
+ },
+ "ISSTRING": {
+  "slug": "isstring-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISSTRING(<value>)",
+   "EVALUATE { IF ( ISSTRING ( \"text\" ), \"Is Text\", \"Is Non-Text\" ), // RETURNS: Is Text IF ( ISSTRING ( \"\" ), \"Is Text\", \"Is Non-Text\" ), // RETURNS: Is Text IF ( ISSTRING ( 42 ), \"Is Text\", \"Is Non-Text\" ), // RETURNS: Is Non-Text IF ( ISSTRING ( BLANK () ), \"Is Text\", \"Is Non-Text\" ) // RETURNS: Is Non-Text }"
+  ]
+ },
+ "ISSUBTOTAL": {
+  "slug": "issubtotal-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISSUBTOTAL(<columnName>)",
+   "SUMMARIZE(<table>, <groupBy_columnName>[, <groupBy_columnName>]\u2026[, ROLLUP(<groupBy_columnName>[,< groupBy_columnName>\u2026])][, <name>, {<expression>|ISSUBTOTAL(<columnName>)}]\u2026)"
+  ]
+ },
+ "ISTEXT": {
+  "slug": "istext-function-dax",
+  "status": 200,
+  "syntax": [
+   "ISTEXT(<value>)",
+   "EVALUATE { IF ( ISTEXT ( \"text\" ), \"Is Text\", \"Is Non-Text\" ), // RETURNS: Is Text IF ( ISTEXT ( \"\" ), \"Is Text\", \"Is Non-Text\" ), // RETURNS: Is Text IF ( ISTEXT ( 42 ), \"Is Text\", \"Is Non-Text\" ), // RETURNS: Is Non-Text IF ( ISTEXT ( BLANK () ), \"Is Text\", \"Is Non-Text\" ) // RETURNS: Is Non-Text }"
+  ]
+ },
+ "KEEPFILTERS": {
+  "slug": "keepfilters-function-dax",
+  "status": 200,
+  "syntax": [
+   "KEEPFILTERS(<expression>)",
+   "EVALUATE ROW( \"$$ in WA\" , CALCULATE('Internet Sales'[Internet Total Sales] , 'Geography'[State Province Code]=\"WA\" ) , \"$$ in WA and OR\" , CALCULATE('Internet Sales'[Internet Total Sales] , 'Geography'[State Province Code]=\"WA\" || 'Geography'[State Province Code]=\"OR\" ) , \"$$ in WA and BC\" , CALCULATE('Internet Sales'[Internet Total Sales] , 'Geography'[State Province Code]=\"WA\" || 'Geography'[State Province Code]=\"BC\" ) , \"$$ in WA and OR ??\" , CALCULATE( CALCULATE('Internet Sales'[Internet Total Sales] ,'Geography'[State Province Code]=\"WA\" || 'Geography'[State Province Code]=\"OR\" ) , 'Geography'[State Province Code]=\"WA\" || 'Geography'[State Province Code]=\"BC\" ) , \"$$ in WA !!\" , CALCULATE( CALCULATE('Internet Sales'[Internet Total Sales] , KEEPFILTERS('Geography'[State Province Code]=\"WA\" || 'Geography'[State Province Code]=\"OR\" ) ) , 'Geography'[State Province Code]=\"WA\" || 'Geography'[State Province Code]=\"BC\" ) )"
+  ]
+ },
+ "LAST": {
+  "slug": "last-function-dax",
+  "status": 200,
+  "syntax": [
+   "LAST ( <column>[, <axis>][, <orderBy>][, <blanks>][, reset] )",
+   "LastInternetSalesAmount = LAST ( [Sum of SalesAmount], ROWS, LowestParent )"
+  ]
+ },
+ "LASTDATE": {
+  "slug": "lastdate-function-dax",
+  "status": 200,
+  "syntax": [
+   "LASTDATE(<dates> or <calendar>)",
+   "= LASTDATE('InternetSales_USD'[SaleDateKey])",
+   "= LASTDATE(FiscalCalendar)"
+  ]
+ },
+ "LASTNONBLANK": {
+  "slug": "lastnonblank-function-dax",
+  "status": 200,
+  "syntax": [
+   "LASTNONBLANK(<column>,<expression>)"
+  ]
+ },
+ "LASTNONBLANKVALUE": {
+  "slug": "lastnonblankvalue-function-dax",
+  "status": 200,
+  "syntax": [
+   "LASTNONBLANKVALUE(<column>, <expression>)",
+   "EVALUATE SUMMARIZECOLUMNS( DimProduct[Class], \"LNBV\", LASTNONBLANKVALUE( DimDate[Date], SUM(FactInternetSales[SalesAmount]) ) )"
+  ]
+ },
+ "LCM": {
+  "slug": "lcm-function-dax",
+  "status": 200,
+  "syntax": [
+   "LCM(number1, number2)"
+  ]
+ },
+ "LEFT": {
+  "slug": "left-function-dax",
+  "status": 200,
+  "syntax": [
+   "LEFT(<text>, <num_chars>)",
+   "= CONCATENATE ( LEFT ( 'Reseller'[City], 5 ), LEFT ( 'Reseller'[ResellerKey], 5 ) )"
+  ]
+ },
+ "LEN": {
+  "slug": "len-function-dax",
+  "status": 200,
+  "syntax": [
+   "LEN(<text>)",
+   "= LEN([AddressLine1])+LEN([AddressLin2])"
+  ]
+ },
+ "LINEST": {
+  "slug": "linest-function-dax",
+  "status": 200,
+  "syntax": [
+   "LINEST ( <columnY>, <columnX>[, \u2026][, <const>] )",
+   "EVALUATE LINEST( 'FactInternetSales'[SalesAmount], 'FactInternetSales'[TotalProductCost] )",
+   "SalesAmount = Slope1 * TotalProductCost + Intercept"
+  ]
+ },
+ "LINESTX": {
+  "slug": "linestx-function-dax",
+  "status": 200,
+  "syntax": [
+   "LINESTX ( <table>, <expressionY>, <expressionX>[, \u2026][, <const>] )",
+   "DEFINE VAR TotalSalesByRegion = SUMMARIZECOLUMNS( 'Sales Territory'[Sales Territory Key], 'Sales Territory'[Population], \"Total Sales\", SUM(Sales[Sales Amount]) ) EVALUATE LINESTX( 'TotalSalesByRegion', [Total Sales], [Population] )",
+   "Total Sales = Slope1 * Population + Intercept"
+  ]
+ },
+ "LN": {
+  "slug": "ln-function-dax",
+  "status": 200,
+  "syntax": [
+   "LN(<number>)",
+   "= LN([Values])"
+  ]
+ },
+ "LOG": {
+  "slug": "log-function-dax",
+  "status": 200,
+  "syntax": [
+   "LOG(<number>,<base>)",
+   "= LOG(100,10) = LOG(100) = LOG10(100)"
+  ]
+ },
+ "LOG10": {
+  "slug": "log10-function-dax",
+  "status": 200,
+  "syntax": [
+   "LOG10(<number>)",
+   "= LOG(100,10) = LOG(100) = LOG10(100)"
+  ]
+ },
+ "LOOKUP": {
+  "slug": "lookup-function-dax",
+  "status": 200,
+  "syntax": [
+   "LOOKUP(<expression>, <colref>, <expression>[, <colref>, <expression>]...[, <AssociatedColumnsBehavior>])",
+   "Lookup Example 1 = LOOKUP(SUM([Sales Amount]), [Category], \"Bikes\") Lookup Example 2 = LOOKUP([Sales Amount], [Category], \"Bikes\")",
+   "LookupExample2 = LOOKUP([Sales Amount], [Fiscal Year], \"FY2018\") LookupExample3 = LOOKUP([Sales Amount], [Fiscal Year], \"FY2018\", [Fiscal Quarter], \"FY2018 Q1\")"
+  ]
+ },
+ "LOOKUPVALUE": {
+  "slug": "lookupvalue-function-dax",
+  "status": 200,
+  "syntax": [
+   "LOOKUPVALUE ( <result_columnName>, <search_columnName>, <search_value> [, <search2_columnName>, <search2_value>]\u2026 [, <alternateResult>] )",
+   "Exchange Rate = LOOKUPVALUE ( 'Currency Rate'[Average Rate], 'Currency Rate'[CurrencyKey], [CurrencyKey], 'Currency Rate'[DateKey], [OrderDateKey] )",
+   "Sales Amount Local Currency = [Sales Amount] * [Exchange Rate]"
+  ]
+ },
+ "LOOKUPWITHTOTALS": {
+  "slug": "lookupwithtotals-function-dax",
+  "status": 200,
+  "syntax": [
+   "LOOKUPWITHTOTALS(<expression>, <colref>, <expression>[, <colref>, <expression>]...)",
+   "LOOKUPWITHTOTALExample1 = LOOKUPWITHTOTALS([Sales Amount], [Fiscal Year], \"FY2018\") LookupExample1 = LOOKUP([Sales Amount], [Fiscal Year], \"FY2018\")",
+   "LookupWithTotalExample2 = lookupWithTotals([Sales Amount], [Category], \"Bikes\")"
+  ]
+ },
+ "LOWER": {
+  "slug": "lower-function-dax",
+  "status": 200,
+  "syntax": [
+   "LOWER(<text>)",
+   "= LOWER('New Products'[ProductCode])"
+  ]
+ },
+ "MATCHBY": {
+  "slug": "matchby-function-dax",
+  "status": 200,
+  "syntax": [
+   "MATCHBY ( [<matchBy_columnName>[, matchBy_columnName [, \u2026]]] )"
+  ]
+ },
+ "MAX": {
+  "slug": "max-function-dax",
+  "status": 200,
+  "syntax": [
+   "MAX(<column>)",
+   "MAX(<expression1>, <expression2>)",
+   "= MAX(InternetSales[ExtendedAmount])"
+  ]
+ },
+ "MAXA": {
+  "slug": "maxa-function-dax",
+  "status": 200,
+  "syntax": [
+   "MAXA(<column>)",
+   "= MAXA([ResellerMargin])",
+   "= MAXA([TransactionDate])"
+  ]
+ },
+ "MAXX": {
+  "slug": "maxx-function-dax",
+  "status": 200,
+  "syntax": [
+   "MAXX(<table>,<expression>,[<variant>])",
+   "= MAXX(InternetSales, InternetSales[TaxAmt]+ InternetSales[Freight])",
+   "= MAXX(FILTER(InternetSales,[SalesTerritoryCode]=\"5\"), InternetSales[TaxAmt]+ InternetSales[Freight])"
+  ]
+ },
+ "MDURATION": {
+  "slug": "mduration-function-dax",
+  "status": 200,
+  "syntax": [
+   "MDURATION(<settlement>, <maturity>, <coupon>, <yld>, <frequency>[, <basis>])",
+   "EVALUATE { MDURATION(DATE(2008,1,1), DATE(2016,1,1), 0.08, 0.09, 2, 1) }"
+  ]
+ },
+ "MEDIAN": {
+  "slug": "median-function-dax",
+  "status": 200,
+  "syntax": [
+   "MEDIAN(<column>)",
+   "= MEDIAN( Customers[Age] )"
+  ]
+ },
+ "MEDIANX": {
+  "slug": "medianx-function-dax",
+  "status": 200,
+  "syntax": [
+   "MEDIANX(<table>, <expression>)",
+   "= MEDIANX( FILTER(Customers, RELATED( Geography[Country]=\"USA\" ) ), Customers[Age] )"
+  ]
+ },
+ "MID": {
+  "slug": "mid-function-dax",
+  "status": 200,
+  "syntax": [
+   "MID(<text>, <start_num>, <num_chars>)",
+   "MID(\"abcde\",2,3))",
+   "MID('Reseller'[ResellerName],1,5))"
+  ]
+ },
+ "MIN": {
+  "slug": "min-function-dax",
+  "status": 200,
+  "syntax": [
+   "MIN(<column>)",
+   "MIN(<expression1>, <expression2>)",
+   "= MIN([ResellerMargin])"
+  ]
+ },
+ "MINA": {
+  "slug": "mina-function-dax",
+  "status": 200,
+  "syntax": [
+   "MINA(<column>)",
+   "= MINA(InternetSales[Freight])",
+   "= MINA([PostalCode])"
+  ]
+ },
+ "MINUTE": {
+  "slug": "minute-function-dax",
+  "status": 200,
+  "syntax": [
+   "MINUTE(<datetime>)",
+   "= MINUTE(Orders[TransactionTime])",
+   "= MINUTE(\"March 23, 2008 1:45 PM\")"
+  ]
+ },
+ "MINX": {
+  "slug": "minx-function-dax",
+  "status": 200,
+  "syntax": [
+   "MINX(<table>, < expression>,[<variant>])",
+   "= MINX( FILTER(InternetSales, [SalesTerritoryKey] = 5),[Freight])",
+   "= MINX( FILTER(InternetSales, InternetSales[SalesTerritoryKey] = 5), InternetSales[Freight] + InternetSales[TaxAmt])"
+  ]
+ },
+ "MOD": {
+  "slug": "mod-function-dax",
+  "status": 200,
+  "syntax": [
+   "MOD(<number>, <divisor>)",
+   "= MOD(3,2)",
+   "= MOD(-3,-2)"
+  ]
+ },
+ "MONTH": {
+  "slug": "month-function-dax",
+  "status": 200,
+  "syntax": [
+   "MONTH(<datetime>)",
+   "= MONTH(\"March 3, 2008 3:45 PM\")",
+   "= MONTH(Orders[TransactionDate])"
+  ]
+ },
+ "MOVINGAVERAGE": {
+  "slug": "movingaverage-function-dax",
+  "status": 200,
+  "syntax": [
+   "MOVINGAVERAGE ( <column>, <windowSize>[, <includeCurrent>][, <axis>][, <orderBy>][, <blanks>][, <reset>] )",
+   "AvgSalesLast6Months = MOVINGAVERAGE([SalesAmount], 6, Rows)",
+   "AvgSalesPrev12Months = MOVINGAVERAGE([SalesAmount], 12, FALSE, Rows, KEEP)"
+  ]
+ },
+ "MROUND": {
+  "slug": "mround-function-dax",
+  "status": 200,
+  "syntax": [
+   "MROUND(<number>, <multiple>)",
+   "= MROUND(1.3,0.2)",
+   "= MROUND(-10,-3)"
+  ]
+ },
+ "NAMEOF": {
+  "slug": "nameof-function-dax",
+  "status": 200,
+  "syntax": [
+   "NAMEOF ( <object> [, <component> [, <escaped>]] )",
+   "EVALUATE { NAMEOF ( 'Sales'[ORDER QUANTITY] ) }",
+   "DEFINE MEASURE Sales[Projected Sales] = SUM ( 'Sales'[Sales Amount] ) * 1.06 EVALUATE { NAMEOF ( [Projected Sales] ) }"
+  ]
+ },
+ "NATURALINNERJOIN": {
+  "slug": "naturalinnerjoin-function-dax",
+  "status": 200,
+  "syntax": [
+   "NATURALINNERJOIN(<LeftTable>, <RightTable>)"
+  ]
+ },
+ "NATURALLEFTOUTERJOIN": {
+  "slug": "naturalleftouterjoin-function-dax",
+  "status": 200,
+  "syntax": [
+   "NATURALLEFTOUTERJOIN(<LeftTable>, <RightTable>)"
+  ]
+ },
+ "NETWORKDAYS": {
+  "slug": "networkdays-function-dax",
+  "status": 200,
+  "syntax": [
+   "NETWORKDAYS(<start_date>, <end_date>[, <weekend>, <holidays>])",
+   "= NETWORKDAYS ( DATE ( 2022, 5, 28 ), DATE ( 2022, 5, 30 ), 1, { DATE ( 2022, 5, 30 ) } )"
+  ]
+ },
+ "NEXT": {
+  "slug": "next-function-dax",
+  "status": 200,
+  "syntax": [
+   "NEXT ( <column>[, <steps>][, <axis>][, <orderBy>][, <blanks>][, reset] )",
+   "NextInternetSalesAmount = NEXT ( [Sum of SalesAmount], ROWS, LowestParent )"
+  ]
+ },
+ "NEXTDAY": {
+  "slug": "nextday-function-dax",
+  "status": 200,
+  "syntax": [
+   "NEXTDAY(<dates> or <calendar>)",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), NEXTDAY ( 'DateTime'[DateKey] ) )",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), NEXTDAY ( FiscalCalendar ) )"
+  ]
+ },
+ "NEXTMONTH": {
+  "slug": "nextmonth-function-dax",
+  "status": 200,
+  "syntax": [
+   "NEXTMONTH(<dates> or <calendar>)",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), NEXTMONTH ( 'DateTime'[DateKey] ) )",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), NEXTMONTH ( FiscalCalendar ) )"
+  ]
+ },
+ "NEXTQUARTER": {
+  "slug": "nextquarter-function-dax",
+  "status": 200,
+  "syntax": [
+   "NEXTQUARTER(<dates> or <calendar>)",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), NEXTQUARTER ( 'DateTime'[DateKey] ) )",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), NEXTQUARTER ( FiscalCalendar ) )"
+  ]
+ },
+ "NEXTWEEK": {
+  "slug": "nextweek-function-dax",
+  "status": 200,
+  "syntax": [
+   "NEXTWEEK(<calendar>)",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), NEXTWEEK ( FiscalCalendar ) )"
+  ]
+ },
+ "NEXTYEAR": {
+  "slug": "nextyear-function-dax",
+  "status": 200,
+  "syntax": [
+   "NEXTYEAR(<dates> or <calendar>[,<year_end_date>])",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), NEXTYEAR ( 'DateTime'[DateKey] ) )",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), NEXTYEAR ( FiscalCalendar ) )"
+  ]
+ },
+ "NOMINAL": {
+  "slug": "nominal-function-dax",
+  "status": 200,
+  "syntax": [
+   "NOMINAL(<effect_rate>, <npery>)",
+   "EVALUATE { NOMINAL(0.053543, 4) }"
+  ]
+ },
+ "NONVISUAL": {
+  "slug": "nonvisual-function-dax",
+  "status": 200,
+  "syntax": [
+   "NONVISUAL(<expression>)"
+  ]
+ },
+ "NORM.DIST": {
+  "slug": "norm-dist-function-dax",
+  "status": 200,
+  "syntax": [
+   "NORM.DIST(X, Mean, Standard_dev, Cumulative)",
+   "EVALUATE { NORM.DIST(42, 40, 1.5, TRUE) }"
+  ]
+ },
+ "NORM.INV": {
+  "slug": "norm-inv-function-dax",
+  "status": 200,
+  "syntax": [
+   "NORM.INV(Probability, Mean, Standard_dev)",
+   "EVALUATE { NORM.INV(0.908789, 40, 1.5) }"
+  ]
+ },
+ "NORM.S.DIST": {
+  "slug": "norm-s-dist-function-dax",
+  "status": 200,
+  "syntax": [
+   "NORM.S.DIST(Z, Cumulative)",
+   "EVALUATE { NORM.S.DIST(1.333333, TRUE) }"
+  ]
+ },
+ "NORM.S.INV": {
+  "slug": "norm-s-inv-function-dax",
+  "status": 200,
+  "syntax": [
+   "NORM.S.INV(Probability)",
+   "EVALUATE { NORM.S.INV(0.908789) }"
+  ]
+ },
+ "NOT": {
+  "slug": "not-function-dax",
+  "status": 200,
+  "syntax": [
+   "NOT(<logical>)",
+   "= NOT([CalculatedColumn1])"
+  ]
+ },
+ "NOW": {
+  "slug": "now-function-dax",
+  "status": 200,
+  "syntax": [
+   "NOW()",
+   "= NOW()+3.5"
+  ]
+ },
+ "NPER": {
+  "slug": "nper-function-dax",
+  "status": 200,
+  "syntax": [
+   "NPER(<rate>, <pmt>, <pv>[, <fv>[, <type>]])",
+   "EVALUATE { NPER(0.12/12, -100, -1000, 10000, 1) }"
+  ]
+ },
+ "ODD": {
+  "slug": "odd-function-dax",
+  "status": 200,
+  "syntax": [
+   "ODD(number)"
+  ]
+ },
+ "ODDFPRICE": {
+  "slug": "oddfprice-function-dax",
+  "status": 200,
+  "syntax": [
+   "ODDFPRICE(<settlement>, <maturity>, <issue>, <first_coupon>, <rate>, <yld>, <redemption>, <frequency>[, <basis>])",
+   "EVALUATE { ODDFPRICE(DATE(2008,11,11), DATE(2021,3,1), DATE(2008,10,15), DATE(2009,3,1), 0.0785, 0.0625, 100.00, 2, 1) }"
+  ]
+ },
+ "ODDFYIELD": {
+  "slug": "oddfyield-function-dax",
+  "status": 200,
+  "syntax": [
+   "ODDFYIELD(<settlement>, <maturity>, <issue>, <first_coupon>, <rate>, <pr>, <redemption>, <frequency>[, <basis>])",
+   "EVALUATE { ODDFYIELD(DATE(2008,11,11), DATE(2021,3,1), DATE(2008,10,15), DATE(2009,3,1), 0.0575, 84.50, 100, 2, 0) }"
+  ]
+ },
+ "ODDLPRICE": {
+  "slug": "oddlprice-function-dax",
+  "status": 200,
+  "syntax": [
+   "ODDLPRICE(<settlement>, <maturity>, <last_interest>, <rate>, <yld>, <redemption>, <frequency>[, <basis>])",
+   "EVALUATE { ODDLPRICE(DATE(2008,2,7), DATE(2008,6,15), DATE(2007,10,15), 0.0375, 0.0405, 100, 2, 0) }"
+  ]
+ },
+ "ODDLYIELD": {
+  "slug": "oddlyield-function-dax",
+  "status": 200,
+  "syntax": [
+   "ODDLYIELD(<settlement>, <maturity>, <last_interest>, <rate>, <pr>, <redemption>, <frequency>[, <basis>])",
+   "EVALUATE { ODDLYIELD(DATE(2008,4,20), DATE(2008,6,15), DATE(2007,12,24), 0.0375, 99.875, 100, 2, 0) }"
+  ]
+ },
+ "OFFSET": {
+  "slug": "offset-function-dax",
+  "status": 200,
+  "syntax": [
+   "OFFSET ( <delta>[, <relation> or <axis>][, <orderBy>][, <blanks>][, <partitionBy>][, <matchBy>][, <reset>] )",
+   "DEFINE VAR vRelation = SUMMARIZECOLUMNS ( DimProductCategory[EnglishProductCategoryName], DimDate[CalendarYear], \"CurrentYearSales\", SUM(FactInternetSales[SalesAmount]) ) EVALUATE ADDCOLUMNS ( vRelation, \"PreviousYearSales\", SELECTCOLUMNS( OFFSET ( -1, vRelation, ORDERBY([CalendarYear]), PARTITIONBY([EnglishProductCategoryName]) ), [CurrentYearSales] ) )",
+   "DEFINE MEASURE DimProduct[CurrentYearSales] = SUM(FactInternetSales[SalesAmount]) MEASURE DimProduct[PreviousYearSales] = CALCULATE(SUM(FactInternetSales[SalesAmount]), OFFSET(-1, , ORDERBY(DimDate[CalendarYear]))) EVALUATE SUMMARIZECOLUMNS ( DimDate[CalendarYear], \"CurrentYearSales\", DimProduct[CurrentYearSales], \"PreviousYearSales\", DimProduct[PreviousYearSales] )"
+  ]
+ },
+ "OPENINGBALANCEMONTH": {
+  "slug": "openingbalancemonth-function-dax",
+  "status": 200,
+  "syntax": [
+   "OPENINGBALANCEMONTH(<expression>,<dates> or <calendar>[,<filter>])",
+   "= OPENINGBALANCEMONTH ( SUMX ( ProductInventory, ProductInventory[UnitCost] * ProductInventory[UnitsBalance] ), DateTime[DateKey] )",
+   "= OPENINGBALANCEMONTH ( SUMX ( ProductInventory, ProductInventory[UnitCost] * ProductInventory[UnitsBalance] ), FiscalCalendar )"
+  ]
+ },
+ "OPENINGBALANCEQUARTER": {
+  "slug": "openingbalancequarter-function-dax",
+  "status": 200,
+  "syntax": [
+   "OPENINGBALANCEQUARTER(<expression>,<dates> or <calendar>[,<filter>])",
+   "= OPENINGBALANCEQUARTER ( SUMX ( ProductInventory, ProductInventory[UnitCost] * ProductInventory[UnitsBalance] ), DateTime[DateKey] )",
+   "= OPENINGBALANCEQUARTER ( SUMX ( ProductInventory, ProductInventory[UnitCost] * ProductInventory[UnitsBalance] ), FiscalCalendar )"
+  ]
+ },
+ "OPENINGBALANCEWEEK": {
+  "slug": "openingbalanceweek-function-dax",
+  "status": 200,
+  "syntax": [
+   "OPENINGBALANCEWEEK(<expression>,<calendar>[,<filter>])",
+   "= OPENINGBALANCEWEEK ( SUMX ( ProductInventory, ProductInventory[UnitCost] * ProductInventory[UnitsBalance] ), FiscalCalendar )"
+  ]
+ },
+ "OPENINGBALANCEYEAR": {
+  "slug": "openingbalanceyear-function-dax",
+  "status": 200,
+  "syntax": [
+   "OPENINGBALANCEYEAR(<expression>,<dates> or <calendar>[,<filter>][,<year_end_date>])",
+   "= OPENINGBALANCEYEAR ( SUMX ( ProductInventory, ProductInventory[UnitCost] * ProductInventory[UnitsBalance] ), DateTime[DateKey] )",
+   "= OPENINGBALANCEYEAR ( SUMX ( ProductInventory, ProductInventory[UnitCost] * ProductInventory[UnitsBalance] ), FiscalCalendar )"
+  ]
+ },
+ "OR": {
+  "slug": "or-function-dax",
+  "status": 200,
+  "syntax": [
+   "OR(<logical1>,<logical2>)",
+   "IF( OR( CALCULATE(SUM('ResellerSales_USD'[SalesAmount_USD]), 'ProductSubcategory'[ProductSubcategoryName]=\"Touring Bikes\") > 1000000 , CALCULATE(SUM('ResellerSales_USD'[SalesAmount_USD]), 'DateTime'[CalendarYear]=2007) > 2500000 ) , \"Circle of Excellence\" , \"\" )"
+  ]
+ },
+ "ORDERBY": {
+  "slug": "orderby-function-dax",
+  "status": 200,
+  "syntax": [
+   "ORDERBY ( [<orderBy_expression>[, <order>[, <orderBy_expression>[, <order>]] \u2026]] )"
+  ]
+ },
+ "PARALLELPERIOD": {
+  "slug": "parallelperiod-function-dax",
+  "status": 200,
+  "syntax": [
+   "PARALLELPERIOD(<dates> or <calendar>,<number_of_intervals>,<interval>)",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), PARALLELPERIOD ( DateTime[DateKey], -1, YEAR ) )",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), PARALLELPERIOD ( FiscalCalendar, -1, YEAR ) )"
+  ]
+ },
+ "PARTITIONBY": {
+  "slug": "partitionby-function-dax",
+  "status": 200,
+  "syntax": [
+   "PARTITIONBY ( [<partitionBy_columnName>[, partitionBy_columnName [, \u2026]]] )"
+  ]
+ },
+ "PATH": {
+  "slug": "path-function-dax",
+  "status": 200,
+  "syntax": [
+   "PATH(<ID_columnName>, <parent_columnName>)",
+   "= PATH(Employee[EmployeeKey], Employee[ParentEmployeeKey])"
+  ]
+ },
+ "PATHCONTAINS": {
+  "slug": "pathcontains-function-dax",
+  "status": 200,
+  "syntax": [
+   "PATHCONTAINS(<path>, <item>)",
+   "= PATHCONTAINS(PATH(Employee[EmployeeKey], Employee[ParentEmployeeKey]), \"23\")"
+  ]
+ },
+ "PATHITEM": {
+  "slug": "pathitem-function-dax",
+  "status": 200,
+  "syntax": [
+   "PATHITEM(<path>, <position>[, <type>])",
+   "= PATHITEM(PATH(Employee[EmployeeKey], Employee[ParentEmployeeKey]), 3, 1)"
+  ]
+ },
+ "PATHITEMREVERSE": {
+  "slug": "pathitemreverse-function-dax",
+  "status": 200,
+  "syntax": [
+   "PATHITEMREVERSE(<path>, <position>[, <type>])",
+   "= PATHITEMREVERSE(PATH(Employee[EmployeeKey], Employee[ParentEmployeeKey]), 3, 1)"
+  ]
+ },
+ "PATHLENGTH": {
+  "slug": "pathlength-function-dax",
+  "status": 200,
+  "syntax": [
+   "PATHLENGTH(<path>)",
+   "= PATHLENGTH(PATH(Employee[EmployeeKey], Employee[ParentEmployeeKey]))"
+  ]
+ },
+ "PDURATION": {
+  "slug": "pduration-function-dax",
+  "status": 200,
+  "syntax": [
+   "PDURATION(<rate>, <pv>, <fv>)",
+   "EVALUATE { PDURATION(0.025, 2000, 2200) }",
+   "EVALUATE { PDURATION(0.025/12, 1000, 1200) }"
+  ]
+ },
+ "PERCENTILE.EXC": {
+  "slug": "percentile-exc-function-dax",
+  "status": 200,
+  "syntax": [
+   "PERCENTILE.EXC(<column>, <k>)"
+  ]
+ },
+ "PERCENTILE.INC": {
+  "slug": "percentile-inc-function-dax",
+  "status": 200,
+  "syntax": [
+   "PERCENTILE.INC(<column>, <k>)"
+  ]
+ },
+ "PERCENTILEX.EXC": {
+  "slug": "percentilex-exc-function-dax",
+  "status": 200,
+  "syntax": [
+   "PERCENTILEX.EXC(<table>, <expression>, k)"
+  ]
+ },
+ "PERCENTILEX.INC": {
+  "slug": "percentilex-inc-function-dax",
+  "status": 200,
+  "syntax": [
+   "PERCENTILEX.INC(<table>, <expression>;, k)"
+  ]
+ },
+ "PERMUT": {
+  "slug": "permut-function-dax",
+  "status": 200,
+  "syntax": [
+   "PERMUT(number, number_chosen)",
+   "= PERMUT(3,2)"
+  ]
+ },
+ "PI": {
+  "slug": "pi-function-dax",
+  "status": 200,
+  "syntax": [
+   "PI()",
+   "= PI()*([Radius]*2)"
+  ]
+ },
+ "PMT": {
+  "slug": "pmt-function-dax",
+  "status": 200,
+  "syntax": [
+   "PMT(<rate>, <nper>, <pv>[, <fv>[, <type>]])",
+   "EVALUATE { PMT(0.08/12, 10, 10000, 0, 1) }",
+   "EVALUATE { PMT(0.06/12, 18*12, 0, 50000) }"
+  ]
+ },
+ "POISSON.DIST": {
+  "slug": "poisson-dist-function-dax",
+  "status": 200,
+  "syntax": [
+   "POISSON.DIST(x,mean,cumulative)"
+  ]
+ },
+ "POWER": {
+  "slug": "power-function-dax",
+  "status": 200,
+  "syntax": [
+   "POWER(<number>, <power>)",
+   "= POWER(5,2)"
+  ]
+ },
+ "PPMT": {
+  "slug": "ppmt-function-dax",
+  "status": 200,
+  "syntax": [
+   "PPMT(<rate>, <per>, <nper>, <pv>[, <fv>[, <type>]])",
+   "EVALUATE { PPMT(0.1/12, 1, 2*12, 2000.00) }",
+   "EVALUATE { PPMT(0.08, 10, 10, 200000.00) }"
+  ]
+ },
+ "PREVIOUS": {
+  "slug": "previous-function-dax",
+  "status": 200,
+  "syntax": [
+   "PREVIOUS ( <column>[, <steps>][, <axis>][, <orderBy>][, <blanks>][, reset] )",
+   "PreviousInternetSalesAmount = PREVIOUS ( [Sum of SalesAmount], ROWS, LowestParent )"
+  ]
+ },
+ "PREVIOUSDAY": {
+  "slug": "previousday-function-dax",
+  "status": 200,
+  "syntax": [
+   "PREVIOUSDAY(<dates> or <calendar>)",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), PREVIOUSDAY ( 'DateTime'[DateKey] ) )",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), PREVIOUSDAY ( FiscalCalendar ) )"
+  ]
+ },
+ "PREVIOUSMONTH": {
+  "slug": "previousmonth-function-dax",
+  "status": 200,
+  "syntax": [
+   "PREVIOUSMONTH(<dates> or <calendar>)",
+   "= CALCULATE ( SUM ( 'Sales'[Sales Amount] ), PREVIOUSMONTH ( 'Date'[Date] ) )",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), PREVIOUSMONTH ( FiscalCalendar ) )"
+  ]
+ },
+ "PREVIOUSQUARTER": {
+  "slug": "previousquarter-function-dax",
+  "status": 200,
+  "syntax": [
+   "PREVIOUSQUARTER(<dates> or <calendar>)",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), PREVIOUSQUARTER ( 'DateTime'[DateKey] ) )",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), PREVIOUSQUARTER ( FiscalCalendar ) )"
+  ]
+ },
+ "PREVIOUSWEEK": {
+  "slug": "previousweek-function-dax",
+  "status": 200,
+  "syntax": [
+   "PREVIOUSWEEK(<calendar>)",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), PREVIOUSWEEK ( FiscalCalendar ) )"
+  ]
+ },
+ "PREVIOUSYEAR": {
+  "slug": "previousyear-function-dax",
+  "status": 200,
+  "syntax": [
+   "PREVIOUSYEAR(<dates> or <calendar>[,<year_end_date>])",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), PREVIOUSYEAR ( 'DateTime'[DateKey] ) )",
+   "= CALCULATE ( SUM ( InternetSales_USD[SalesAmount_USD] ), PREVIOUSYEAR ( FiscalCalendar ) )"
+  ]
+ },
+ "PRICE": {
+  "slug": "price-function-dax",
+  "status": 200,
+  "syntax": [
+   "PRICE(<settlement>, <maturity>, <rate>, <yld>, <redemption>, <frequency>[, <basis>])",
+   "EVALUATE { PRICE(DATE(2008,2,15), DATE(2017,11,15), 0.0575, 0.065, 100, 2, 0) }"
+  ]
+ },
+ "PRICEDISC": {
+  "slug": "pricedisc-function-dax",
+  "status": 200,
+  "syntax": [
+   "PRICEDISC(<settlement>, <maturity>, <discount>, <redemption>[, <basis>])",
+   "EVALUATE { PRICEDISC(DATE(2008,2,16), DATE(2008,3,1), 0.0525, 100, 2) }"
+  ]
+ },
+ "PRICEMAT": {
+  "slug": "pricemat-function-dax",
+  "status": 200,
+  "syntax": [
+   "PRICEMAT(<settlement>, <maturity>, <issue>, <rate>, <yld>[, <basis>])",
+   "EVALUATE { PRICEMAT(DATE(2008,2,15), DATE(2008,4,13), DATE(2007,11,11), 0.061, 0.061, 0) }"
+  ]
+ },
+ "PRODUCT": {
+  "slug": "product-function-dax",
+  "status": 200,
+  "syntax": [
+   "PRODUCT(<column>)",
+   "= PRODUCT( Annuity[AdjustedRates] )"
+  ]
+ },
+ "PRODUCTX": {
+  "slug": "productx-function-dax",
+  "status": 200,
+  "syntax": [
+   "PRODUCTX(<table>, <expression>)",
+   "= [PresentValue] * PRODUCTX( AnnuityPeriods, 1+[FixedInterestRate] )"
+  ]
+ },
+ "PV": {
+  "slug": "pv-function-dax",
+  "status": 200,
+  "syntax": [
+   "PV(<rate>, <nper>, <pmt>[, <fv>[, <type>]])",
+   "EVALUATE { PV(0.08/12, 12*20, 500.00, 0, 0) }"
+  ]
+ },
+ "QUARTER": {
+  "slug": "quarter-function-dax",
+  "status": 200,
+  "syntax": [
+   "QUARTER(<date>)",
+   "EVALUATE { QUARTER(DATE(2019, 2, 1)), QUARTER(DATE(2018, 12, 31)) }",
+   "EVALUATE ADDCOLUMNS( FILTER( VALUES( FactInternetSales[OrderDate]), [OrderDate] >= DATE(2008, 3, 31) && [OrderDate] <= DATE(2008, 4, 1) ), \"Quarter\", QUARTER([OrderDate]) )"
+  ]
+ },
+ "QUOTIENT": {
+  "slug": "quotient-function-dax",
+  "status": 200,
+  "syntax": [
+   "QUOTIENT(<numerator>, <denominator>)",
+   "= QUOTIENT(5,2)",
+   "= QUOTIENT(10/2,2)"
+  ]
+ },
+ "RADIANS": {
+  "slug": "radians-function-dax",
+  "status": 200,
+  "syntax": [
+   "RADIANS(angle)"
+  ]
+ },
+ "RAND": {
+  "slug": "rand-function-dax",
+  "status": 200,
+  "syntax": [
+   "RAND()",
+   "= RAND()*(b-a)+a",
+   "= RAND()"
+  ]
+ },
+ "RANDBETWEEN": {
+  "slug": "randbetween-function-dax",
+  "status": 200,
+  "syntax": [
+   "RANDBETWEEN(<bottom>,<top>)",
+   "= RANDBETWEEN(1,10)"
+  ]
+ },
+ "RANGE": {
+  "slug": "range-function-dax",
+  "status": 200,
+  "syntax": [
+   "RANGE ( <step>[, <includeCurrent>][, <axis>][, <orderBy>][, <blanks>][, <reset>] )",
+   "TotalSalesLast6Months = CALCULATE(SUM([SalesAmount]), RANGE(-5, Rows))",
+   "TotalSalesFollowingYear = CALCULATE(SUM([SalesAmount]), RANGE(12, FALSE, Rows, KEEP))"
+  ]
+ },
+ "RANK": {
+  "slug": "rank-function-dax",
+  "status": 200,
+  "syntax": [
+   "RANK ( [<ties>][, <relation> or <axis>][, <orderBy>][, <blanks>][, <partitionBy>][, <matchBy>][, <reset>] )",
+   "EVALUATE ADDCOLUMNS( 'DimGeography', \"Rank\", RANK( DENSE, 'DimGeography', ORDERBY( 'DimGeography'[StateProvinceName], desc, 'DimGeography'[City], asc), LAST, PARTITIONBY( 'DimGeography'[EnglishCountryRegionName]))) ORDER BY [EnglishCountryRegionName] asc, [StateProvinceName] desc, [City] asc",
+   "SalesRankWithinYear = RANK(DENSE, ORDERBY([SalesAmount], DESC), PARTITIONBY([CalendarYear])) SalesRankAllHistory = RANK(DENSE, ORDERBY([SalesAmount], DESC))"
+  ]
+ },
+ "RANK.EQ": {
+  "slug": "rank-eq-function-dax",
+  "status": 200,
+  "syntax": [
+   "RANK.EQ(<value>, <columnName>[, <order>])",
+   "= RANK.EQ(InternetSales_USD[SalesAmount_USD], InternetSales_USD[SalesAmount_USD])",
+   "= RANK.EQ(Students[Test_Score], NationalScores[Test_Score])"
+  ]
+ },
+ "RANKX": {
+  "slug": "rankx-function-dax",
+  "status": 200,
+  "syntax": [
+   "RANKX(<table>, <expression>[, <value>[, <order>[, <ties>]]])",
+   "= RANKX(ALL(Products), SUMX(RELATEDTABLE(InternetSales), [SalesAmount]))"
+  ]
+ },
+ "RATE": {
+  "slug": "rate-function-dax",
+  "status": 200,
+  "syntax": [
+   "RATE(<nper>, <pmt>, <pv>[, <fv>[, <type>[, <guess>]]])",
+   "EVALUATE { RATE(4*12, -200, 8000) }",
+   "EVALUATE { RATE(4*12, -200, 8000) * 12 }"
+  ]
+ },
+ "RECEIVED": {
+  "slug": "received-function-dax",
+  "status": 200,
+  "syntax": [
+   "RECEIVED(<settlement>, <maturity>, <investment>, <discount>[, <basis>])",
+   "EVALUATE { RECEIVED(DATE(2008,2,15), DATE(2008,5,15), 1000000.00, 0.0575, 2) }"
+  ]
+ },
+ "RELATED": {
+  "slug": "related-function-dax",
+  "status": 200,
+  "syntax": [
+   "RELATED(<column>)",
+   "FILTER('InternetSales_USD' , 'InternetSales_USD'[SalesTerritoryKey]<>1 && 'InternetSales_USD'[SalesTerritoryKey]<>2 && 'InternetSales_USD'[SalesTerritoryKey]<>3 && 'InternetSales_USD'[SalesTerritoryKey]<>4 && 'InternetSales_USD'[SalesTerritoryKey]<>5)",
+   "FILTER( 'InternetSales_USD', RELATED('SalesTerritory'[SalesTerritoryCountry])<>\"United States\")"
+  ]
+ },
+ "RELATEDTABLE": {
+  "slug": "relatedtable-function-dax",
+  "status": 200,
+  "syntax": [
+   "RELATEDTABLE(<tableName>)",
+   "= SUMX( RELATEDTABLE('InternetSales_USD') , [SalesAmount_USD])"
+  ]
+ },
+ "REMOVEFILTERS": {
+  "slug": "removefilters-function-dax",
+  "status": 200,
+  "syntax": [
+   "REMOVEFILTERS([<table> | <column>[, <column>[, <column>[,\u2026]]]])",
+   "DEFINE MEASURE FactInternetSales[TotalSales] = SUM(FactInternetSales[SalesAmount]) MEASURE FactInternetSales[%Sales] = DIVIDE([TotalSales], CALCULATE([TotalSales],REMOVEFILTERS())) EVALUATE SUMMARIZECOLUMNS( ROLLUPADDISSUBTOTAL(DimProductCategory[EnglishProductCategoryName], \"IsGrandTotal\"), \"TotalSales\", [TotalSales], \"%Sales\", [%Sales] ) ORDER BY [IsGrandTotal] DESC, [TotalSales] DESC",
+   "DEFINE MEASURE FactInternetSales[TotalSales] = SUM(FactInternetSales[SalesAmount]) MEASURE FactInternetSales[%Sales] = DIVIDE([TotalSales], CALCULATE([TotalSales],REMOVEFILTERS(DimProductSubcategory[EnglishProductSubcategoryName]))) EVALUATE SUMMARIZECOLUMNS( DimProductCategory[EnglishProductCategoryName], DimProductSubcategory[EnglishProductSubcategoryName], \"TotalSales\", [TotalSales], \"%Sales\", [%Sales] ) ORDER BY DimProductCategory[EnglishProductCategoryName] ASC, DimProductSubcategory[EnglishProductSubcategoryName] ASC"
+  ]
+ },
+ "REPLACE": {
+  "slug": "replace-function-dax",
+  "status": 200,
+  "syntax": [
+   "REPLACE(<old_text>, <start_num>, <num_chars>, <new_text>)",
+   "= REPLACE('New Products'[Product Code],1,2,\"OB\")"
+  ]
+ },
+ "REPT": {
+  "slug": "rept-function-dax",
+  "status": 200,
+  "syntax": [
+   "REPT(<text>, <num_times>)",
+   "= REPT(\"85\",3)",
+   "= REPT([MyText],[MyNumber])"
+  ]
+ },
+ "RIGHT": {
+  "slug": "right-function-dax",
+  "status": 200,
+  "syntax": [
+   "RIGHT(<text>, <num_chars>)",
+   "= RIGHT('New Products'[ProductCode],2)",
+   "= RIGHT('New Products'[ProductCode],[MyCount])"
+  ]
+ },
+ "ROLLUP": {
+  "slug": "rollup-function-dax",
+  "status": 200,
+  "syntax": [
+   "ROLLUP ( <groupBy_columnName> [, <groupBy_columnName> [, \u2026 ] ] )",
+   "SUMMARIZE(<table>, <groupBy_columnName>[, <groupBy_columnName>]\u2026[, ROLLUP(<groupBy_columnName>[,< groupBy_columnName>\u2026])][, <name>, <expression>]\u2026)"
+  ]
+ },
+ "ROLLUPADDISSUBTOTAL": {
+  "slug": "rollupaddissubtotal-function-dax",
+  "status": 200,
+  "syntax": [
+   "ROLLUPADDISSUBTOTAL ( [<grandtotalFilter>], <groupBy_columnName>, <name> [, [<groupLevelFilter>] [, <groupBy_columnName>, <name> [, [<groupLevelFilter>] [, \u2026 ] ] ] ] )"
+  ]
+ },
+ "ROLLUPGROUP": {
+  "slug": "rollupgroup-function-dax",
+  "status": 200,
+  "syntax": [
+   "ROLLUPGROUP ( <groupBy_columnName> [, <groupBy_columnName> [, \u2026 ] ] )"
+  ]
+ },
+ "ROLLUPISSUBTOTAL": {
+  "slug": "rollupissubtotal-function-dax",
+  "status": 200,
+  "syntax": [
+   "ROLLUPISSUBTOTAL ( [<grandTotalFilter>], <groupBy_columnName>, <isSubtotal_columnName> [, [<groupLevelFilter>] [, <groupBy_columnName>, <isSubtotal_columnName> [, [<groupLevelFilter>] [, \u2026 ] ] ] ] )"
+  ]
+ },
+ "ROUND": {
+  "slug": "round-function-dax",
+  "status": 200,
+  "syntax": [
+   "ROUND(<number>, <num_digits>)",
+   "= ROUND(2.15,1)",
+   "= ROUND(21.5,-1)"
+  ]
+ },
+ "ROUNDDOWN": {
+  "slug": "rounddown-function-dax",
+  "status": 200,
+  "syntax": [
+   "ROUNDDOWN(<number>, <num_digits>)",
+   "= ROUNDDOWN(3.14159,3)",
+   "= ROUNDDOWN(31415.92654, -2)"
+  ]
+ },
+ "ROUNDUP": {
+  "slug": "roundup-function-dax",
+  "status": 200,
+  "syntax": [
+   "ROUNDUP(<number>, <num_digits>)",
+   "= ROUNDUP(PI(),4)",
+   "= ROUNDUP(1.3,0.2)"
+  ]
+ },
+ "ROW": {
+  "slug": "row-function-dax",
+  "status": 200,
+  "syntax": [
+   "ROW(<name>, <expression>[[,<name>, <expression>]\u2026])",
+   "ROW(\"Internet Total Sales (USD)\", SUM(InternetSales_USD[SalesAmount_USD]), \"Resellers Total Sales (USD)\", SUM(ResellerSales_USD[SalesAmount_USD]))"
+  ]
+ },
+ "ROWNUMBER": {
+  "slug": "rownumber-function-dax",
+  "status": 200,
+  "syntax": [
+   "ROWNUMBER ( [<relation> or <axis>][, <orderBy>][, <blanks>][, <partitionBy>][, <matchBy>][, <reset>] )",
+   "EVALUATE ADDCOLUMNS( 'DimGeography', \"UniqueRank\", ROWNUMBER( 'DimGeography', ORDERBY( 'DimGeography'[StateProvinceName], desc, 'DimGeography'[City], asc), PARTITIONBY( 'DimGeography'[EnglishCountryRegionName]))) ORDER BY [EnglishCountryRegionName] asc, [StateProvinceName] desc, [City] asc",
+   "SalesRankWithinYear = ROWNUMBER(ORDERBY([SalesAmount], DESC), PARTITIONBY([CalendarYear])) SalesRankAllHistory = ROWNUMBER(ORDERBY([SalesAmount], DESC))"
+  ]
+ },
+ "RRI": {
+  "slug": "rri-function-dax",
+  "status": 200,
+  "syntax": [
+   "RRI(<nper>, <pv>, <fv>)",
+   "EVALUATE { RRI(4*12, 10000, 21000) }"
+  ]
+ },
+ "RUNNINGSUM": {
+  "slug": "runningsum-function-dax",
+  "status": 200,
+  "syntax": [
+   "RUNNINGSUM ( <column>[, <axis>][, <orderBy>][, <blanks>][, <reset>] )",
+   "SalesUpToDate = RUNNINGSUM([SalesAmount], Rows)"
+  ]
+ },
+ "SAMEPERIODLASTYEAR": {
+  "slug": "sameperiodlastyear-function-dax",
+  "status": 200,
+  "syntax": [
+   "SAMEPERIODLASTYEAR(<dates> or <calendar>)",
+   "= CALCULATE(SUM(ResellerSales_USD[SalesAmount_USD]), SAMEPERIODLASTYEAR(DateTime[DateKey]))",
+   "= SAMEPERIODLASTYEAR(DateTime[DateKey])"
+  ]
+ },
+ "SAMPLE": {
+  "slug": "sample-function-dax",
+  "status": 200,
+  "syntax": [
+   "SAMPLE(<n_value>, <table>, <orderBy_expression>, [<order>[, <orderBy_expression>, [<order>]]\u2026])"
+  ]
+ },
+ "SEARCH": {
+  "slug": "search-function-dax",
+  "status": 200,
+  "syntax": [
+   "SEARCH(<find_text>, <within_text>[, [<start_num>][, <NotFoundValue>]])",
+   "EVALUATE CALCULATETABLE ( ADDCOLUMNS ( TOPN ( 10, SUMMARIZE ( 'Reseller', [Reseller], [Business Type] ) ), \"Position of cycle\", SEARCH ( \"cycle\", 'Reseller'[Reseller], 1, BLANK () ) ), 'Reseller'[Business Type] IN { \"Specialty Bike Shop\", \"Value Added Reseller\", \"Warehouse\" } )"
+  ]
+ },
+ "SECOND": {
+  "slug": "second-function-dax",
+  "status": 200,
+  "syntax": [
+   "SECOND(<time>)",
+   "= SECOND('Orders'[TransactionTime])",
+   "= SECOND(\"March 3, 2008 12:00:03\")"
+  ]
+ },
+ "SELECTCOLUMNS": {
+  "slug": "selectcolumns-function-dax",
+  "status": 200,
+  "syntax": [
+   "SELECTCOLUMNS(<Table>, [<Name>], <Expression>, [<Name>], \u2026)",
+   "SELECTCOLUMNS(Customer, \"Country, State\", [Country]&\", \"&[State])"
+  ]
+ },
+ "SELECTEDMEASURE": {
+  "slug": "selectedmeasure-function-dax",
+  "status": 200,
+  "syntax": [
+   "SELECTEDMEASURE()",
+   "CALCULATE(SELECTEDMEASURE(), DATESYTD(DimDate[Date]))",
+   "SWITCH( TRUE(), SELECTEDMEASURE() < 1000,\"$#,##0\", //Values less than 1000 have no text after them SELECTEDMEASURE() < 1000000, \"$#,##0,.0 K\", //Values between 1000 and 1000000 are formatted as #.## K \"$#,##0,,.0 M\" //Values greater than 1000000 are formatted as #.## M )"
+  ]
+ },
+ "SELECTEDMEASUREFORMATSTRING": {
+  "slug": "selectedmeasureformatstring-function-dax",
+  "status": 200,
+  "syntax": [
+   "SELECTEDMEASUREFORMATSTRING()",
+   "SELECTEDVALUE( DimCurrency[FormatString], SELECTEDMEASUREFORMATSTRING() )"
+  ]
+ },
+ "SELECTEDMEASURENAME": {
+  "slug": "selectedmeasurename-function-dax",
+  "status": 200,
+  "syntax": [
+   "SELECTEDMEASURENAME()",
+   "IF ( SELECTEDMEASURENAME = \"Expense Ratio\", SELECTEDMEASURE (), DIVIDE ( SELECTEDMEASURE (), COUNTROWS ( DimDate ) ) )"
+  ]
+ },
+ "SELECTEDVALUE": {
+  "slug": "selectedvalue-function-dax",
+  "status": 200,
+  "syntax": [
+   "SELECTEDVALUE(<columnName>[, <alternateResult>])",
+   "DEFINE MEASURE DimProduct[Selected Color] = SELECTEDVALUE(DimProduct[Color], \"No Single Selection\") EVALUATE SUMMARIZECOLUMNS (ROLLUPADDISSUBTOTAL(DimProduct[Color], \"Is Total\"), \"Selected Color\", [Selected Color])ORDER BY [Is Total] ASC, [Color] ASC"
+  ]
+ },
+ "SIGN": {
+  "slug": "sign-function-dax",
+  "status": 200,
+  "syntax": [
+   "SIGN(<number>)",
+   "= SIGN( ([Sale Price] - [Cost]) )"
+  ]
+ },
+ "SIN": {
+  "slug": "sin-function-dax",
+  "status": 200,
+  "syntax": [
+   "SIN(number)"
+  ]
+ },
+ "SINH": {
+  "slug": "sinh-function-dax",
+  "status": 200,
+  "syntax": [
+   "SINH(number)",
+   "= 2.868*SINH(0.0342\\*1.03)"
+  ]
+ },
+ "SLN": {
+  "slug": "sln-function-dax",
+  "status": 200,
+  "syntax": [
+   "SLN(<cost>, <salvage>, <life>)",
+   "EVALUATE { SLN(30000, 7500, 10) }"
+  ]
+ },
+ "SQRT": {
+  "slug": "sqrt-function-dax",
+  "status": 200,
+  "syntax": [
+   "SQRT(<number>)",
+   "= SQRT(25)"
+  ]
+ },
+ "SQRTPI": {
+  "slug": "sqrtpi-function-dax",
+  "status": 200,
+  "syntax": [
+   "SQRTPI(number)"
+  ]
+ },
+ "STARTOFMONTH": {
+  "slug": "startofmonth-function-dax",
+  "status": 200,
+  "syntax": [
+   "STARTOFMONTH(<dates> or <calendar>)",
+   "= STARTOFMONTH(DateTime[DateKey])",
+   "= STARTOFMONTH(FiscalCalendar)"
+  ]
+ },
+ "STARTOFQUARTER": {
+  "slug": "startofquarter-function-dax",
+  "status": 200,
+  "syntax": [
+   "STARTOFQUARTER(<dates> or <calendar>)",
+   "= STARTOFQUARTER(DateTime[DateKey])",
+   "= STARTOFQUARTER(FiscalCalendar)"
+  ]
+ },
+ "STARTOFWEEK": {
+  "slug": "startofweek-function-dax",
+  "status": 200,
+  "syntax": [
+   "STARTOFWEEK(<calendar>)",
+   "= STARTOFWEEK(FiscalCalendar)"
+  ]
+ },
+ "STARTOFYEAR": {
+  "slug": "startofyear-function-dax",
+  "status": 200,
+  "syntax": [
+   "STARTOFYEAR(<dates> or <calendar>)",
+   "= STARTOFYEAR(DateTime[DateKey])",
+   "= STARTOFYEAR(FiscalCalendar)"
+  ]
+ },
+ "STDEV.P": {
+  "slug": "stdev-p-function-dax",
+  "status": 200,
+  "syntax": [
+   "STDEV.P(<ColumnName>)",
+   "= STDEV.P(InternetSales_USD[SalesAmount_USD])"
+  ]
+ },
+ "STDEV.S": {
+  "slug": "stdev-s-function-dax",
+  "status": 200,
+  "syntax": [
+   "STDEV.S(<ColumnName>)",
+   "= STDEV.S(InternetSales_USD[SalesAmount_USD])"
+  ]
+ },
+ "STDEVX.P": {
+  "slug": "stdevx-p-function-dax",
+  "status": 200,
+  "syntax": [
+   "STDEVX.P(<table>, <expression>)",
+   "= STDEVX.P(RELATEDTABLE(InternetSales_USD), InternetSales_USD[UnitPrice_USD] \u2013 (InternetSales_USD[DiscountAmount_USD]/InternetSales_USD[OrderQuantity]))"
+  ]
+ },
+ "STDEVX.S": {
+  "slug": "stdevx-s-function-dax",
+  "status": 200,
+  "syntax": [
+   "STDEVX.S(<table>, <expression>)",
+   "= STDEVX.S(RELATEDTABLE(InternetSales_USD), InternetSales_USD[UnitPrice_USD] \u2013 (InternetSales_USD[DiscountAmount_USD]/InternetSales_USD[OrderQuantity]))"
+  ]
+ },
+ "SUBSTITUTE": {
+  "slug": "substitute-function-dax",
+  "status": 200,
+  "syntax": [
+   "SUBSTITUTE(<text>, <old_text>, <new_text>, <instance_num>)",
+   "= SUBSTITUTE([Product Code], \"NW\", \"PA\")"
+  ]
+ },
+ "SUBSTITUTEWITHINDEX": {
+  "slug": "substitutewithindex-function-dax",
+  "status": 200,
+  "syntax": [
+   "SUBSTITUTEWITHINDEX(<table>, <indexColumnName>, <indexColumnsTable>, [<orderBy_expression>, [<order>][, <orderBy_expression>, [<order>]]\u2026])"
+  ]
+ },
+ "SUM": {
+  "slug": "sum-function-dax",
+  "status": 200,
+  "syntax": [
+   "SUM(<column>)",
+   "= SUM(Sales[Amt])"
+  ]
+ },
+ "SUMMARIZE": {
+  "slug": "summarize-function-dax",
+  "status": 200,
+  "syntax": [
+   "SUMMARIZE (<table>, <groupBy_columnName>[, <groupBy_columnName>]\u2026[, <name>, <expression>]\u2026)",
+   "SUMMARIZE(ResellerSales_USD , DateTime[CalendarYear] , ProductCategory[ProductCategoryName] , \"Sales Amount (USD)\", SUM(ResellerSales_USD[SalesAmount_USD]) , \"Discount Amount (USD)\", SUM(ResellerSales_USD[DiscountAmount]) )",
+   "SUMMARIZE(ResellerSales_USD , ROLLUP( DateTime[CalendarYear], ProductCategory[ProductCategoryName]) , \"Sales Amount (USD)\", SUM(ResellerSales_USD[SalesAmount_USD]) , \"Discount Amount (USD)\", SUM(ResellerSales_USD[DiscountAmount]) )"
+  ]
+ },
+ "SUMMARIZECOLUMNS": {
+  "slug": "summarizecolumns-function-dax",
+  "status": 200,
+  "syntax": [
+   "SUMMARIZECOLUMNS( <groupBy_columnName> [, < groupBy_columnName >]\u2026, [<filterTable>]\u2026[, <name>, <expression>]\u2026)",
+   "SUMMARIZECOLUMNS ( 'Sales Territory'[Category], FILTER('Customer', 'Customer' [First Name] = \"Alicia\") )",
+   "SUMMARIZECOLUMNS ( 'Sales Territory'[Category], 'Customer' [Education], FILTER('Customer', 'Customer'[First Name] = \"Alicia\") )"
+  ]
+ },
+ "SUMX": {
+  "slug": "sumx-function-dax",
+  "status": 200,
+  "syntax": [
+   "SUMX(<table>, <expression>)",
+   "= SUMX(FILTER(InternetSales, InternetSales[SalesTerritoryID]=5),[Freight])"
+  ]
+ },
+ "SWITCH": {
+  "slug": "switch-function-dax",
+  "status": 200,
+  "syntax": [
+   "SWITCH(<expression>, <value>, <result>[, <value>, <result>]\u2026[, <else>])",
+   "= SWITCH ( [Month Number Of Year], 1, \"January\", 2, \"February\", 3, \"March\", 4, \"April\", 5, \"May\", 6, \"June\", 7, \"July\", 8, \"August\", 9, \"September\", 10, \"October\", 11, \"November\", 12, \"December\", \"Unknown month number\" )",
+   "= SWITCH ( TRUE, [Reorder Point] > [Safety Stock Level], \"Good: Safety stock level exceeded\", [Reorder Point] = [Safety Stock Level], \"Minimal: Safety stock level met\", [Reorder Point] < [Safety Stock Level], \"At risk: Safety stock level not met\", ISBLANK ( [Reorder Point] ), \"Incomplete: Reorder point not set\", ISBLANK ( [Safety Stock Level] ), \"Incomplete: Safety stock level not set\", \"Unknown\" )"
+  ]
+ },
+ "SYD": {
+  "slug": "syd-function-dax",
+  "status": 200,
+  "syntax": [
+   "SYD(<cost>, <salvage>, <life>, <per>)",
+   "EVALUATE { SYD(30000.00, 7500.00, 10, 1) }",
+   "EVALUATE { SYD(30000.00, 7500.00, 10, 10) }"
+  ]
+ },
+ "T.DIST": {
+  "slug": "t-dist-function-dax",
+  "status": 200,
+  "syntax": [
+   "T.DIST(X,Deg_freedom,Cumulative)",
+   "EVALUATE { T.DIST(60, 1, TRUE) }"
+  ]
+ },
+ "T.DIST.2T": {
+  "slug": "t-dist-2t-function-dax",
+  "status": 200,
+  "syntax": [
+   "T.DIST.2T(X,Deg_freedom)",
+   "EVALUATE { T.DIST.2T(1.959999998, 60) }"
+  ]
+ },
+ "T.DIST.RT": {
+  "slug": "t-dist-rt-function-dax",
+  "status": 200,
+  "syntax": [
+   "T.DIST.RT(X,Deg_freedom)",
+   "EVALUATE { T.DIST.RT(1.959999998, 60) }"
+  ]
+ },
+ "T.INV": {
+  "slug": "t-inv-function-dax",
+  "status": 200,
+  "syntax": [
+   "T.INV(Probability,Deg_freedom)",
+   "EVALUATE { T.INV(0.75, 2) }"
+  ]
+ },
+ "T.INV.2T": {
+  "slug": "t-inv-2t-function-dax",
+  "status": 200,
+  "syntax": [
+   "T.INV.2T(Probability,Deg_freedom)",
+   "EVALUATE { T.INV.2T(0.546449, 60) }"
+  ]
+ },
+ "TABLEOF": {
+  "slug": "tableof-function-dax",
+  "status": 200,
+  "syntax": [
+   "TABLEOF ( <reference> )",
+   "EVALUATE ROW ( \"RowCount\", COUNTROWS ( TABLEOF ( 'Customer'[Customer ID] ) ) )",
+   "DEFINE MEASURE Sales[Projected Sales] = SUM ( 'Sales'[Sales Amount] ) * 1.06 EVALUATE ROW ( \"Total Projected Sales\", ROUND ( SUMX ( TABLEOF ( [Projected Sales] ), [Projected Sales] ), 2 ) )"
+  ]
+ },
+ "TAN": {
+  "slug": "tan-function-dax",
+  "status": 200,
+  "syntax": [
+   "TAN(number)"
+  ]
+ },
+ "TANH": {
+  "slug": "tanh-function-dax",
+  "status": 200,
+  "syntax": [
+   "TANH(number)"
+  ]
+ },
+ "TBILLEQ": {
+  "slug": "tbilleq-function-dax",
+  "status": 200,
+  "syntax": [
+   "TBILLEQ(<settlement>, <maturity>, <discount>)",
+   "EVALUATE { TBILLEQ(DATE(2008,3,31), DATE(2008,6,1), 0.0914) }"
+  ]
+ },
+ "TBILLPRICE": {
+  "slug": "tbillprice-function-dax",
+  "status": 200,
+  "syntax": [
+   "TBILLPRICE(<settlement>, <maturity>, <discount>)",
+   "EVALUATE { TBILLPRICE(DATE(2008,3,31), DATE(2008,6,1), 0.09) }"
+  ]
+ },
+ "TBILLYIELD": {
+  "slug": "tbillyield-function-dax",
+  "status": 200,
+  "syntax": [
+   "TBILLYIELD(<settlement>, <maturity>, <pr>)",
+   "EVALUATE { TBILLYIELD(DATE(2008,3,31), DATE(2008,6,1), 98.45) }"
+  ]
+ },
+ "TEXTCONTAINS": {
+  "slug": "textcontains-function-dax",
+  "status": 200,
+  "syntax": [
+   "TEXTCONTAINS(<within_text_column>, <search_text>[, <match_mode>])",
+   "EVALUATE FILTER ( Products, TEXTCONTAINS ( Products[Description], \"wireless bluetooth\" ) )",
+   "EVALUATE FILTER ( Reviews, TEXTCONTAINS ( Reviews[Comment], \"battery\" ) && TEXTCONTAINS ( Reviews[Comment], \"life\" ) )"
+  ]
+ },
+ "TEXTSIMILARITY": {
+  "slug": "textsimilarity-function-dax",
+  "status": 200,
+  "syntax": [
+   "TEXTSIMILARITY(<within_text_column>, <search_text>[, <match_mode>])",
+   "EVALUATE TOPN ( 5, FactReviews, TEXTSIMILARITY ( FactReviews[Text], \"great refrigerator\" ), DESC )",
+   "EVALUATE TOPN ( 5, FILTER ( FactReviews, TEXTCONTAINS ( FactReviews[Text], \"refrigerator\" ) ), TEXTSIMILARITY ( FactReviews[Text], \"great refrigerator\" ), DESC )"
+  ]
+ },
+ "TIME": {
+  "slug": "time-function-dax",
+  "status": 200,
+  "syntax": [
+   "TIME(hour, minute, second)",
+   "= TIME(27,0,0)",
+   "= TIME(3,0,0)"
+  ]
+ },
+ "TIMEVALUE": {
+  "slug": "timevalue-function-dax",
+  "status": 200,
+  "syntax": [
+   "TIMEVALUE(time_text)",
+   "= TIMEVALUE(\"20:45:30\")"
+  ]
+ },
+ "TOCSV": {
+  "slug": "tocsv-function-dax",
+  "status": 200,
+  "syntax": [
+   "TOCSV(<Table>, [MaxRows], [Delimiter], [IncludeHeaders])",
+   "EVALUATE {TOCSV(DimSalesTerritory)}",
+   "'DimSalesTerritory'[SalesTerritoryKey],'DimSalesTerritory'[SalesTerritoryAlternateKey],'DimSalesTerritory'[SalesTerritoryRegion],'DimSalesTerritory'[SalesTerritoryCountry],'DimSalesTerritory'[SalesTerritoryGroup] 1,1,Northwest,United States,North America 2,2,Northeast,United States,North America 3,3,Central,United States,North America 4,4,Southwest,United States,North America 5,5,Southeast,United States,North America 6,6,Canada,Canada,North America 7,7,France,France,Europe 8,8,Germany,Germany,Europe 9,9,Australia,Australia,Pacific 10,10,United Kingdom,United Kingdom,Europe"
+  ]
+ },
+ "TODAY": {
+  "slug": "today-function-dax",
+  "status": 200,
+  "syntax": [
+   "TODAY()",
+   "= YEAR(TODAY())-1963"
+  ]
+ },
+ "TOJSON": {
+  "slug": "tojson-function-dax",
+  "status": 200,
+  "syntax": [
+   "TOJSON(<Table>, [MaxRows])",
+   "EVALUATE {TOJSON(DimSalesTerritory)}",
+   "{ \"header\": [\"'DimSalesTerritory'[SalesTerritoryKey]\", \"'DimSalesTerritory'[SalesTerritoryAlternateKey]\", \"'DimSalesTerritory'[SalesTerritoryRegion]\", \"'DimSalesTerritory'[SalesTerritoryCountry]\", \"'DimSalesTerritory'[SalesTerritoryGroup]\"],<br> \"rowCount\": 11, \"data\": [ [1, 1, \"Northwest\", \"United States\", \"North America\"], [2, 2, \"Northeast\", \"United States\", \"North America\"], [3, 3, \"Central\", \"United States\", \"North America\"], [4, 4, \"Southwest\", \"United States\", \"North America\"], [5, 5, \"Southeast\", \"United States\", \"North America\"], [6, 6, \"Canada\", \"Canada\", \"North America\"], [7, 7, \"France\", \"France\", \"Europe\"], [8, 8, \"Germany\", \"Germany\", \"Europe\"], [9, 9, \"Australia\", \"Australia\", \"Pacific\"], [10, 10, \"United Kingdom\", \"United Kingdom\", \"Europe\"] ] }"
+  ]
+ },
+ "TOPN": {
+  "slug": "topn-function-dax",
+  "status": 200,
+  "syntax": [
+   "TOPN(<N_Value>, <Table>, <OrderBy_Expression>, [<Order>[, <OrderBy_Expression>, [<Order>]]\u2026])",
+   "= SUMX( TOPN( 10, SUMMARIZE( InternetSales, InternetSales[ProductKey], \"TotalSales\", SUM(InternetSales[SalesAmount]) ), [TotalSales], DESC ), [TotalSales] )"
+  ]
+ },
+ "TOPNSKIP": {
+  "slug": "topnskip-function-dax",
+  "status": 200,
+  "syntax": [
+   "TOPNSKIP(<N_Value>, <Skip_Rows_Value>, <Table>, <OrderBy_Expression>, [<Order>[, <OrderBy_Expression>, [<Order>]]\u2026])",
+   "DEFINE VAR NValues = SELECTCOLUMNS({10, 15, 20}, \"N\", [Value]) EVALUATE GENERATE(NValues, TOPNSKIP([N], 5, DimProduct, [Size]))",
+   "= SUMX( TOPNSKIP( 10, 1, SUMMARIZE( InternetSales, InternetSales[ProductKey], \"TotalSales\", SUM(InternetSales[SalesAmount]) ), [TotalSales], DESC ), [TotalSales] )"
+  ]
+ },
+ "TOTALMTD": {
+  "slug": "totalmtd-function-dax",
+  "status": 200,
+  "syntax": [
+   "TOTALMTD(<expression>,<dates> or <calendar>[,<filter>])",
+   "= TOTALMTD(SUM(InternetSales_USD[SalesAmount_USD]),DateTime[DateKey])",
+   "= TOTALMTD(SUM(InternetSales_USD[SalesAmount_USD]), FiscalCalendar)"
+  ]
+ },
+ "TOTALQTD": {
+  "slug": "totalqtd-function-dax",
+  "status": 200,
+  "syntax": [
+   "TOTALQTD(<expression>,<dates> or <calendar>[,<filter>])",
+   "= TOTALQTD(SUM(InternetSales_USD[SalesAmount_USD]),DateTime[DateKey])",
+   "= TOTALQTD(SUM(InternetSales_USD[SalesAmount_USD]), FiscalCalendar)"
+  ]
+ },
+ "TOTALWTD": {
+  "slug": "totalwtd-function-dax",
+  "status": 200,
+  "syntax": [
+   "TOTALWTD(<expression>,<calendar>[,<filter>])",
+   "= TOTALWTD(SUM(InternetSales_USD[SalesAmount_USD]), FiscalCalendar)"
+  ]
+ },
+ "TOTALYTD": {
+  "slug": "totalytd-function-dax",
+  "status": 200,
+  "syntax": [
+   "TOTALYTD(<expression>,<dates> or <calendar>[,<filter>][,<year_end_date>])",
+   "= TOTALYTD(SUM(InternetSales_USD[SalesAmount_USD]),DateTime[DateKey], ALL('DateTime'), \"6/30\")",
+   "= TOTALYTD(SUM(InternetSales_USD[SalesAmount_USD]),DateTime[DateKey])"
+  ]
+ },
+ "TREATAS": {
+  "slug": "treatas-function-dax",
+  "status": 200,
+  "syntax": [
+   "TREATAS(tableExpression, <column>[, <column>[, <column>[,\u2026]]])",
+   "CALCULATE( SUM(Sales[Amount]), TREATAS( VALUES(DimProduct1[ProductCategory]), DimProduct2[ProductCategory] ) )"
+  ]
+ },
+ "TRIM": {
+  "slug": "trim-function-dax",
+  "status": 200,
+  "syntax": [
+   "TRIM(<text>)",
+   "= TRIM(\"A column with trailing spaces. \")",
+   "= LEN([Calculated Column 1])"
+  ]
+ },
+ "TRUE": {
+  "slug": "true-function-dax",
+  "status": 200,
+  "syntax": [
+   "TRUE()",
+   "= IF(SUM('InternetSales_USD'[SalesAmount_USD]) >200000, TRUE(), false())"
+  ]
+ },
+ "TRUNC": {
+  "slug": "trunc-function-dax",
+  "status": 200,
+  "syntax": [
+   "TRUNC(<number>,<num_digits>)",
+   "= TRUNC(PI())",
+   "= TRUNC(-8.9)"
+  ]
+ },
+ "UNICHAR": {
+  "slug": "unichar-function-dax",
+  "status": 200,
+  "syntax": [
+   "UNICHAR(number)",
+   "= UNICHAR(65)",
+   "= UNICHAR(32)"
+  ]
+ },
+ "UNICODE": {
+  "slug": "unicode-function-dax",
+  "status": 200,
+  "syntax": [
+   "UNICODE( <Text> )"
+  ]
+ },
+ "UNION": {
+  "slug": "union-function-dax",
+  "status": 200,
+  "syntax": [
+   "UNION(<tableExpression1>, <tableExpression2> [,<tableExpression>]\u2026)",
+   "UNION(UsaInventory, IndInventory)"
+  ]
+ },
+ "UPPER": {
+  "slug": "upper-function-dax",
+  "status": 200,
+  "syntax": [
+   "UPPER (<text>)",
+   "= UPPER(['New Products'[Product Code])"
+  ]
+ },
+ "USERCULTURE": {
+  "slug": "userculture-function-dax",
+  "status": 200,
+  "syntax": [
+   "USERCULTURE()",
+   "FORMAT(TODAY(), \"dddd\", USERCULTURE())"
+  ]
+ },
+ "USERELATIONSHIP": {
+  "slug": "userelationship-function-dax",
+  "status": 200,
+  "syntax": [
+   "USERELATIONSHIP(<columnName1>,<columnName2>)",
+   "= CALCULATE(SUM(InternetSales[SalesAmount]), USERELATIONSHIP(InternetSales[ShippingDate], DateTime[Date]))"
+  ]
+ },
+ "USERNAME": {
+  "slug": "username-function-dax",
+  "status": 200,
+  "syntax": [
+   "USERNAME()",
+   "= IF(CONTAINS(UsersTable,UsersTable[login], USERNAME()), \"Allowed\", BLANK())"
+  ]
+ },
+ "USEROBJECTID": {
+  "slug": "userobjectid-function-dax",
+  "status": 200,
+  "syntax": [
+   "USEROBJECTID()"
+  ]
+ },
+ "USERPRINCIPALNAME": {
+  "slug": "userprincipalname-function-dax",
+  "status": 200,
+  "syntax": [
+   "USERPRINCIPALNAME()"
+  ]
+ },
+ "UTCNOW": {
+  "slug": "utcnow-function-dax",
+  "status": 200,
+  "syntax": [
+   "UTCNOW()",
+   "EVALUATE { FORMAT(UTCNOW(), \"General Date\") }"
+  ]
+ },
+ "UTCTODAY": {
+  "slug": "utctoday-function-dax",
+  "status": 200,
+  "syntax": [
+   "UTCTODAY()",
+   "EVALUATE { FORMAT(UTCTODAY(), \"General Date\") }"
+  ]
+ },
+ "VALUE": {
+  "slug": "value-function-dax",
+  "status": 200,
+  "syntax": [
+   "VALUE(<text>)",
+   "= VALUE(\"3\")"
+  ]
+ },
+ "VALUES": {
+  "slug": "values-function-dax",
+  "status": 200,
+  "syntax": [
+   "VALUES(<TableNameOrColumnName>)",
+   "= COUNTROWS(VALUES('InternetSales_USD'[SalesOrderNumber]))"
+  ]
+ },
+ "VAR.P": {
+  "slug": "var-p-function-dax",
+  "status": 200,
+  "syntax": [
+   "VAR.P(<columnName>)",
+   "= VAR.P(InternetSales_USD[SalesAmount_USD])"
+  ]
+ },
+ "VAR.S": {
+  "slug": "var-s-function-dax",
+  "status": 200,
+  "syntax": [
+   "VAR.S(<columnName>)",
+   "= VAR.S(InternetSales_USD[SalesAmount_USD])"
+  ]
+ },
+ "VARX.P": {
+  "slug": "varx-p-function-dax",
+  "status": 200,
+  "syntax": [
+   "VARX.P(<table>, <expression>)",
+   "= VARX.P(InternetSales_USD, InternetSales_USD[UnitPrice_USD] \u2013(InternetSales_USD[DiscountAmount_USD]/InternetSales_USD[OrderQuantity]))"
+  ]
+ },
+ "VARX.S": {
+  "slug": "varx-s-function-dax",
+  "status": 200,
+  "syntax": [
+   "VARX.S(<table>, <expression>)",
+   "= VARX.S(InternetSales_USD, InternetSales_USD[UnitPrice_USD] \u2013 (InternetSales_USD[DiscountAmount_USD]/InternetSales_USD[OrderQuantity]))"
+  ]
+ },
+ "VDB": {
+  "slug": "vdb-function-dax",
+  "status": 200,
+  "syntax": [
+   "VDB(<cost>, <salvage>, <life>, <start_period>, <end_period>[, <factor>[, <no_switch>]])",
+   "EVALUATE { VDB(2400, 300, 10*365, 0, 1) }",
+   "EVALUATE { VDB(2400, 300, 10*12, 6, 18, 3) }"
+  ]
+ },
+ "WEEKDAY": {
+  "slug": "weekday-function-dax",
+  "status": 200,
+  "syntax": [
+   "WEEKDAY(<date>, <return_type>)",
+   "= WEEKDAY([HireDate]+1)"
+  ]
+ },
+ "WEEKNUM": {
+  "slug": "weeknum-function-dax",
+  "status": 200,
+  "syntax": [
+   "WEEKNUM(<date>[, <return_type>])",
+   "= WEEKNUM(\"Feb 14, 2010\", 2)",
+   "= WEEKNUM('Employees'[HireDate])"
+  ]
+ },
+ "WINDOW": {
+  "slug": "window-function-dax",
+  "status": 200,
+  "syntax": [
+   "WINDOW ( from[, from_type], to[, to_type][, <relation> or <axis>][, <orderBy>][, <blanks>][, <partitionBy>][, <matchBy>][, <reset>] )",
+   "3-day Average Price = AVERAGEX ( WINDOW ( -2, REL, 0, REL, SUMMARIZE ( ALLSELECTED ( 'Sales' ), 'Date'[Date], 'Product'[Product] ), ORDERBY ( 'Date'[Date] ), KEEP, PARTITIONBY ( 'Product'[Product] ) ), CALCULATE ( AVERAGE ( Sales[Unit Price] ) ) )",
+   "RunningSum = SUMX ( WINDOW ( 1, ABS, 0, REL, ALLSELECTED ( 'Date'[Fiscal Year], 'Date'[Month Number Of Year] ), PARTITIONBY ( 'Date'[Fiscal Year] ) ), [Total Sales] )"
+  ]
+ },
+ "XIRR": {
+  "slug": "xirr-function-dax",
+  "status": 200,
+  "syntax": [
+   "XIRR(<table>, <values>, <dates>, [, <guess>[, <alternateResult>]])",
+   "= XIRR( CashFlows, [Payment], [Date] )"
+  ]
+ },
+ "XNPV": {
+  "slug": "xnpv-function-dax",
+  "status": 200,
+  "syntax": [
+   "XNPV(<table>, <values>, <dates>, <rate>)",
+   "= XNPV( CashFlows, [Payment], [Date], 0.09 )"
+  ]
+ },
+ "YEAR": {
+  "slug": "year-function-dax",
+  "status": 200,
+  "syntax": [
+   "YEAR(<date>)",
+   "= YEAR(\"March 2007\")",
+   "= YEAR(TODAY())"
+  ]
+ },
+ "YEARFRAC": {
+  "slug": "yearfrac-function-dax",
+  "status": 200,
+  "syntax": [
+   "YEARFRAC(<start_date>, <end_date>, <basis>)",
+   "= YEARFRAC(Orders[TransactionDate],Orders[ShippingDate])",
+   "= YEARFRAC(\"Jan 1 2007\",\"Mar 1 2007\")"
+  ]
+ },
+ "YIELD": {
+  "slug": "yield-function-dax",
+  "status": 200,
+  "syntax": [
+   "YIELD(<settlement>, <maturity>, <rate>, <pr>, <redemption>, <frequency>[, <basis>])",
+   "EVALUATE { YIELD(DATE(2008,2,15), DATE(2016,11,15), 0.0575, 95.04287, 100, 2,0) }"
+  ]
+ },
+ "YIELDDISC": {
+  "slug": "yielddisc-function-dax",
+  "status": 200,
+  "syntax": [
+   "YIELDDISC(<settlement>, <maturity>, <pr>, <redemption>[, <basis>])",
+   "EVALUATE { YIELDDISC(DATE(2008,2,16), DATE(2008,3,1), 99.795, 100, 2) }"
+  ]
+ },
+ "YIELDMAT": {
+  "slug": "yieldmat-function-dax",
+  "status": 200,
+  "syntax": [
+   "YIELDMAT(<settlement>, <maturity>, <issue>, <rate>, <pr>[, <basis>])",
+   "EVALUATE { YIELDMAT(DATE(2008,3,15), DATE(2008,11,3), DATE(2007,11,8), 0.0625, 100.0123, 0) }"
+  ]
+ }
+}

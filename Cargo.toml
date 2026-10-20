@@ -1,0 +1,22 @@
+[package]
+name = "dax-glossary"
+version = "0.1.0"
+edition = "2021"
+description = "Embedded glossary of every DAX function and ready-to-render DAX measure templates, as a library and a CLI."
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/BenjaminSVG/dax-glossary"
+keywords = ["dax", "power-bi", "analytics", "glossary", "cli"]
+categories = ["command-line-utilities", "development-tools"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[lib]
+name = "dax_glossary"
+path = "src/lib.rs"
+
+[[bin]]
+name = "dax-glossary"
+path = "src/main.rs"
